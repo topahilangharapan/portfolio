@@ -81,7 +81,7 @@ watch(
 </script>
 
 <template>
-  <div class="xp-window max-w-2xl h-[50vh] flex flex-col relative">
+  <div class="xp-window max-w-2xl h-3/4 flex flex-col relative">
     <!-- XP Title Bar with proper styling -->
     <div class="xp-title-bar flex-shrink-0">
       <div class="flex items-center">

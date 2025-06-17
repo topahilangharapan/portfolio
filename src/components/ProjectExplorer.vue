@@ -497,7 +497,7 @@ setInterval(() => {
       class="absolute"
       :class="{ 'z-20': openProjects.includes(project), 'z-10': activeProjectId !== project.id }"
       :style="{
-        top: `${-10 + index * 30}px`,
+        top: `${20 + index * 30}px`,
         left: `${200 + index * 30}px`,
         width: '1200px',
         height: '75vh',

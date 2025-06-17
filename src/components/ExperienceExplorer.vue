@@ -387,7 +387,7 @@ setInterval(() => {
         class="absolute"
         :class="{ 'z-20': openExperiences.includes(experience), 'z-10': activeExperienceId !== experience.id }"
         :style="{
-        top: `${-10 + index * 30}px`,
+        top: `${20 + index * 30}px`,
         left: `${200 + index * 30}px`,
         width: '1200px',
         height: '650px',

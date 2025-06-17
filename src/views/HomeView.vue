@@ -150,7 +150,7 @@ watch(isOpenProjects, (newVal) => {
           minimizedWindows.includes('about') ? 'hidden' : '',
           activeWindow === 'about' ? 'z-30' : 'z-20',
         ]"
-        style="left: 10%; top: 10%"
+        style="left: 10%; top: 2%"
         @click="focusWindow('about')"
       >
         <div class="">
@@ -180,7 +180,7 @@ watch(isOpenProjects, (newVal) => {
           minimizedWindows.includes('projects') ? 'hidden' : '',
           activeWindow === 'projects' ? 'z-30' : 'z-20',
         ]"
-        style="left: 12%; top: 8%"
+        style="left: 12%; top: 1.5%"
         @click="focusWindow('projects')"
       >
         <div>
@@ -210,7 +210,7 @@ watch(isOpenProjects, (newVal) => {
           minimizedWindows.includes('experience') ? 'hidden' : '',
           activeWindow === 'experience' ? 'z-30' : 'z-20',
         ]"
-        style="left: 14%; top: 12%"
+        style="left: 14%; top: 1.9%"
         @click="focusWindow('experience')"
       >
         <div class="xp-scroll">
@@ -239,7 +239,7 @@ watch(isOpenProjects, (newVal) => {
           minimizedWindows.includes('education') ? 'hidden' : '',
           activeWindow === 'education' ? 'z-30' : 'z-20',
         ]"
-        style="left: 8%; top: 6%"
+        style="left: 8%; top: -2%"
         @click="focusWindow('education')"
       >
         <div class="">
@@ -268,7 +268,7 @@ watch(isOpenProjects, (newVal) => {
           minimizedWindows.includes('contact') ? 'hidden' : '',
           activeWindow === 'contact' ? 'z-30' : 'z-20',
         ]"
-        style="left: 16%; top: 15%"
+        style="left: 16%; top: 1.7%"
         @click="focusWindow('contact')"
       >
         <div class="">

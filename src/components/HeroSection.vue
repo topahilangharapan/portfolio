@@ -256,7 +256,7 @@ onMounted(() => {
             <div class="xp-panel-raised p-4 mb-4">
               <div class="w-full h-64 xp-panel overflow-hidden flex items-center justify-center">
                 <img
-                    src="/public/Casual_Photo.jpg"
+                    src="/src/components/Casual_Photo.jpg"
                     alt="Profile"
                     class="w-full h-full object-cover"
                 />

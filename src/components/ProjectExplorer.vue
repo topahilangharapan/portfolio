@@ -41,8 +41,6 @@ const props = withDefaults(defineProps<Props>(), {
         'CI/CD & Docker',
         'Secure Authentication (JWT)',
         'Code Quality & Leadership',
-        'Business Problem Solving',
-        'Project Coordination',
       ],
     },
     {
@@ -71,8 +69,8 @@ const props = withDefaults(defineProps<Props>(), {
       icon: '🚘',
       dateModified: '2025-05-12',
       size: '9.5 MB',
-      type: 'Machine Learning',
-      category: 'Personal',
+      type: 'AI/ML',
+      category: 'Course Project',
       dateCreated: '2025-04-07',
       status: 'completed',
       skillsAndCompetencies: [
@@ -91,7 +89,7 @@ const props = withDefaults(defineProps<Props>(), {
       title: 'Apap Medika Web - Enterprise Web Application',
       description:
         'Built a secure and scalable enterprise web app using Spring Boot and Vue.js, focusing on RESTful API development, policy management, and CI/CD deployment with Docker.\n',
-      technologies: ['Spring Boot', 'Vue.js', 'Typescript', 'PostgreSQL', 'RESTful API', 'Docker'],
+      technologies: ['Spring Boot', 'Vue.js', 'PostgreSQL', 'Typescript', 'RESTful API', 'Docker'],
       githubLink: 'none',
       liveDemoLink: 'none',
       role: 'Full Stack Developer',
@@ -142,7 +140,6 @@ const props = withDefaults(defineProps<Props>(), {
         'Trigger & stored procedure handling',
         'Relational DB design',
         'CRUD operations',
-        'Team collaboration',
       ],
     },
     {
@@ -185,11 +182,11 @@ const props = withDefaults(defineProps<Props>(), {
       technologies: [
         'Django',
         'Flutter',
+        'Mobile Integration',
         'PostgreSQL',
         'Responsive CSS Framework',
         'REST API',
         'CRUD Operations',
-        'Mobile Integration',
         'Unit Testing',
       ],
       githubLink: 'none',
@@ -203,10 +200,10 @@ const props = withDefaults(defineProps<Props>(), {
       dateCreated: '2023-10-01',
       status: 'completed',
       skillsAndCompetencies: [
-        'Web & mobile integration',
-        'CRUD & REST API dev',
-        'UI responsiveness',
-        'Cross-platform deployment',
+        'Web & Mobile integration',
+        'CRUD & REST API',
+        'UI Responsiveness',
+        'Cross-platform Deployment',
       ],
     },
   ],
@@ -319,8 +316,7 @@ const getProjectIcon = (project: Project) => {
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
-    month: 'short',
-    day: 'numeric',
+    month: 'long',
   });
 };
 
@@ -345,7 +341,7 @@ setInterval(() => {
       <!-- Title Bar -->
       <div class="xp-title-bar">
         <div class="flex items-center">
-          <span class="mr-2">📁</span>
+          <span class="mr-2">💼</span>
           <span class="font-xp-title">My Projects - Portfolio Explorer</span>
         </div>
         <div class="xp-window-controls">
@@ -408,7 +404,7 @@ setInterval(() => {
 <!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">📚 Libraries</div>-->
 <!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">🔌 APIs</div>-->
               <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">
-                ✨ Machine Learning
+                ✨ AI/ML
               </div>
             </div>
           </div>

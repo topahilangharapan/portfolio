@@ -6,26 +6,24 @@ const education = {
   university: 'University of Indonesia (UI)',
   faculty: 'Faculty of Computer Science (Fasilkom)',
   degree: 'Bachelor of Computer Science',
-  major: 'Computer Science',
-  expectedGraduation: 'June 2025',
+  major: 'Information Systems',
+  expectedGraduation: 'June 2026',
   currentSemester: '7th Semester',
-  gpa: 3.75,
+  gpa: 3.84,
   maxGpa: 4,
   relevantCourses: [
     'Data Structures and Algorithms',
-    'Web Programming',
-    'Database Systems',
-    'Software Engineering',
-    'Computer Networks',
-    'Operating Systems',
-    'Object-Oriented Programming',
-    'Mobile Application Development'
+    'Enterprise Application Architecture and Programming',
+    'Information Systems Development Project',
+    'Introduction to AI & Data Science',
+    'Databases',
+    'Data Communication Networks',
+    'Operating System for Information System',
+    'Introduction to Computer Architecture',
   ],
   achievements: [
-    'Dean\'s List for 3 consecutive semesters',
-    'Best Web Development Project Award (2024)',
-    'Member of Fasilkom Programming Club',
-    'Teaching Assistant for Web Programming Course'
+    'Vice Person in Charge of UI/UX COMPFEST',
+    'Mentor of Programming Foundations 0',
   ]
 }
 
@@ -230,15 +228,15 @@ function toggleOpen() {
         <div class="mt-6 pt-4 border-t-2 border-gray-400">
           <div class="grid md:grid-cols-3 gap-4">
             <div class="xp-panel p-4 text-center">
-              <div class="font-xp text-2xl font-bold text-blue-600 mb-1">7</div>
+              <div class="font-xp text-2xl font-bold text-blue-600 mb-1">6</div>
               <div class="font-xp text-xs text-gray-600">Semesters Completed</div>
             </div>
             <div class="xp-panel p-4 text-center">
-              <div class="font-xp text-2xl font-bold text-green-600 mb-1">120+</div>
+              <div class="font-xp text-2xl font-bold text-green-600 mb-1">117+</div>
               <div class="font-xp text-xs text-gray-600">Credit Hours</div>
             </div>
             <div class="xp-panel p-4 text-center">
-              <div class="font-xp text-2xl font-bold text-purple-600 mb-1">2025</div>
+              <div class="font-xp text-2xl font-bold text-purple-600 mb-1">2026</div>
               <div class="font-xp text-xs text-gray-600">Expected Graduation</div>
             </div>
           </div>
@@ -261,7 +259,7 @@ function toggleOpen() {
         <div class="xp-status mt-4 flex justify-between items-center">
           <span class="font-xp">Student record loaded successfully</span>
           <div class="flex items-center space-x-4">
-            <span class="font-xp text-xs">🎓 Academic Year: 2021-2025</span>
+            <span class="font-xp text-xs">🎓 Academic Year: 2022-2026</span>
             <span class="font-xp text-xs">📊 GPA: {{ education.gpa.toFixed(2) }}</span>
             <span class="font-xp text-xs">Ready</span>
           </div>

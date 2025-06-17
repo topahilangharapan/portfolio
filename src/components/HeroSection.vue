@@ -159,7 +159,7 @@ onMounted(() => {
                     <span class="font-xp text-xs font-bold text-black">Projects</span>
                   </div>
                   <div class="text-center">
-                    <div class="text-2xl font-bold text-blue-600 font-xp">5</div>
+                    <div class="text-2xl font-bold text-blue-600 font-xp">6</div>
                     <div class="font-xp text-xs text-gray-600">Completed</div>
                   </div>
                   <div class="mt-2 pt-2 border-t border-gray-400">
@@ -193,7 +193,7 @@ onMounted(() => {
                     <div class="font-xp text-xs text-gray-600">Technologies</div>
                   </div>
                   <div class="mt-2 pt-2 border-t border-gray-400">
-                    <div class="font-xp text-xs text-black">Frontend • Backend • AI</div>
+                    <div class="font-xp text-xs text-black">Frontend • Backend • AI/ML</div>
                   </div>
                 </div>
               </div>

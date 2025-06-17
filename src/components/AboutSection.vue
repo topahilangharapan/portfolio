@@ -207,6 +207,7 @@ function toggleOpen() {
                       <span class="xp-button px-3 py-1 font-xp text-xs">Angular</span>
                       <span class="xp-button px-3 py-1 font-xp text-xs">React.js</span>
                       <span class="xp-button px-3 py-1 font-xp text-xs">Spring Boot</span>
+                      <span class="xp-button px-3 py-1 font-xp text-xs">Django</span>
                     </div>
                   </div>
 
@@ -256,7 +257,7 @@ function toggleOpen() {
                   <div>
                     <h4 class="font-xp font-bold text-black text-sm mb-2 flex items-center">
                       <span class="w-3 h-3 bg-red-500 rounded-sm mr-2"></span>
-                      Machine Learning
+                      AI/ML
                     </h4>
                     <div class="flex flex-wrap gap-2">
                       <span class="xp-button px-3 py-1 font-xp text-xs">Model Development (Sci-Kit Learn)</span>

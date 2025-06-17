@@ -2,21 +2,7 @@
 //Experience Explorer
 import { ref, computed } from 'vue';
 import ExperienceItem from "./ExperienceItem.vue";
-
-interface Experience {
-  id: string;
-  role: string;
-  company: string;
-  dates: string;
-  achievements: string[];
-  technologies?: string[];
-  type: 'Full-time' | 'Part-time' | 'Contract' | 'Freelance' | 'Internship';
-  location: string;
-  icon: string;
-  dateModified: string;
-  duration: string;
-  size: string; // For display purposes (e.g., "2.3 years")
-}
+import type { Experience } from "../interfaces/experience.interface.ts";
 
 interface Props {
   experiences?: Experience[];
@@ -35,103 +21,38 @@ const props = withDefaults(defineProps<Props>(), {
   experiences: () => [
     {
       id: '1',
-      role: 'Senior Frontend Developer',
-      company: 'TechCorp Solutions',
-      dates: '2023-01 - Present',
+      role: 'Full Stack Developer',
+      company: 'PT Magna Solusi Indonesia',
       achievements: [
-        'Led development of company\'s main dashboard using Vue.js and TypeScript',
-        'Improved application performance by 40% through code optimization',
-        'Mentored 3 junior developers and established coding standards',
-        'Implemented comprehensive testing strategy reducing bugs by 60%',
-        'Collaborated with UX team to redesign user interface increasing user satisfaction'
+        'Developed and integrated full-stack modules using modern frameworks to ensure system reliability',
+        'Optimized database performance through efficient query design and backup strategies',
+        'Built RESTful APIs to support dynamic data flow and scalable web architecture',
+        'Performed testing and debugging to maintain high standards of security and usability',
       ],
-      technologies: ['Vue.js', 'TypeScript', 'Node.js', 'Docker', 'AWS'],
-      type: 'Full-time',
-      location: 'San Francisco, CA',
-      icon: '💻',
-      dateModified: '2024-01-15',
-      duration: '1.5 years',
-      size: '1.5 years'
+      technologies: ['Spring Boot', 'Angular', 'PostgreSQL', 'Apache HTTP Server', 'Bootstrap', 'Docker', 'Kubernetes'],
+      type: 'Internship',
+      location: 'Hybrid',
+      icon: '🌐',
+      dateCreated: '2025-01-06',
+      dateModified: '2025-06-30',
+      duration: '6 months',
     },
     {
       id: '2',
-      role: 'Full Stack Developer',
-      company: 'StartupXYZ',
-      dates: '2021-06 - 2022-12',
+      role: 'Vice Person in Charge of UI/UX',
+      company: 'COMPFEST',
       achievements: [
-        'Built entire e-commerce platform from scratch serving 10k+ users',
-        'Integrated payment systems and inventory management',
-        'Developed RESTful APIs handling 1M+ requests daily',
-        'Implemented automated deployment pipeline reducing deployment time by 80%',
-        'Created admin dashboard for business analytics and reporting'
+        'Successfully leading the running of the design process in 5 sprints, and oversaw the implementation of a dark & light mode in website compfest.id',
+        'Leading a team of 11 designers in creating a landing page and renewal of the design system',
+        'Lead designer in discussions with other IT development divisions, such as software engineers and automation engineers, to ensure that the design system meets the needs of all stakeholders',
       ],
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Redis', 'Stripe'],
-      type: 'Full-time',
-      location: 'Remote',
-      icon: '🚀',
-      dateModified: '2023-01-10',
-      duration: '1.5 years',
-      size: '1.5 years'
-    },
-    {
-      id: '3',
-      role: 'Frontend Developer',
-      company: 'Digital Agency Pro',
-      dates: '2020-03 - 2021-05',
-      achievements: [
-        'Developed responsive websites for 15+ clients across various industries',
-        'Implemented modern UI/UX designs with focus on accessibility',
-        'Optimized websites for SEO resulting in 200% increase in organic traffic',
-        'Created reusable component library used across multiple projects',
-        'Collaborated with designers to ensure pixel-perfect implementations'
-      ],
-      technologies: ['JavaScript', 'React', 'SCSS', 'Webpack', 'Git'],
-      type: 'Full-time',
-      location: 'New York, NY',
+      technologies: ['Figma', 'ClickUp'],
+      type: 'Organization',
+      location: 'Hybrid',
       icon: '🎨',
-      dateModified: '2021-06-01',
-      duration: '1.2 years',
-      size: '1.2 years'
-    },
-    {
-      id: '4',
-      role: 'Junior Web Developer',
-      company: 'Local Web Studio',
-      dates: '2019-01 - 2020-02',
-      achievements: [
-        'Learned modern web development practices and industry standards',
-        'Contributed to 8+ client projects with HTML, CSS, and JavaScript',
-        'Implemented responsive designs for mobile and desktop platforms',
-        'Assisted senior developers with debugging and code reviews',
-        'Gained experience with version control and agile development processes'
-      ],
-      technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Bootstrap'],
-      type: 'Full-time',
-      location: 'Austin, TX',
-      icon: '🌱',
-      dateModified: '2020-03-01',
-      duration: '1.1 years',
-      size: '1.1 years'
-    },
-    {
-      id: '5',
-      role: 'Freelance Web Developer',
-      company: 'Self-Employed',
-      dates: '2018-06 - 2018-12',
-      achievements: [
-        'Completed 12+ freelance projects for small businesses and individuals',
-        'Built custom WordPress themes and plugins',
-        'Provided ongoing maintenance and support for client websites',
-        'Managed project timelines and client communications independently',
-        'Developed strong problem-solving skills working with diverse requirements'
-      ],
-      technologies: ['WordPress', 'PHP', 'MySQL', 'HTML', 'CSS'],
-      type: 'Freelance',
-      location: 'Remote',
-      icon: '💼',
-      dateModified: '2019-01-01',
-      duration: '6 months',
-      size: '6 months'
+      dateCreated: '2023-01-02',
+      dateModified: '2023-12-29',
+      duration: '1 year',
     }
   ]
 });
@@ -141,7 +62,7 @@ const selectedExperience = ref<Experience | null>(null);
 const openExperiences = ref<Experience[]>([]);
 const activeExperienceId = ref<string | null>(null);
 const viewMode = ref<'list' | 'icons'>('list');
-const sortBy = ref<'role' | 'company' | 'date' | 'duration' | 'type'>('date');
+const sortBy = ref<'role' | 'company' | 'dateStart' | 'dateEnd' | 'duration' | 'type'>('dateEnd');
 const sortOrder = ref<'asc' | 'desc'>('desc');
 const searchQuery = ref('');
 
@@ -170,7 +91,11 @@ const filteredExperiences = computed(() => {
         aValue = a.company.toLowerCase();
         bValue = b.company.toLowerCase();
         break;
-      case 'date':
+      case 'dateStart':
+        aValue = new Date(a.dateCreated);
+        bValue = new Date(b.dateCreated);
+        break;
+      case 'dateEnd':
         aValue = new Date(a.dateModified);
         bValue = new Date(b.dateModified);
         break;
@@ -237,7 +162,7 @@ const changeSortBy = (newSortBy: typeof sortBy.value) => {
     sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
   } else {
     sortBy.value = newSortBy;
-    sortOrder.value = sortBy.value === 'date' ? 'desc' : 'asc';
+    sortOrder.value = sortBy.value === 'name' ? 'desc' : 'asc';
   }
 };
 
@@ -248,8 +173,7 @@ const getExperienceIcon = (experience: Experience) => {
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
-    month: 'short',
-    day: 'numeric',
+    month: 'long',
   });
 };
 
@@ -289,7 +213,7 @@ setInterval(() => {
       <!-- Title Bar -->
       <div class="xp-title-bar">
         <div class="flex items-center">
-          <span class="mr-2">💼</span>
+          <span class="mr-2">🧠</span>
           <span class="font-xp-title">My Experience - Career Explorer</span>
         </div>
         <div class="xp-window-controls">
@@ -333,7 +257,7 @@ setInterval(() => {
       <div class="xp-panel-raised p-1 flex items-center space-x-2">
         <span class="font-xp text-xs">Address:</span>
         <div class="xp-input flex-1 h-6 flex items-center px-2">
-          <span class="font-xp text-xs">💼 My Computer > Career > Work Experience</span>
+          <span class="font-xp text-xs">🧠 My Computer > Career > Experience</span>
         </div>
       </div>
 
@@ -344,11 +268,12 @@ setInterval(() => {
           <div class="xp-panel-raised m-2 p-2">
             <div class="font-xp text-xs font-bold mb-2">Experience Types</div>
             <div class="space-y-1">
-              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">💼 Full-time</div>
-              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">⏰ Part-time</div>
-              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">📋 Contract</div>
-              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">🏠 Freelance</div>
+<!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">💼 Full-time</div>-->
+<!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">⏰ Part-time</div>-->
+<!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">📋 Contract</div>-->
+<!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">🏠 Freelance</div>-->
               <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">🎓 Internship</div>
+              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">🏫 Organization</div>
             </div>
           </div>
 
@@ -380,7 +305,7 @@ setInterval(() => {
             <div class="flex-1 cursor-pointer hover:bg-gray-100 p-1" @click="changeSortBy('role')">
               Role {{ sortBy === 'role' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
             </div>
-            <div class="w-32 cursor-pointer hover:bg-gray-100 p-1" @click="changeSortBy('company')">
+            <div class="w-42 cursor-pointer hover:bg-gray-100 p-1" @click="changeSortBy('company')">
               Company {{ sortBy === 'company' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
             </div>
             <div class="w-24 cursor-pointer hover:bg-gray-100 p-1" @click="changeSortBy('type')">
@@ -389,8 +314,11 @@ setInterval(() => {
             <div class="w-24 cursor-pointer hover:bg-gray-100 p-1" @click="changeSortBy('duration')">
               Duration {{ sortBy === 'duration' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
             </div>
-            <div class="w-32 cursor-pointer hover:bg-gray-100 p-1" @click="changeSortBy('date')">
-              Modified {{ sortBy === 'date' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
+            <div class="w-24 cursor-pointer hover:bg-gray-100 p-1" @click="changeSortBy('dateStart')">
+              Date Start {{ sortBy === 'dateStart' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
+            </div>
+            <div class="w-24 cursor-pointer hover:bg-gray-100 p-1" @click="changeSortBy('dateEnd')">
+              Date End {{ sortBy === 'dateEnd' ? (sortOrder === 'asc' ? '↑' : '↓') : '' }}
             </div>
           </div>
 
@@ -411,12 +339,13 @@ setInterval(() => {
                   <div class="text-gray-600">{{ experience.location }}</div>
                 </div>
               </div>
-              <div class="w-32">{{ experience.company }}</div>
+              <div class="w-42">{{ experience.company }}</div>
               <div class="w-24">
                   {{ experience.type }}
               </div>
               <div class="w-24">{{ experience.duration }}</div>
-              <div class="w-32">{{ formatDate(experience.dateModified) }}</div>
+              <div class="w-24">{{ formatDate(experience.dateCreated) }}</div>
+              <div class="w-24">{{ formatDate(experience.dateModified) }}</div>
             </div>
           </div>
 
@@ -468,7 +397,8 @@ setInterval(() => {
         <ExperienceItem
             :role="experience.role"
             :company="experience.company"
-            :dates="experience.dates"
+            :dateCreated="experience.dateCreated"
+            :dateModified="experience.dateModified"
             :achievements="experience.achievements"
             :isOpen="openExperiences.includes(experience)"
             @update:isOpen="

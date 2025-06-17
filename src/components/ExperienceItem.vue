@@ -4,7 +4,8 @@ import {ref, watch} from 'vue'
 interface Props {
   role: string
   company: string
-  dates: string
+  dateCreated: string
+  dateModified: string
   achievements: string[]
   isOpen: boolean
 }
@@ -21,6 +22,13 @@ function toggleOpen() {
 
 const isLoading = ref(true)
 const showAchievements = ref(false)
+
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+  });
+};
 
 watch(
     () => props.isOpen,
@@ -42,7 +50,7 @@ watch(
 </script>
 
 <template>
-  <div class="xp-window max-w-2xl">
+  <div class="xp-window max-w-3xl">
     <!-- XP Title Bar with proper styling -->
     <div class="xp-title-bar">
       <div class="flex items-center">
@@ -101,7 +109,7 @@ watch(
               </div>
               <div class="xp-panel p-3">
                 <span class="font-xp text-xs text-gray-600 block mb-1">Duration:</span>
-                <p class="font-xp text-black font-bold">{{ dates }}</p>
+                <p class="font-xp text-black font-bold">{{ formatDate(dateCreated) + ' - ' + formatDate(dateModified)}}</p>
               </div>
             </div>
 
@@ -207,7 +215,7 @@ watch(
         <div class="flex items-center space-x-4">
           <span class="font-xp text-xs">💼 {{ role }}</span>
           <span class="font-xp text-xs">📈 {{ achievements.length }} achievements</span>
-          <span class="font-xp text-xs">🕐 {{ dates }}</span>
+          <span class="font-xp text-xs">🕐 {{ formatDate(dateCreated) + ' - ' + formatDate(dateModified) }}</span>
           <span class="font-xp text-xs">{{ isLoading ? 'Loading' : 'Ready'  }}</span>
         </div>
       </div>

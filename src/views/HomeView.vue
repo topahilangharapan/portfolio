@@ -30,7 +30,7 @@ const contactInfo = reactive({
 const desktopApps = ref([
   { id: 'about', name: 'About Me', icon: '👤', x: 20, y: 20 },
   { id: 'projects', name: 'My Projects', icon: '💼', x: 20, y: 100 },
-  { id: 'experience', name: 'Experience', icon: '🏢', x: 20, y: 180 },
+  { id: 'experience', name: 'Experience', icon: '🧠', x: 20, y: 180 },
   { id: 'education', name: 'Education', icon: '🎓', x: 20, y: 260 },
   { id: 'contact', name: 'Contact', icon: '📧', x: 20, y: 340 },
 ]);
@@ -212,7 +212,7 @@ watch(isOpenProjects, (newVal) => {
       <div
         v-if="openWindows.includes('experience')"
         :class="[
-          'absolute w-4/5 max-w-4xl h-4/5 max-h-3xl',
+          'absolute w-4/5 max-w-6xl h-4/5 max-h-3xl',
           'pointer-events-auto',
           minimizedWindows.includes('experience') ? 'hidden' : '',
           activeWindow === 'experience' ? 'z-30' : 'z-20',

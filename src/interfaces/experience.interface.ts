@@ -2,15 +2,13 @@ export interface Experience {
   id: string;
   role: string;
   company: string;
-  dates: string;
   achievements: string[];
+  technologies?: string[];
+  type: 'Full-time' | 'Part-time' | 'Contract' | 'Freelance' | 'Internship';
   location: string;
-  employmentType: string;
-  industry: string;
   icon: string;
   dateModified: string;
-  size: string;
-  type: string;
-  skills: string[];
-  description: string;
+  dateCreated: string;
+  duration: string;
+  size: string; // For display purposes (e.g., "2.3 years")
 }

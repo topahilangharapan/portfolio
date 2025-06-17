@@ -7,7 +7,7 @@
         <div class="xp-title-bar">
           <div class="flex items-center">
             <span class="w-4 h-4 bg-white rounded-sm mr-2 flex items-center justify-center text-xs">📧</span>
-            <span class="font-xp-title">Contact Information</span>
+            <span class="font-xp-title">Contact Information - User Properties</span>
           </div>
           <div class="xp-window-controls">
             <div class="xp-control-btn">_</div>
@@ -47,8 +47,8 @@
                       </div>
                       <div>
                         <p class="font-xp text-xs text-gray-600 mb-1">Email Address</p>
-                        <a href="mailto:john.doe@ui.ac.id" class="font-xp text-blue-600 hover:text-blue-800 font-bold underline">
-                          john.doe@ui.ac.id
+                        <a href="mailto:musthofaja.topa@gmail.com" class="font-xp text-blue-600 hover:text-blue-800 font-bold underline">
+                          musthofaja.topa@gmail.com
                         </a>
                       </div>
                     </div>
@@ -79,7 +79,7 @@
 
                   <!-- LinkedIn Button -->
                   <a
-                      href="https://linkedin.com/in/johndoe-ui"
+                      href="https://www.linkedin.com/in/musthofa-joko-anggoro/"
                       target="_blank"
                       class="xp-button w-full py-3 px-4 flex items-center justify-center text-center hover:bg-blue-100 transition-colors duration-200"
                   >
@@ -91,14 +91,14 @@
 
                   <!-- GitHub Button -->
                   <a
-                      href="https://github.com/johndoe-ui"
+                      href="https://github.com/topahilangharapan"
                       target="_blank"
                       class="xp-button w-full py-3 px-4 flex items-center justify-center text-center hover:bg-gray-100 transition-colors duration-200"
                   >
                     <span class="w-6 h-6 bg-gray-800 text-white rounded-sm mr-3 flex items-center justify-center text-xs font-bold">
                       { }
                     </span>
-                    <span class="font-xp font-bold">GitHub Portfolio</span>
+                    <span class="font-xp font-bold">GitHub</span>
                   </a>
 
                   <!-- Portfolio Button -->

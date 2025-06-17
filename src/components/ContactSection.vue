@@ -146,14 +146,14 @@
 <!--            </div>-->
 <!--          </div>-->
 
-          <!-- XP Status Bar -->
-          <div class="xp-status mt-4 flex justify-between items-center">
-            <span class="font-xp">Contact form ready</span>
-            <div class="flex items-center space-x-4">
-              <span class="font-xp text-xs">📧 Email enabled</span>
-              <span class="font-xp text-xs">🌐 Links verified</span>
-              <span class="font-xp text-xs">Ready</span>
-            </div>
+        </div>
+        <!-- XP Status Bar -->
+        <div class="xp-status flex justify-between items-center">
+          <span class="font-xp">Contact form ready</span>
+          <div class="flex items-center space-x-4">
+            <span class="font-xp text-xs">📧 Email enabled</span>
+            <span class="font-xp text-xs">🌐 Links verified</span>
+            <span class="font-xp text-xs">Ready</span>
           </div>
         </div>
       </div>

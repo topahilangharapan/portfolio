@@ -278,33 +278,47 @@
         background: #000;
     }
 
-    /* Enhanced XP Scrollbar (Webkit browsers) */
+    /* Enhanced XP-style scrollbar */
+    .xp-scroll {
+        scrollbar-width: thin;
+        scrollbar-color: #c0c0c0 #f0f0f0;
+    }
+
     .xp-scroll::-webkit-scrollbar {
-        width: 17px;
-        height: 17px;
+        width: 16px;
     }
 
     .xp-scroll::-webkit-scrollbar-track {
-        background: var(--xp-silver-dark);
-        border: 1px inset var(--xp-silver-dark);
+        background: #f0f0f0;
+        border: 1px inset #f0f0f0;
     }
 
     .xp-scroll::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, var(--xp-silver-light) 0%, var(--xp-silver) 50%, var(--xp-silver-dark) 100%);
-        border: 1px outset var(--xp-silver-dark);
-        border-radius: 0;
+        background: linear-gradient(to bottom, #dfdfdf 0%, #c0c0c0 100%);
+        border: 1px outset #c0c0c0;
     }
 
     .xp-scroll::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(180deg, #ffffff 0%, var(--xp-silver-light) 50%, #e0e0e0 100%);
+        background: linear-gradient(to bottom, #c0c0c0 0%, #a0a0a0 100%);
     }
 
-    .xp-scroll::-webkit-scrollbar-thumb:active {
-        border: 1px inset var(--xp-silver-dark);
+    .xp-scroll::-webkit-scrollbar-button {
+        display: block;
+        height: 16px;
+        background: linear-gradient(to bottom, #dfdfdf 0%, #c0c0c0 100%);
+        border: 1px outset #c0c0c0;
     }
 
-    .xp-scroll::-webkit-scrollbar-corner {
-        background: var(--xp-silver-dark);
+    .xp-scroll::-webkit-scrollbar-button:vertical:start:decrement {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path d="M4 0L0 4h8L4 0z" fill="%23000"/></svg>');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .xp-scroll::-webkit-scrollbar-button:vertical:end:increment {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path d="M0 0h8L4 4 0 0z" fill="%23000"/></svg>');
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     /* Enhanced XP Panel */

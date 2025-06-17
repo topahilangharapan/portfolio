@@ -221,14 +221,15 @@ onMounted(() => {
               </div>
             </div>
 
-            <!-- XP Status Bar -->
-            <div class="xp-status mt-6 flex justify-between items-center">
-              <span class="font-xp">Portfolio loaded successfully</span>
-              <div class="flex items-center space-x-4">
-                <span class="font-xp text-xs">👨‍💻 Developer</span>
-                <span class="font-xp text-xs">🎓 Student</span>
-                <span class="font-xp text-xs">Ready</span>
-              </div>
+
+          </div>
+          <!-- XP Status Bar -->
+          <div class="xp-status flex justify-between items-center">
+            <span class="font-xp">Portfolio loaded successfully</span>
+            <div class="flex items-center space-x-4">
+              <span class="font-xp text-xs">👨‍💻 Developer</span>
+              <span class="font-xp text-xs">🎓 Student</span>
+              <span class="font-xp text-xs">Ready</span>
             </div>
           </div>
         </div>
@@ -291,11 +292,11 @@ onMounted(() => {
                 <div class="font-xp text-xs text-blue-600">Expected Graduation: 2026</div>
               </div>
             </div>
+          </div>
 
-            <!-- Profile Status Bar -->
-            <div class="xp-status mt-4">
-              <span class="font-xp">Status: Available for opportunities</span>
-            </div>
+          <!-- Profile Status Bar -->
+          <div class="xp-status">
+            <span class="font-xp">Status: Available for opportunities</span>
           </div>
         </div>
       </div>

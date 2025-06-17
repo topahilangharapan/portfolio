@@ -58,11 +58,11 @@ function toggleOpen() {
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8 min-h-screen">
-    <!-- XP Window Container -->
-    <div class="xp-window max-w-5xl mx-auto">
+  <div class="container mx-auto px-4 py-8 h-screen flex items-center justify-center">
+    <!-- XP Window Container - 3/4 screen height -->
+    <div class="xp-window max-w-5xl mx-auto h-2/4 flex flex-col">
       <!-- XP Title Bar -->
-      <div class="xp-title-bar">
+      <div class="xp-title-bar flex-shrink-0">
         <div class="flex items-center">
           <span class="w-4 h-4 bg-white rounded-sm mr-2 flex items-center justify-center text-xs">🎓</span>
           <span class="font-xp-title">Education Information - Student Properties</span>
@@ -74,8 +74,8 @@ function toggleOpen() {
         </div>
       </div>
 
-      <!-- Menu Bar -->
-      <div class="xp-menubar mb-4">
+      <!-- Menu Bar - Fixed at top -->
+      <div class="xp-menubar mb-0 flex-shrink-0">
         <span class="xp-menu-item inline-block">File</span>
         <span class="xp-menu-item inline-block">Edit</span>
         <span class="xp-menu-item inline-block">View</span>
@@ -83,186 +83,166 @@ function toggleOpen() {
         <span class="xp-menu-item inline-block">Help</span>
       </div>
 
-      <!-- XP Window Content -->
-      <div class="p-4 bg-xp-window">
+      <!-- Scrollable Content Area -->
+      <div class="flex-1 overflow-hidden bg-xp-window">
+        <div class="xp-scroll h-full overflow-y-auto p-4">
+          <div class="grid lg:grid-cols-2 gap-6">
+            <!-- Main Education Info -->
+            <div class="space-y-4">
+              <!-- Academic Information Group -->
+              <div class="xp-group">
+                <div class="xp-group-title">Academic Information</div>
+                <div class="space-y-4">
+                  <div>
+                    <h3 class="font-xp text-lg font-bold text-black mb-1">{{ education.university }}</h3>
+                    <p class="font-xp text-blue-600 font-bold">{{ education.faculty }}</p>
+                  </div>
 
-        <!-- Tab Control -->
-<!--        <div class="xp-tabs mb-4">-->
-<!--          <div class="xp-tab active">General</div>-->
-<!--          <div class="xp-tab">Courses</div>-->
-<!--          <div class="xp-tab">Achievements</div>-->
-<!--          <div class="xp-tab">Statistics</div>-->
-<!--        </div>-->
+                  <!-- Information Grid -->
+                  <div class="grid grid-cols-2 gap-3">
+                    <div class="xp-panel p-2">
+                      <span class="font-xp text-xs text-gray-600 block">Degree:</span>
+                      <p class="font-xp text-black font-bold text-sm">{{ education.degree }}</p>
+                    </div>
+                    <div class="xp-panel p-2">
+                      <span class="font-xp text-xs text-gray-600 block">Major:</span>
+                      <p class="font-xp text-black font-bold text-sm">{{ education.major }}</p>
+                    </div>
+                    <div class="xp-panel p-2">
+                      <span class="font-xp text-xs text-gray-600 block">Expected Graduation:</span>
+                      <p class="font-xp text-black font-bold text-sm">{{ education.expectedGraduation }}</p>
+                    </div>
+                    <div class="xp-panel p-2">
+                      <span class="font-xp text-xs text-gray-600 block">Current Status:</span>
+                      <p class="font-xp text-black font-bold text-sm">{{ education.currentSemester }}</p>
+                    </div>
+                  </div>
 
-        <div class="grid lg:grid-cols-2 gap-6">
-          <!-- Main Education Info -->
-          <div class="space-y-4">
-            <!-- Academic Information Group -->
-            <div class="xp-group">
-              <div class="xp-group-title">Academic Information</div>
-              <div class="space-y-4">
-                <div>
-                  <h3 class="font-xp text-lg font-bold text-black mb-1">{{ education.university }}</h3>
-                  <p class="font-xp text-blue-600 font-bold">{{ education.faculty }}</p>
+                  <!-- GPA Progress -->
+                  <div class="xp-panel p-3">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="font-xp font-bold text-black">Current GPA:</span>
+                      <span class="font-xp text-lg font-bold text-blue-600">
+                        {{ `${education.gpa.toFixed(2)} / ${education.maxGpa.toFixed(2)}` }}
+                      </span>
+                    </div>
+                    <div class="xp-progress">
+                      <div
+                          class="xp-progress-bar transition-all duration-[2000ms] ease-out"
+                          :style="{ width: progressWidth }"
+                      ></div>
+                    </div>
+                    <div class="flex justify-between mt-1">
+                      <span class="font-xp text-xs text-gray-600">0.00</span>
+                      <span class="font-xp text-xs text-gray-600">4.00</span>
+                    </div>
+                  </div>
                 </div>
+              </div>
 
-                <!-- Information Grid -->
-                <div class="grid grid-cols-2 gap-3">
-                  <div class="xp-panel p-2">
-                    <span class="font-xp text-xs text-gray-600 block">Degree:</span>
-                    <p class="font-xp text-black font-bold text-sm">{{ education.degree }}</p>
-                  </div>
-                  <div class="xp-panel p-2">
-                    <span class="font-xp text-xs text-gray-600 block">Major:</span>
-                    <p class="font-xp text-black font-bold text-sm">{{ education.major }}</p>
-                  </div>
-                  <div class="xp-panel p-2">
-                    <span class="font-xp text-xs text-gray-600 block">Expected Graduation:</span>
-                    <p class="font-xp text-black font-bold text-sm">{{ education.expectedGraduation }}</p>
-                  </div>
-                  <div class="xp-panel p-2">
-                    <span class="font-xp text-xs text-gray-600 block">Current Status:</span>
-                    <p class="font-xp text-black font-bold text-sm">{{ education.currentSemester }}</p>
-                  </div>
-                </div>
-
-                <!-- GPA Progress -->
-                <div class="xp-panel p-3">
-                  <div class="flex items-center justify-between mb-2">
-                    <span class="font-xp font-bold text-black">Current GPA:</span>
-                    <span class="font-xp text-lg font-bold text-blue-600">
-                      {{ `${education.gpa.toFixed(2)} / ${education.maxGpa.toFixed(2)}` }}
-                    </span>
-                  </div>
-                  <div class="xp-progress">
-                    <div
-                        class="xp-progress-bar transition-all duration-[2000ms] ease-out"
-                        :style="{ width: progressWidth }"
-                    ></div>
-                  </div>
-                  <div class="flex justify-between mt-1">
-                    <span class="font-xp text-xs text-gray-600">0.00</span>
-                    <span class="font-xp text-xs text-gray-600">4.00</span>
+              <!-- Achievements Group -->
+              <div class="xp-group">
+                <div class="xp-group-title">Academic Achievements</div>
+                <div class="space-y-2">
+                  <div
+                      v-for="(achievement, index) in education.achievements"
+                      :key="index"
+                      class="flex items-start space-x-3 p-2 hover:bg-blue-50 cursor-pointer"
+                  >
+                    <div class="w-4 h-4 xp-button flex items-center justify-center text-xs mt-0.5">
+                      ★
+                    </div>
+                    <span class="font-xp text-black text-sm">{{ achievement }}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Achievements Group -->
-            <div class="xp-group">
-              <div class="xp-group-title">Academic Achievements</div>
-              <div class="space-y-2">
-                <div
-                    v-for="(achievement, index) in education.achievements"
-                    :key="index"
-                    class="flex items-start space-x-3 p-2 hover:bg-blue-50 cursor-pointer"
-                >
-                  <div class="w-4 h-4 xp-button flex items-center justify-center text-xs mt-0.5">
-                    ★
+            <!-- Relevant Courses -->
+            <div>
+              <div class="xp-group h-full">
+                <div class="xp-group-title">Relevant Coursework</div>
+                <div class="space-y-4">
+                  <p class="font-xp text-sm text-black">
+                    Key courses that have shaped my technical foundation and programming skills:
+                  </p>
+
+                  <!-- Course List -->
+                  <div class="xp-panel xp-scroll max-h-60 overflow-y-auto p-2">
+                    <div class="space-y-1">
+                      <div
+                          v-for="(course, index) in education.relevantCourses"
+                          :key="index"
+                          class="xp-button p-2 text-left hover:bg-blue-100 cursor-pointer transition-colors duration-100"
+                      >
+                        <div class="flex items-center space-x-2">
+                          <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span class="font-xp text-sm">{{ course }}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <span class="font-xp text-black text-sm">{{ achievement }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Relevant Courses -->
-          <div>
-            <div class="xp-group h-full">
-              <div class="xp-group-title">Relevant Coursework</div>
-              <div class="space-y-4">
-                <p class="font-xp text-sm text-black">
-                  Key courses that have shaped my technical foundation and programming skills:
-                </p>
+                  <!-- Course Categories -->
+                  <div class="space-y-3">
+                    <div>
+                      <h4 class="font-xp font-bold text-black text-sm mb-2">📚 Core Programming</h4>
+                      <div class="flex flex-wrap gap-1">
+                        <span class="xp-button px-2 py-1 font-xp text-xs">Data Structures</span>
+                        <span class="xp-button px-2 py-1 font-xp text-xs">Algorithms</span>
+                        <span class="xp-button px-2 py-1 font-xp text-xs">OOP</span>
+                      </div>
+                    </div>
 
-                <!-- Course List -->
-                <div class="xp-panel xp-scroll max-h-60 overflow-y-auto p-2">
-                  <div class="space-y-1">
-                    <div
-                        v-for="(course, index) in education.relevantCourses"
-                        :key="index"
-                        class="xp-button p-2 text-left hover:bg-blue-100 cursor-pointer transition-colors duration-100"
-                    >
-                      <div class="flex items-center space-x-2">
-                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span class="font-xp text-sm">{{ course }}</span>
+                    <div>
+                      <h4 class="font-xp font-bold text-black text-sm mb-2">🌐 Web & Mobile</h4>
+                      <div class="flex flex-wrap gap-1">
+                        <span class="xp-button px-2 py-1 font-xp text-xs">Web Programming</span>
+                        <span class="xp-button px-2 py-1 font-xp text-xs">Mobile Development</span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 class="font-xp font-bold text-black text-sm mb-2">⚙️ Systems</h4>
+                      <div class="flex flex-wrap gap-1">
+                        <span class="xp-button px-2 py-1 font-xp text-xs">Database Systems</span>
+                        <span class="xp-button px-2 py-1 font-xp text-xs">Operating Systems</span>
+                        <span class="xp-button px-2 py-1 font-xp text-xs">Networks</span>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <!-- Course Categories -->
-                <div class="space-y-3">
-                  <div>
-                    <h4 class="font-xp font-bold text-black text-sm mb-2">📚 Core Programming</h4>
-                    <div class="flex flex-wrap gap-1">
-                      <span class="xp-button px-2 py-1 font-xp text-xs">Data Structures</span>
-                      <span class="xp-button px-2 py-1 font-xp text-xs">Algorithms</span>
-                      <span class="xp-button px-2 py-1 font-xp text-xs">OOP</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 class="font-xp font-bold text-black text-sm mb-2">🌐 Web & Mobile</h4>
-                    <div class="flex flex-wrap gap-1">
-                      <span class="xp-button px-2 py-1 font-xp text-xs">Web Programming</span>
-                      <span class="xp-button px-2 py-1 font-xp text-xs">Mobile Development</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 class="font-xp font-bold text-black text-sm mb-2">⚙️ Systems</h4>
-                    <div class="flex flex-wrap gap-1">
-                      <span class="xp-button px-2 py-1 font-xp text-xs">Database Systems</span>
-                      <span class="xp-button px-2 py-1 font-xp text-xs">Operating Systems</span>
-                      <span class="xp-button px-2 py-1 font-xp text-xs">Networks</span>
-                    </div>
-                  </div>
-                </div>
+          <!-- Statistics Panel -->
+          <div class="mt-6 pt-4 border-t-2 border-gray-400">
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="xp-panel p-4 text-center">
+                <div class="font-xp text-2xl font-bold text-blue-600 mb-1">6</div>
+                <div class="font-xp text-xs text-gray-600">Semesters Completed</div>
+              </div>
+              <div class="xp-panel p-4 text-center">
+                <div class="font-xp text-2xl font-bold text-green-600 mb-1">117+</div>
+                <div class="font-xp text-xs text-gray-600">Credit Hours</div>
+              </div>
+              <div class="xp-panel p-4 text-center">
+                <div class="font-xp text-2xl font-bold text-purple-600 mb-1">2026</div>
+                <div class="font-xp text-xs text-gray-600">Expected Graduation</div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Statistics Panel -->
-        <div class="mt-6 pt-4 border-t-2 border-gray-400">
-          <div class="grid md:grid-cols-3 gap-4">
-            <div class="xp-panel p-4 text-center">
-              <div class="font-xp text-2xl font-bold text-blue-600 mb-1">6</div>
-              <div class="font-xp text-xs text-gray-600">Semesters Completed</div>
-            </div>
-            <div class="xp-panel p-4 text-center">
-              <div class="font-xp text-2xl font-bold text-green-600 mb-1">117+</div>
-              <div class="font-xp text-xs text-gray-600">Credit Hours</div>
-            </div>
-            <div class="xp-panel p-4 text-center">
-              <div class="font-xp text-2xl font-bold text-purple-600 mb-1">2026</div>
-              <div class="font-xp text-xs text-gray-600">Expected Graduation</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-<!--        <div class="mt-6 pt-4 border-t border-gray-400 flex justify-end space-x-3">-->
-<!--          <button class="xp-button px-6 py-2 font-xp">-->
-<!--            Print Transcript-->
-<!--          </button>-->
-<!--          <button class="xp-button px-6 py-2 font-xp">-->
-<!--            Export Data-->
-<!--          </button>-->
-<!--          <button class="xp-button-primary px-6 py-2 font-xp">-->
-<!--            OK-->
-<!--          </button>-->
-<!--        </div>-->
-
-        <!-- XP Status Bar -->
-        <div class="xp-status mt-4 flex justify-between items-center">
-          <span class="font-xp">Student record loaded successfully</span>
-          <div class="flex items-center space-x-4">
-            <span class="font-xp text-xs">🎓 Academic Year: 2022-2026</span>
-            <span class="font-xp text-xs">📊 GPA: {{ education.gpa.toFixed(2) }}</span>
-            <span class="font-xp text-xs">Ready</span>
-          </div>
+      <!-- XP Status Bar - Fixed at bottom -->
+      <div class="xp-status flex justify-between items-center flex-shrink-0">
+        <span class="font-xp">Student record loaded successfully</span>
+        <div class="flex items-center space-x-4">
+          <span class="font-xp text-xs">🎓 Academic Year: 2022-2026</span>
+          <span class="font-xp text-xs">📊 GPA: {{ education.gpa.toFixed(2) }}</span>
+          <span class="font-xp text-xs">Ready</span>
         </div>
       </div>
     </div>

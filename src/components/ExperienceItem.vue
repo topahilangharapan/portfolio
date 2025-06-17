@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, watch} from 'vue'
+import { ref, watch, nextTick } from 'vue'
 
 interface Props {
   role: string
@@ -7,6 +7,8 @@ interface Props {
   dateCreated: string
   dateModified: string
   achievements: string[]
+  technologies: string[]
+  type: string
   isOpen: boolean
   icon: string
 }
@@ -22,7 +24,9 @@ function toggleOpen() {
 }
 
 const isLoading = ref(true)
-const showAchievements = ref(false)
+const scrollContainer = ref<HTMLElement | null>(null);
+const isScrolledToBottom = ref(false);
+const showScrollIndicator = ref(false);
 
 const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
@@ -31,19 +35,45 @@ const formatDate = (dateString: string) => {
   });
 };
 
+// Enhanced scroll handling
+const handleScroll = () => {
+  if (!scrollContainer.value) return;
+
+  const { scrollTop, scrollHeight, clientHeight } = scrollContainer.value;
+
+  // Check if scrolled to bottom (within 5px tolerance)
+  isScrolledToBottom.value = scrollTop + clientHeight >= scrollHeight - 5;
+
+  // Show scroll indicator if there's more content below
+  showScrollIndicator.value = !isScrolledToBottom.value && scrollHeight > clientHeight;
+};
+
+// Auto-scroll to top when opening
+const scrollToTop = () => {
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollTop = 0;
+  }
+};
+
 watch(
     () => props.isOpen,
-    (newVal) => {
+    async (newVal) => {
       if (newVal) {
         setTimeout(() => {
           isLoading.value = false
-          setTimeout(() => {
-            showAchievements.value = true
+          setTimeout(async () => {
+            await nextTick();
+            scrollToTop();
+            // Check scroll after content loads
+            setTimeout(() => {
+              handleScroll();
+            }, 100);
           }, 300)
         }, 800)
       } else {
         isLoading.value = true
-        showAchievements.value = false
+        isScrolledToBottom.value = false;
+        showScrollIndicator.value = false;
       }
     },
     { immediate: true }
@@ -51,12 +81,12 @@ watch(
 </script>
 
 <template>
-  <div class="xp-window max-w-3xl">
+  <div class="xp-window max-w-2xl h-[50vh] flex flex-col relative">
     <!-- XP Title Bar with proper styling -->
-    <div class="xp-title-bar">
+    <div class="xp-title-bar flex-shrink-0">
       <div class="flex items-center">
         <span class="w-4 h-4 bg-white rounded-sm mr-2 flex items-center justify-center text-xs">{{ icon }}</span>
-        <span class="font-xp-title">{{ role }} - Work Experience Properties</span>
+        <span class="font-xp-title truncate">{{ role }} - Work Experience Properties</span>
       </div>
       <div class="xp-window-controls">
         <div class="xp-control-btn">_</div>
@@ -66,7 +96,7 @@ watch(
     </div>
 
     <!-- Menu Bar -->
-    <div class="xp-menubar mb-4">
+    <div class="xp-menubar flex-shrink-0">
       <span class="xp-menu-item inline-block">File</span>
       <span class="xp-menu-item inline-block">Edit</span>
       <span class="xp-menu-item inline-block">View</span>
@@ -75,150 +105,108 @@ watch(
     </div>
 
     <!-- XP Window Content -->
-    <div class="p-4 bg-xp-window">
-
+    <div class="flex-1 flex flex-col p-4 bg-xp-window overflow-hidden">
       <!-- Loading State (XP Style) -->
-      <div v-if="isLoading" class="text-center py-8">
-        <div class="xp-progress w-64 mx-auto mb-4">
-          <div class="xp-progress-bar animate-xp-loading w-full"></div>
+      <div v-if="isLoading" class="flex-1 flex items-center justify-center">
+        <div class="text-center">
+          <div class="xp-progress w-64 mx-auto mb-4">
+            <div class="xp-progress-bar animate-xp-loading w-full"></div>
+          </div>
+          <p class="font-xp text-black">Loading work experience data...</p>
         </div>
-        <p class="font-xp text-black">Loading work experience data...</p>
       </div>
 
       <!-- Main Content -->
-      <div v-else class="space-y-4">
-        <!-- Company Information Group -->
-        <div class="xp-group">
-          <div class="xp-group-title">Employment Details</div>
-          <div class="space-y-3">
-            <!-- Company Header -->
-            <div class="flex items-center space-x-3 mb-4">
-              <div class="w-12 h-12 xp-button flex items-center justify-center text-2xl">
-                🏢
-              </div>
-              <div>
-                <h3 class="font-xp text-lg font-bold text-black">{{ company }}</h3>
-                <p class="font-xp text-sm text-blue-600 font-bold">{{ role }}</p>
-              </div>
-            </div>
-
-            <!-- Information Panels -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div class="xp-panel p-3">
-                <span class="font-xp text-xs text-gray-600 block mb-1">Position:</span>
-                <p class="font-xp text-black font-bold">{{ role }}</p>
-              </div>
-              <div class="xp-panel p-3">
-                <span class="font-xp text-xs text-gray-600 block mb-1">Duration:</span>
-                <p class="font-xp text-black font-bold">{{ formatDate(dateCreated) + ' - ' + formatDate(dateModified)}}</p>
-              </div>
-            </div>
-
-            <!-- Status Indicators -->
-<!--            <div class="xp-panel-raised p-3">-->
-<!--              <div class="flex items-center justify-between">-->
-<!--                <div class="flex items-center space-x-2">-->
-<!--                  <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>-->
-<!--                  <span class="font-xp text-sm font-bold text-black">Status: Active Experience</span>-->
-<!--                </div>-->
-<!--                <div class="flex items-center space-x-1">-->
-<!--                  <span class="xp-button px-2 py-1 font-xp text-xs">Professional</span>-->
-<!--                  <span class="xp-button px-2 py-1 font-xp text-xs bg-green-100">✓ Verified</span>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
+      <div v-else class="flex-1 flex flex-col space-y-4 overflow-hidden">
+        <!-- Company Header - Fixed at top -->
+        <div class="flex items-center space-x-3 flex-shrink-0">
+          <div class="w-12 h-12 xp-button flex items-center justify-center text-2xl">
+            🏢
+          </div>
+          <div class="flex-1">
+            <h3 class="font-xp text-lg font-bold text-black">{{ company }}</h3>
+            <p class="font-xp text-sm text-blue-600 font-bold">{{ role }}</p>
+          </div>
+          <div class="flex items-center space-x-2">
+<!--            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>-->
+            <span class="font-xp"> {{ type }}</span>
           </div>
         </div>
 
-        <!-- Achievements Group -->
-        <div class="xp-group">
-          <div class="xp-group-title">Key Achievements & Responsibilities</div>
-          <div class="space-y-3">
-            <p class="font-xp text-sm text-black mb-3">
-              Major accomplishments and contributions during this role:
-            </p>
+        <!-- Duration and Position Info - Fixed -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 flex-shrink-0">
+          <div class="xp-panel p-3">
+            <span class="font-xp text-xs text-gray-600 block mb-1">Position:</span>
+            <p class="font-xp text-black font-bold">{{ role }}</p>
+          </div>
+          <div class="xp-panel p-3">
+            <span class="font-xp text-xs text-gray-600 block mb-1">Duration:</span>
+            <p class="font-xp text-black font-bold">{{ formatDate(dateCreated) + ' - ' + formatDate(dateModified)}}</p>
+          </div>
+        </div>
 
-            <!-- Achievements List with XP styling -->
-            <div class="xp-panel xp-scroll max-h-48 overflow-y-auto p-2">
-              <div class="space-y-2">
-                <div
-                    v-for="(achievement, index) in achievements"
-                    :key="index"
-                    :class="[
-                      'xp-button p-3 text-left cursor-pointer transition-all duration-200',
-                      showAchievements
-                    ]"
-                    :style="{ animationDelay: `${index * 100}ms` }"
-                >
-                  <div class="flex items-start space-x-3">
-                    <div class="flex-shrink-0 mt-1">
-                      <div class="w-3 h-3 xp-button flex items-center justify-center text-xs">
-                        ✓
+        <!-- Enhanced Scrollable Content Section -->
+        <div class="flex-1 relative overflow-hidden">
+          <!-- Main scrollable content -->
+          <div
+              class="h-full space-y-4 overflow-y-auto pr-2 xp-scroll scroll-smooth"
+          >
+            <!-- Achievements Group -->
+            <div class="xp-group">
+              <div class="xp-group-title">Key Achievements & Responsibilities</div>
+              <div class="space-y-3">
+
+                <!-- Achievements List with enhanced styling -->
+                <div class="space-y-2">
+                  <div
+                      v-for="(achievement, index) in achievements"
+                      :key="index"
+                      :class="[
+                        'xp-button p-3 text-left'
+                      ]"
+                  >
+                    <div class="flex items-start space-x-3">
+                      <div class="flex-shrink-0 mt-1">
+                        <div class="w-3 h-3 xp-button flex items-center justify-center text-xs">
+                          ✓
+                        </div>
                       </div>
+                      <span class="font-xp text-sm text-black leading-relaxed">{{ achievement }}</span>
                     </div>
-                    <span class="font-xp text-sm text-black leading-relaxed">{{ achievement }}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Achievement Statistics -->
-            <div class="grid grid-cols-3 gap-2 mt-4">
-              <div class="xp-panel p-2 text-center">
-                <div class="font-xp text-lg font-bold text-blue-600">{{ achievements.length }}</div>
-                <div class="font-xp text-xs text-gray-600">Achievements</div>
-              </div>
-              <div class="xp-panel p-2 text-center">
-                <div class="font-xp text-lg font-bold text-green-600">100%</div>
-                <div class="font-xp text-xs text-gray-600">Completion</div>
-              </div>
-              <div class="xp-panel p-2 text-center">
-                <div class="font-xp text-lg font-bold text-purple-600">A+</div>
-                <div class="font-xp text-xs text-gray-600">Performance</div>
+            <!-- Skills & Technologies -->
+            <div class="xp-group">
+              <div class="xp-group-title">Technologies & Skills</div>
+              <div class="space-y-2">
+                <div class="flex flex-wrap gap-1 sm:gap-2">
+                  <span
+                      v-for="tech in technologies"
+                      :key="tech"
+                      class="xp-button px-2 sm:px-3 py-1 font-xp text-xs"
+                  >
+                    {{ tech }}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Skills & Technologies (Optional Enhancement) -->
-        <div class="xp-group">
-          <div class="xp-group-title">Technologies & Skills</div>
-          <div class="space-y-2">
-            <p class="font-xp text-sm text-black mb-2">
-              Technologies and methodologies utilized:
-            </p>
-            <div class="flex flex-wrap gap-1">
-              <span class="xp-button px-2 py-1 font-xp text-xs">Project Management</span>
-              <span class="xp-button px-2 py-1 font-xp text-xs">Team Leadership</span>
-              <span class="xp-button px-2 py-1 font-xp text-xs">Problem Solving</span>
-              <span class="xp-button px-2 py-1 font-xp text-xs">Strategic Planning</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Action Buttons (XP Dialog Style) -->
-<!--        <div class="pt-4 border-t-2 border-gray-400 flex justify-end space-x-2">-->
-<!--          <button class="xp-button px-4 py-2 font-xp">-->
-<!--            📧 Contact Reference-->
-<!--          </button>-->
-<!--          <button class="xp-button px-4 py-2 font-xp">-->
-<!--            📄 View Details-->
-<!--          </button>-->
-<!--          <button class="xp-button-primary px-6 py-2 font-xp">-->
-<!--            OK-->
-<!--          </button>-->
-<!--        </div>-->
       </div>
+    </div>
 
-      <!-- XP Status Bar -->
-      <div class="xp-status mt-4 flex justify-between items-center">
-        <span class="font-xp">{{ company }} experience record loaded</span>
-        <div class="flex items-center space-x-4">
-          <span class="font-xp text-xs">💼 {{ role }}</span>
-          <span class="font-xp text-xs">📈 {{ achievements.length }} achievements</span>
-          <span class="font-xp text-xs">🕐 {{ formatDate(dateCreated) + ' - ' + formatDate(dateModified) }}</span>
-          <span class="font-xp text-xs">{{ isLoading ? 'Loading' : 'Ready'  }}</span>
-        </div>
+    <!-- Enhanced XP Status Bar -->
+    <div class="xp-status flex-shrink-0 flex justify-between items-center">
+      <span class="font-xp text-xs sm:text-sm">{{ company }} experience record loaded</span>
+      <div class="flex items-center space-x-2 sm:space-x-4">
+        <span class="font-xp text-xs">💼 {{ role }}</span>
+        <span class="font-xp text-xs">📈 {{ achievements.length }} achievements</span>
+        <span class="font-xp text-xs">{{ isLoading ? 'Loading' : 'Ready'  }}</span>
+        <!-- Scroll indicator in status bar -->
+        <span v-if="showScrollIndicator" class="font-xp text-xs text-blue-600">↓ More</span>
       </div>
     </div>
   </div>
@@ -247,23 +235,6 @@ watch(
   animation: xp-loading 2s linear infinite;
 }
 
-/* Fade-in animation for achievements */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
-  opacity: 0;
-}
-
 /* XP-style pulse animation for status indicator */
 @keyframes pulse {
   0%, 100% {
@@ -277,22 +248,6 @@ watch(
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-
-/* Custom scrollbar for achievements list */
-.xp-scroll::-webkit-scrollbar {
-  width: 17px;
-}
-
-.xp-scroll::-webkit-scrollbar-track {
-  background: var(--xp-silver-dark);
-  border: 1px inset var(--xp-silver-dark);
-}
-
-.xp-scroll::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--xp-silver-light) 0%, var(--xp-silver) 50%, var(--xp-silver-dark) 100%);
-  border: 1px outset var(--xp-silver-dark);
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .xp-window {
@@ -306,5 +261,18 @@ watch(
   .md\:grid-cols-2 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+
+  .space-x-4 {
+    gap: 0.5rem;
+  }
+
+  .space-x-2 {
+    gap: 0.25rem;
+  }
+}
+
+/* Scroll smooth behavior */
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
 </style>

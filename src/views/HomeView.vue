@@ -150,7 +150,7 @@ watch(isOpenProjects, (newVal) => {
           minimizedWindows.includes('about') ? 'hidden' : '',
           activeWindow === 'about' ? 'z-30' : 'z-20',
         ]"
-        style="left: 10%; top: 2%"
+        style="left: 10%; top: -18%"
         @click="focusWindow('about')"
       >
         <div class="">
@@ -239,7 +239,7 @@ watch(isOpenProjects, (newVal) => {
           minimizedWindows.includes('education') ? 'hidden' : '',
           activeWindow === 'education' ? 'z-30' : 'z-20',
         ]"
-        style="left: 8%; top: -2%"
+        style="left: 8%; top: -20%"
         @click="focusWindow('education')"
       >
         <div class="">

@@ -500,7 +500,7 @@ setInterval(() => {
         top: `${-10 + index * 30}px`,
         left: `${200 + index * 30}px`,
         width: '1200px',
-        height: '200px',
+        height: '75vh',
       }"
     >
       <div>
@@ -592,27 +592,5 @@ setInterval(() => {
 /* Smooth transitions for window switching */
 .xp-title-bar {
   transition: opacity 0.2s ease;
-}
-
-/* Custom scrollbar for project list */
-.xp-scroll::-webkit-scrollbar {
-  width: 17px;
-  height: 17px;
-}
-
-.xp-scroll::-webkit-scrollbar-track {
-  background: var(--xp-silver-dark);
-  border: 1px inset var(--xp-silver-dark);
-}
-
-.xp-scroll::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    var(--xp-silver-light) 0%,
-    var(--xp-silver) 50%,
-    var(--xp-silver-dark) 100%
-  );
-  border: 1px outset var(--xp-silver-dark);
-  border-radius: 0;
 }
 </style>

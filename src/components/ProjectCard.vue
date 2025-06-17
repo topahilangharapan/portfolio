@@ -285,7 +285,7 @@ watch(
           <!--          </div>-->
 
           <!-- Skills Demonstrated -->
-          <div class="xp-group" :class="showDetails && 'animate-fade-in'">
+          <div class="xp-group" :class="showDetails">
             <div class="xp-group-title">Skills & Competencies Demonstrated</div>
             <div class="xp-panel xp-scroll max-h-32 overflow-y-auto p-2">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -305,7 +305,7 @@ watch(
         </div>
 
         <!-- Action Buttons Section -->
-        <div class="flex space-x-2 sm:space-x-3 flex-shrink-0">
+        <div class="flex space-x-2 sm:space-x-3 flex-shrink-0" v-if="githubLink !== 'none' && liveDemoLink !== 'none'">
           <!-- Source Code Button -->
           <button
             @click="openLink(githubLink)"

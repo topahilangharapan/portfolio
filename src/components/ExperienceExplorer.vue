@@ -400,6 +400,7 @@ setInterval(() => {
             :dateCreated="experience.dateCreated"
             :dateModified="experience.dateModified"
             :achievements="experience.achievements"
+            :icon="experience.icon"
             :isOpen="openExperiences.includes(experience)"
             @update:isOpen="
             (val) => {

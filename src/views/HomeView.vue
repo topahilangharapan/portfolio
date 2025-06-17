@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, reactive, onMounted, watch} from 'vue';
+import {ref, onMounted, watch} from 'vue';
 import HeroSection from '../components/HeroSection.vue';
 import AboutSection from '../components/AboutSection.vue';
 import EducationSection from '../components/EducationSection.vue';
@@ -18,13 +18,6 @@ const isOpenContact = ref(false);
 const isOpenProjects = ref(false);
 
 const skillsList = ref(['JavaScript/TypeScript', 'Vue.js']);
-
-const contactInfo = reactive({
-  email: 'rahmat.pratama@ui.ac.id',
-  linkedin: 'https://linkedin.com/in/rahmat-pratama-ui',
-  github: 'https://github.com/rahmatpratama-ui',
-  phone: '+62 812-3456-7890',
-});
 
 // Desktop Applications (removed 'hero' from the list)
 const desktopApps = ref([
@@ -328,43 +321,82 @@ watch(isOpenProjects, (newVal) => {
       </div>
     </div>
 
+    <!-- Replace your existing XP Taskbar section with this improved version -->
+
     <!-- XP Taskbar -->
     <div class="xp-taskbar">
       <!-- Start Button -->
-      <div class="xp-start-button" @click="toggleStartMenu">Start</div>
+      <div
+          class="xp-start-button cursor-pointer"
+          :class="{ 'border-inset': isStartMenuOpen }"
+          @click="toggleStartMenu"
+      >
+        Start
+      </div>
 
       <!-- Taskbar Separator -->
-      <div class="w-px h-6 bg-gray-600 mx-2"></div>
+<!--      <div class="w-px h-6 bg-gray-300 mx-1 opacity-50"></div>-->
+
+      <!-- Quick Launch Area -->
+<!--      <div class="flex items-center space-x-1 mr-2">-->
+<!--        <div class="xp-quick-launch-item cursor-pointer" title="Show Desktop">-->
+<!--          🖥️-->
+<!--        </div>-->
+<!--        <div class="xp-quick-launch-item cursor-pointer" title="Internet Explorer">-->
+<!--          🌐-->
+<!--        </div>-->
+<!--        <div class="xp-quick-launch-item cursor-pointer" title="Windows Media Player">-->
+<!--          🎵-->
+<!--        </div>-->
+<!--      </div>-->
+
+      <!-- Taskbar Separator -->
+      <div class="w-px h-6 bg-gray-300 mx-1 opacity-50"></div>
 
       <!-- Open Applications -->
-      <div class="flex space-x-1 flex-1">
+      <div class="flex space-x-1 flex-1 overflow-hidden">
         <div
-          v-for="appId in openWindows"
-          :key="appId"
-          :class="[
-            'xp-button px-3 py-1 text-xs flex items-center cursor-pointer',
-            activeWindow === appId && !minimizedWindows.includes(appId)
-              ? 'border-inset bg-blue-200'
-              : '',
-            minimizedWindows.includes(appId) ? 'opacity-75' : '',
-          ]"
-          @click="focusWindow(appId)"
+            v-for="appId in openWindows"
+            :key="appId"
+            :class="[
+        'xp-taskbar-button cursor-pointer flex items-center px-3 py-3 min-w-0 max-w-40',
+        activeWindow === appId && !minimizedWindows.includes(appId)
+          ? 'xp-taskbar-button-active'
+          : 'xp-taskbar-button-inactive',
+        minimizedWindows.includes(appId) ? 'xp-taskbar-button-minimized' : ''
+      ]"
+            @click="focusWindow(appId)"
+            :title="getWindowTitle(appId)"
         >
-          <span class="mr-1">{{ getWindowIcon(appId) }}</span>
-          <span class="font-xp truncate max-w-24">{{ getWindowTitle(appId) }}</span>
+          <span class="mr-2 text-sm flex-shrink-0">{{ getWindowIcon(appId) }}</span>
+          <span class="font-xp text-xs truncate">{{ getWindowTitle(appId) }}</span>
         </div>
       </div>
 
-      <!-- System Tray -->
-      <div class="flex items-center space-x-4 ml-4">
-        <div class="xp-panel px-2 py-1">
-          <span class="font-xp text-xs">🔊</span>
+      <!-- System Tray Area -->
+      <div class="flex items-center ml-2">
+        <!-- Tray Separator -->
+        <div class="w-px h-6 bg-gray-300 mx-1 opacity-50"></div>
+
+        <!-- System Tray Icons -->
+        <div class="flex items-center space-x-1 px-2">
+          <div class="xp-tray-icon cursor-pointer" title="Volume">
+            🔊
+          </div>
+          <div class="xp-tray-icon cursor-pointer" title="Network">
+            🌐
+          </div>
+          <div class="xp-tray-icon cursor-pointer" title="Antivirus">
+            🛡️
+          </div>
         </div>
-        <div class="xp-panel px-2 py-1">
-          <span class="font-xp text-xs">🌐</span>
-        </div>
-        <div class="xp-panel px-3 py-1">
-          <span class="font-xp text-xs">{{ currentTime }}</span>
+
+        <!-- Clock -->
+        <div class="xp-clock px-3 py-3 cursor-pointer" :title="new Date().toLocaleDateString()">
+          <div class="font-xp text-xs text-white text-center leading-tight">
+            <div>{{ currentTime }}</div>
+            <div class="text-10">{{ new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) }}</div>
+          </div>
         </div>
       </div>
     </div>

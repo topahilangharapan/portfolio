@@ -49,7 +49,7 @@ const downloadCV = () => {
   )
   if (confirmDownload) {
     const link = document.createElement('a')
-    link.href = '/public/Copy of CV_Musthofa Joko Anggoro.pdf'
+    link.href = 'src/files/Copy of CV_Musthofa Joko Anggoro.pdf'
     link.download = 'Musthofa Joko Anggoro_CV.pdf'
     link.click()
   }
@@ -256,7 +256,7 @@ onMounted(() => {
             <div class="xp-panel-raised p-4 mb-4">
               <div class="w-full h-64 xp-panel overflow-hidden flex items-center justify-center">
                 <img
-                    src="/src/components/Casual_Photo.jpg"
+                    src="/src/files/Casual_Photo.jpg"
                     alt="Profile"
                     class="w-full h-full object-cover"
                 />

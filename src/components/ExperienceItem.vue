@@ -8,6 +8,7 @@ interface Props {
   dateModified: string
   achievements: string[]
   isOpen: boolean
+  icon: string
 }
 
 const props = defineProps<Props>();
@@ -54,7 +55,7 @@ watch(
     <!-- XP Title Bar with proper styling -->
     <div class="xp-title-bar">
       <div class="flex items-center">
-        <span class="w-4 h-4 bg-white rounded-sm mr-2 flex items-center justify-center text-xs">💼</span>
+        <span class="w-4 h-4 bg-white rounded-sm mr-2 flex items-center justify-center text-xs">{{ icon }}</span>
         <span class="font-xp-title">{{ role }} - Work Experience Properties</span>
       </div>
       <div class="xp-window-controls">

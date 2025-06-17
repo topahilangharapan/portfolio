@@ -217,22 +217,22 @@ function toggleOpen() {
           </div>
 
           <!-- Statistics Panel -->
-          <div class="mt-6 pt-4 border-t-2 border-gray-400">
-            <div class="grid md:grid-cols-3 gap-4">
-              <div class="xp-panel p-4 text-center">
-                <div class="font-xp text-2xl font-bold text-blue-600 mb-1">6</div>
-                <div class="font-xp text-xs text-gray-600">Semesters Completed</div>
-              </div>
-              <div class="xp-panel p-4 text-center">
-                <div class="font-xp text-2xl font-bold text-green-600 mb-1">117+</div>
-                <div class="font-xp text-xs text-gray-600">Credit Hours</div>
-              </div>
-              <div class="xp-panel p-4 text-center">
-                <div class="font-xp text-2xl font-bold text-purple-600 mb-1">2026</div>
-                <div class="font-xp text-xs text-gray-600">Expected Graduation</div>
-              </div>
-            </div>
-          </div>
+<!--          <div class="mt-6 pt-4 border-t-2 border-gray-400">-->
+<!--            <div class="grid md:grid-cols-3 gap-4">-->
+<!--              <div class="xp-panel p-4 text-center">-->
+<!--                <div class="font-xp text-2xl font-bold text-blue-600 mb-1">6</div>-->
+<!--                <div class="font-xp text-xs text-gray-600">Semesters Completed</div>-->
+<!--              </div>-->
+<!--              <div class="xp-panel p-4 text-center">-->
+<!--                <div class="font-xp text-2xl font-bold text-green-600 mb-1">117+</div>-->
+<!--                <div class="font-xp text-xs text-gray-600">Credit Hours</div>-->
+<!--              </div>-->
+<!--              <div class="xp-panel p-4 text-center">-->
+<!--                <div class="font-xp text-2xl font-bold text-purple-600 mb-1">2026</div>-->
+<!--                <div class="font-xp text-xs text-gray-600">Expected Graduation</div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
 

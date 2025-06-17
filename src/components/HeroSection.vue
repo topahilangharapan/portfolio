@@ -35,8 +35,8 @@ const downloadCV = () => {
   )
   if (confirmDownload) {
     const link = document.createElement('a')
-    link.href = '/Copy of CV_Musthofa Joko Anggoro.pdf'
-    link.download = 'Musthofa Joko Anggoro_CV.pdf'
+    link.href = '/CV_Musthofa Joko Anggoro.pdf'
+    link.download = 'CV_Musthofa Joko Anggoro.pdf'
     link.click()
   }
 }

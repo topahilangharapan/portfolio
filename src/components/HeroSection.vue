@@ -29,20 +29,6 @@ const available = ref(true)
 const collaboration = ref(true)
 const internship = ref(true)
 
-// const scrollToContact = () => {
-//   const element = document.getElementById('contact')
-//   if (element) {
-//     element.scrollIntoView({ behavior: 'smooth' })
-//   }
-// }
-//
-// const scrollToProjects = () => {
-//   const element = document.getElementById('projects')
-//   if (element) {
-//     element.scrollIntoView({ behavior: 'smooth' })
-//   }
-// }
-
 const downloadCV = () => {
   const confirmDownload = confirm(
       'Do you want to download the CV file?\n\nThis will download Musthofa Joko Anggoro_CV.pdf to your computer.'
@@ -71,26 +57,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8 min-h-screen">
-    <div class="flex flex-col lg:flex-row items-start justify-between gap-6">
+  <div class="container mx-auto px-4 py-8 max-h-[75vh]">
+    <div class="flex flex-col lg:flex-row items-start justify-between gap-6 h-full">
       <!-- Main Content Window -->
-      <div class="flex-1">
-        <div class="xp-window">
+      <div class="flex-1 h-full">
+        <div class="xp-window h-full flex flex-col">
           <!-- XP Title Bar -->
-          <div class="xp-title-bar">
+          <div class="xp-title-bar flex-shrink-0">
             <div class="flex items-center">
               <span class="w-4 h-4 bg-white rounded-sm mr-2 flex items-center justify-center text-xs">👋</span>
               <span class="font-xp-title">Welcome - Musthofa Joko Anggoro Portfolio</span>
             </div>
-<!--            <div class="xp-window-controls">-->
-<!--              <div class="xp-control-btn" @click="minimizeWindow">_</div>-->
-<!--              <div class="xp-control-btn" @click="maximizeWindow">□</div>-->
-<!--              <div class="xp-control-btn xp-close-btn">×</div>-->
-<!--            </div>-->
           </div>
 
           <!-- XP Menu Bar -->
-          <div class="xp-menubar">
+          <div class="xp-menubar flex-shrink-0">
             <span class="xp-menu-item inline-block">File</span>
             <span class="xp-menu-item inline-block">Edit</span>
             <span class="xp-menu-item inline-block">View</span>
@@ -98,8 +79,8 @@ onMounted(() => {
             <span class="xp-menu-item inline-block">Help</span>
           </div>
 
-          <!-- Window Content -->
-          <div class="p-6 bg-xp-window">
+          <!-- Window Content - This will scroll independently -->
+          <div class="flex-1 bg-xp-window xp-scroll overflow-y-auto p-6">
             <!-- Personal Information Group -->
             <div class="xp-group mb-6">
               <div class="xp-group-title">Personal Information</div>
@@ -221,10 +202,28 @@ onMounted(() => {
               </div>
             </div>
 
-
+            <!-- Extra content to demonstrate scrolling -->
+<!--            <div class="xp-group mt-6">-->
+<!--              <div class="xp-group-title">Additional Information</div>-->
+<!--              <div class="xp-panel p-4 mt-4">-->
+<!--                <p class="font-xp text-black mb-4">-->
+<!--                  This section demonstrates independent scrolling. You can scroll this main content area without affecting the profile window on the right.-->
+<!--                </p>-->
+<!--                <p class="font-xp text-black mb-4">-->
+<!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.-->
+<!--                </p>-->
+<!--                <p class="font-xp text-black mb-4">-->
+<!--                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
+<!--                </p>-->
+<!--                <p class="font-xp text-black">-->
+<!--                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.-->
+<!--                </p>-->
+<!--              </div>-->
+<!--            </div>-->
           </div>
+
           <!-- XP Status Bar -->
-          <div class="xp-status flex justify-between items-center">
+          <div class="xp-status flex justify-between items-center flex-shrink-0">
             <span class="font-xp">Portfolio loaded successfully</span>
             <div class="flex items-center space-x-4">
               <span class="font-xp text-xs">👨‍💻 Developer</span>
@@ -236,23 +235,18 @@ onMounted(() => {
       </div>
 
       <!-- Profile Image Window -->
-      <div class="flex-shrink-0 lg:w-80">
-        <div class="xp-window">
+      <div class="flex-shrink-0 lg:w-80 h-full">
+        <div class="xp-window h-full flex flex-col">
           <!-- Profile Window Title Bar -->
-          <div class="xp-title-bar">
+          <div class="xp-title-bar flex-shrink-0">
             <div class="flex items-center">
               <span class="w-4 h-4 bg-white rounded-sm mr-2 flex items-center justify-center text-xs">👤</span>
               <span class="font-xp-title">Profile Picture - Properties</span>
             </div>
-<!--            <div class="xp-window-controls">-->
-<!--              <div class="xp-control-btn">_</div>-->
-<!--              <div class="xp-control-btn">□</div>-->
-<!--              <div class="xp-control-btn xp-close-btn">×</div>-->
-<!--            </div>-->
           </div>
 
-          <!-- Profile Content -->
-          <div class="p-4 bg-xp-window">
+          <!-- Profile Content - This will also scroll independently -->
+          <div class="flex-1 bg-xp-window xp-scroll overflow-y-auto p-4">
             <!-- Profile Image Panel -->
             <div class="xp-panel-raised p-4 mb-4">
               <div class="w-full h-64 xp-panel overflow-hidden flex items-center justify-center">
@@ -263,7 +257,6 @@ onMounted(() => {
                 />
               </div>
             </div>
-
 
             <!-- Profile Details Group -->
             <div class="xp-group">
@@ -292,10 +285,39 @@ onMounted(() => {
                 <div class="font-xp text-xs text-blue-600">Expected Graduation: 2026</div>
               </div>
             </div>
+
+            <!-- Extra content to demonstrate independent scrolling -->
+<!--            <div class="xp-group mt-4">-->
+<!--              <div class="xp-group-title">Skills & Interests</div>-->
+<!--              <div class="xp-panel p-3 mt-2">-->
+<!--                <div class="space-y-2">-->
+<!--                  <div class="font-xp text-sm font-bold text-black">Programming Languages:</div>-->
+<!--                  <div class="font-xp text-xs text-gray-700">Java, TypeScript, JavaScript, Python</div>-->
+
+<!--                  <div class="font-xp text-sm font-bold text-black mt-3">Frameworks:</div>-->
+<!--                  <div class="font-xp text-xs text-gray-700">Vue.js, Spring Boot, Express.js</div>-->
+
+<!--                  <div class="font-xp text-sm font-bold text-black mt-3">Databases:</div>-->
+<!--                  <div class="font-xp text-xs text-gray-700">PostgreSQL, MongoDB, MySQL</div>-->
+
+<!--                  <div class="font-xp text-sm font-bold text-black mt-3">Tools & Technologies:</div>-->
+<!--                  <div class="font-xp text-xs text-gray-700">Docker, Git, AWS, Firebase</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="xp-panel mt-4 p-3">-->
+<!--              <div class="font-xp text-sm font-bold text-black mb-2">Recent Achievements:</div>-->
+<!--              <div class="space-y-1">-->
+<!--                <div class="font-xp text-xs text-gray-700">• Dean's List Student</div>-->
+<!--                <div class="font-xp text-xs text-gray-700">• Hackathon Finalist</div>-->
+<!--                <div class="font-xp text-xs text-gray-700">• Open Source Contributor</div>-->
+<!--              </div>-->
+<!--            </div>-->
           </div>
 
           <!-- Profile Status Bar -->
-          <div class="xp-status">
+          <div class="xp-status flex-shrink-0">
             <span class="font-xp">Status: Available for opportunities</span>
           </div>
         </div>
@@ -306,7 +328,7 @@ onMounted(() => {
 
 <style scoped>
 .container {
-  max-width: 1200px;
+  max-width: 60vw;
 }
 
 /* XP Typing Animation */
@@ -337,13 +359,13 @@ onMounted(() => {
     padding-right: 1rem;
   }
 
-  .flex-col.lg\\:flex-row {
+  .flex-col.lg\:flex-row {
     gap: 1rem;
   }
 }
 
 @media (max-width: 640px) {
-  .grid.sm\\:grid-cols-3 {
+  .grid.sm\:grid-cols-3 {
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
@@ -352,7 +374,7 @@ onMounted(() => {
     border-width: 2px;
   }
 
-  .text-3xl.lg\\:text-4xl {
+  .text-3xl.lg\:text-4xl {
     font-size: 1.5rem;
   }
 }

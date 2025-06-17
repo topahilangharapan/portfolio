@@ -273,7 +273,6 @@ watch(isOpenProjects, (newVal) => {
       >
         <div class="">
           <ContactSection
-            :contact-info="contactInfo"
             :isOpen="openWindows.includes('contact')"
             @update:isOpen="
               (val) => {

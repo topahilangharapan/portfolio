@@ -3,7 +3,7 @@ export interface Experience {
   role: string;
   company: string;
   achievements: string[];
-  technologies?: string[];
+  technologies: string[];
   type: 'Full-time' | 'Part-time' | 'Contract' | 'Freelance' | 'Internship' | 'Organization';
   location: string;
   icon: string;

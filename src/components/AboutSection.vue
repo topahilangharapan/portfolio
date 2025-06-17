@@ -35,7 +35,7 @@ function toggleOpen() {
       </div>
 
       <!-- Menu Bar - Fixed at top -->
-      <div class="xp-menubar mb-4 flex-shrink-0">
+      <div class="xp-menubar flex-shrink-0">
         <span class="xp-menu-item inline-block">File</span>
         <span class="xp-menu-item inline-block">Edit</span>
         <span class="xp-menu-item inline-block">View</span>
@@ -45,7 +45,7 @@ function toggleOpen() {
 
       <!-- Scrollable Content Area -->
       <div class="flex-1 overflow-hidden bg-xp-window">
-        <div class="xp-scroll h-full overflow-y-auto p-4 pt-0">
+        <div class="xp-scroll h-full overflow-y-auto p-4">
           <div class="grid lg:grid-cols-2 gap-6">
             <!-- About Text Section -->
             <div class="space-y-4">

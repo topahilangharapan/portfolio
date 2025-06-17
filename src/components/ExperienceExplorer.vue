@@ -162,7 +162,7 @@ const changeSortBy = (newSortBy: typeof sortBy.value) => {
     sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
   } else {
     sortBy.value = newSortBy;
-    sortOrder.value = sortBy.value === 'name' ? 'desc' : 'asc';
+    sortOrder.value = sortBy.value === 'dateEnd' ? 'desc' : 'asc';
   }
 };
 

@@ -16,9 +16,9 @@ function toggleOpen() {
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8 h-screen flex items-center justify-center">
+  <div class="container mx-auto px-4 py-8 h-screen items-center justify-center">
     <!-- XP Window Container - Fixed at 3/4 screen height -->
-    <div class="xp-window max-w-5xl mx-auto h-3/4 flex flex-col">
+    <div class="xp-window max-w-5xl mx-auto h-[70vh] flex flex-col">
       <!-- XP Title Bar -->
       <div class="xp-title-bar flex-shrink-0">
         <div class="flex items-center">

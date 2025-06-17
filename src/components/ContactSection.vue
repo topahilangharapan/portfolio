@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="py-16 px-4 min-h-screen">
+  <section id="contact" class="px-4 min-h-screen">
     <div class="max-w-4xl mx-auto">
       <!-- XP Window Container -->
       <div class="xp-window">

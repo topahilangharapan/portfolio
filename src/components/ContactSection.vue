@@ -26,7 +26,7 @@
         </div>
 
         <!-- XP Window Content -->
-        <div class="p-4 pt-0 bg-xp-window">
+        <div class="p-4 pt-0 pb-2 bg-xp-window">
 
           <div class="grid md:grid-cols-2 gap-6">
             <!-- Left Column - Contact Info -->

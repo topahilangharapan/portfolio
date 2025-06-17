@@ -57,11 +57,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8 max-h-[75vh]">
+  <div class="container mx-auto px-4 py-8">
     <div class="flex flex-col lg:flex-row items-start justify-between gap-6 h-full">
       <!-- Main Content Window -->
       <div class="flex-1 h-full">
-        <div class="xp-window h-full flex flex-col">
+        <div class="xp-window h-full flex flex-col max-h-[75vh] overflow-hidden">
           <!-- XP Title Bar -->
           <div class="xp-title-bar flex-shrink-0">
             <div class="flex items-center">
@@ -80,7 +80,7 @@ onMounted(() => {
           </div>
 
           <!-- Window Content - This will scroll independently -->
-          <div class="flex-1 bg-xp-window xp-scroll overflow-y-auto p-6">
+          <div class="flex-1 bg-xp-window xp-scroll overflow-y-auto p-6 pt-2 pb-2">
             <!-- Personal Information Group -->
             <div class="xp-group mb-6">
               <div class="xp-group-title">Personal Information</div>
@@ -235,7 +235,7 @@ onMounted(() => {
       </div>
 
       <!-- Profile Image Window -->
-      <div class="flex-shrink-0 lg:w-80 h-full">
+      <div class="flex-shrink-0 lg:w-80 max-h-[75vh] overflow-hidden">
         <div class="xp-window h-full flex flex-col">
           <!-- Profile Window Title Bar -->
           <div class="xp-title-bar flex-shrink-0">

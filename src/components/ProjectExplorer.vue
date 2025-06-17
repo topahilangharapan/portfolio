@@ -47,7 +47,7 @@ const props = withDefaults(defineProps<Props>(), {
       id: '2',
       title: 'Used Car Sales Prediction',
       description:
-        'Built a predictive model for used car sales using classification, regression, and clustering to uncover insights and improve business decision-making.',
+        'Built a predictive model for used car sales using imbalanced classification, regression, and clustering to uncover insights and improve business decision-making.',
       technologies: [
         'Python',
         'Scikit-learn',
@@ -60,6 +60,7 @@ const props = withDefaults(defineProps<Props>(), {
         'EDA',
         'Data Preprocessing',
         'Oversampling',
+        'Undersampling',
         'Pandas',
         'NumPy',
       ],

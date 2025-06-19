@@ -24,8 +24,23 @@ const props = withDefaults(defineProps<Props>(), {
       description:
         'An all-in-one enterprise system built to streamline event organizer operations. From finance to freelancer tracking with secure deployment and clean code standards.',
       technologies: ['Spring Boot', 'Vue.js', 'PostgreSQL', 'RESTful API', 'Docker', 'TypeScript'],
-      githubLink: 'none',
-      liveDemoLink: 'none',
+      githubLink: [
+        {
+          name: 'API',
+          url: 'https://github.com/topahilangharapan/sispa-backend',
+          description:
+            'RESTful API built with Spring Boot. Features JWT auth, clean code, and Docker support.',
+          type: 'backend',
+        },
+        {
+          name: 'Web',
+          url: 'https://github.com/topahilangharapan/sispa-frontend',
+          description:
+            'Modern web UI built with Vue.js and TypeScript. Fully integrated with the backend API.',
+          type: 'frontend',
+        },
+      ],
+      liveDemoLink: 'http://82.25.108.76/auth/login',
       role: 'Lead Engineer & Full Stack Developer',
       icon: '🎤',
       dateModified: '2025-05-28',
@@ -91,7 +106,29 @@ const props = withDefaults(defineProps<Props>(), {
       description:
         'Built a secure and scalable enterprise web app using Spring Boot and Vue.js, focusing on RESTful API development, policy management, and CI/CD deployment with Docker.\n',
       technologies: ['Spring Boot', 'Vue.js', 'PostgreSQL', 'Typescript', 'RESTful API', 'Docker'],
-      githubLink: 'none',
+      githubLink: [
+        {
+          name: 'Insurance',
+          url: 'https://github.com/topahilangharapan/apap-medika-insurance',
+          description:
+            'Spring Boot microservice for managing insurance data. Exposes RESTful APIs with JWT security and Dockerized deployment.',
+          type: 'microservice',
+        },
+        {
+          name: 'Profile',
+          url: 'https://github.com/topahilangharapan/apap-medika-profile',
+          description:
+            'Spring Boot microservice for user profile management. Secured with JWT, follows clean architecture, and runs in Docker.',
+          type: 'microservice',
+        },
+        {
+          name: 'Web',
+          url: 'https://github.com/topahilangharapan/apap-medika-web',
+          description:
+            'Modern web UI built with Vue.js and TypeScript. Fully integrated with the backend API.',
+          type: 'frontend',
+        },
+      ],
       liveDemoLink: 'none',
       role: 'Full Stack Developer',
       icon: '🏥',
@@ -125,7 +162,15 @@ const props = withDefaults(defineProps<Props>(), {
         'DDL & DML',
         'CRUD Operations',
       ],
-      githubLink: 'none',
+      githubLink: [
+        {
+          name: 'Marmut Merah Jambu',
+          url: 'https://github.com/BASDAT-F7/marmut_merah_jambu',
+          description:
+            'Django-based web app for music and podcast streaming. Features playlist CRUD, user auth, and direct SQL integration.',
+          type: 'main',
+        },
+      ],
       liveDemoLink: 'none',
       role: 'Full Stack Developer',
       icon: '🐹',
@@ -190,7 +235,22 @@ const props = withDefaults(defineProps<Props>(), {
         'CRUD Operations',
         'Unit Testing',
       ],
-      githubLink: 'none',
+      githubLink: [
+        {
+          name: 'Web',
+          url: 'https://github.com/PBP-E15/LibPanda',
+          description:
+            'Django-based web app. Features CRUD operations, search, and REST API support.',
+          type: 'main',
+        },
+        {
+          name: 'Mobile',
+          url: 'https://github.com/PBP-E15/LibPanda-mobile',
+          description:
+            'Flutter mobile app integrated with Django backend. Supports search, user actions, and responsive cross-platform UI.',
+          type: 'main',
+        },
+      ],
       liveDemoLink: 'none',
       role: 'Full Stack Developer',
       icon: '📚',
@@ -399,14 +459,12 @@ setInterval(() => {
             <div class="space-y-1">
               <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">🌐 Web Apps</div>
               <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">📱 Mobile Apps</div>
-<!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">-->
-<!--                💻 Desktop Apps-->
-<!--              </div>-->
-<!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">📚 Libraries</div>-->
-<!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">🔌 APIs</div>-->
-              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">
-                ✨ AI/ML
-              </div>
+              <!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">-->
+              <!--                💻 Desktop Apps-->
+              <!--              </div>-->
+              <!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">📚 Libraries</div>-->
+              <!--              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">🔌 APIs</div>-->
+              <div class="font-xp text-xs p-1 hover:bg-blue-100 cursor-pointer">✨ AI/ML</div>
             </div>
           </div>
 

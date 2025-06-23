@@ -9,51 +9,34 @@ const selectText = (event) => {
 const experiences = ref([
   {
     id: 1,
-    position: 'Senior Full Stack Developer',
-    company: 'TechInnovate Solutions',
-    location: 'San Francisco, CA (Remote)',
-    duration: 'March 2022 - Present',
-    companyUrl: 'https://techinnovatesolutions.com',
-    description: 'Leading the development of enterprise-scale web applications for Fortune 500 clients. Responsible for architectural decisions, code quality, and mentoring junior developers.',
+    position: 'Full Stack Developer Intern',
+    company: 'PT Magna Solusi Indonesia',
+    location: 'Hybrid',
+    duration: 'January 2025 - June 2025',
+    companyUrl: 'https://www.magnasolusi.com', // add if available
+    description: 'Contributed to full-stack development and API integration in a hybrid internship role, focusing on performance, scalability, and usability across modern frameworks.',
     achievements: [
-      'Led team of 6 developers on $2M+ project',
-      'Reduced app load time by 65% through optimization',
-      'Implemented automated testing (95% coverage)',
-      'Mentored 4 junior developers to promotion'
+      'Integrated full-stack modules using Spring Boot and Angular',
+      'Improved database performance with optimized queries and backups',
+      'Developed RESTful APIs for dynamic data flow',
+      'Tested and debugged applications to uphold security and usability standards'
     ],
-    technologies: ['React', 'Node.js', 'AWS', 'MongoDB', 'Docker']
+    technologies: ['Spring Boot', 'Angular', 'PostgreSQL', 'Apache HTTP Server', 'Bootstrap', 'Docker', 'Kubernetes']
   },
   {
     id: 2,
-    position: 'Full Stack Developer',
-    company: 'StartupHub Inc.',
-    location: 'San Francisco, CA',
-    duration: 'June 2020 - February 2022',
-    companyUrl: 'https://startuphub.com',
-    description: 'Developed and maintained multiple web applications for early-stage startups. Collaborated with cross-functional teams to deliver high-quality products under tight deadlines.',
+    position: 'Vice Person in Charge of UI/UX',
+    company: 'COMPFEST',
+    location: 'Hybrid',
+    duration: 'January 2023 - December 2023',
+    companyUrl: 'https://compfest.id', // add if available
+    description: 'Led UI/UX initiatives for a national tech event, managing design operations, team coordination, and cross-functional collaboration to deliver consistent and accessible user interfaces.',
     achievements: [
-      'Built 8 production applications from scratch',
-      'Reduced development time by 40% through reusable components',
-      'Implemented CI/CD pipelines for all projects',
-      'Achieved 99.9% uptime across all applications'
+      'Oversaw 5 design sprints and dark/light mode implementation on compfest.id',
+      'Led 11 designers in building the landing page and refining the design system',
+      'Coordinated with developers to ensure stakeholder-aligned design execution'
     ],
-    technologies: ['Vue.js', 'Python', 'PostgreSQL', 'Google Cloud', 'Kubernetes']
-  },
-  {
-    id: 3,
-    position: 'Frontend Developer',
-    company: 'WebSolutions Co.',
-    location: 'San Jose, CA',
-    duration: 'January 2019 - May 2020',
-    companyUrl: 'https://websolutions.com',
-    description: 'Focused on creating responsive and accessible user interfaces for various client projects. Specialized in modern JavaScript frameworks and CSS preprocessing.',
-    achievements: [
-      'Delivered 15+ client projects on time and budget',
-      'Improved website performance by average 50%',
-      'Implemented accessibility standards (WCAG 2.1)',
-      'Trained team on modern frontend development practices'
-    ],
-    technologies: ['React', 'JavaScript', 'SCSS', 'Webpack', 'Jest']
+    technologies: ['Figma', 'ClickUp']
   }
 ])
 </script>

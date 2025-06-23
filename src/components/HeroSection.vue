@@ -13,14 +13,6 @@ const emit = defineEmits<{
   (e: 'update:isOpenProjects', value: boolean): void;
 }>();
 
-function toggleOpenContact() {
-  emit('update:isOpenContact', !props.isOpenContact);
-}
-
-function toggleOpenProjects() {
-  emit('update:isOpenProjects', !props.isOpenProjects);
-}
-
 const typingText = ref('')
 const fullText = 'Full Stack Developer | Student at Universitas Indonesia'
 const typingComplete = ref(false)
@@ -28,18 +20,6 @@ const typingComplete = ref(false)
 const available = ref(true)
 const collaboration = ref(true)
 const internship = ref(true)
-
-const downloadCV = () => {
-  const confirmDownload = confirm(
-      'Do you want to download the CV file?\n\nThis will download Musthofa Joko Anggoro_CV.pdf to your computer.'
-  )
-  if (confirmDownload) {
-    const link = document.createElement('a')
-    link.href = '/CV_Musthofa Joko Anggoro.pdf'
-    link.download = 'CV_Musthofa Joko Anggoro.pdf'
-    link.click()
-  }
-}
 
 onMounted(() => {
   // XP boot-up style typing animation
@@ -57,7 +37,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="max-w-7xl mx-auto">
     <div class="flex flex-col lg:flex-row items-start justify-between gap-6 h-full">
       <!-- Main Content Window -->
       <div class="flex-1 h-full">
@@ -97,42 +77,17 @@ onMounted(() => {
                   </div>
                   <div class="xp-panel p-4">
                     <p class="font-xp text-black">
-                      I'm driven by a simple question: "How can we make this better?" My curiosity is always pushing me to learn new technologies and understand how things tick. I enjoy putting together all the pieces, from the user's experience to the powerful systems in the Back-End, to build helpful and effective systems.
+                      I'm driven by a simple question: "How can we make this better?" My curiosity always gets me exploring new tech and figuring out how things work under the hood. I love putting everything together, from smooth user interfaces to solid back-end systems. And honestly, I have the most fun messing around with artificial intelligence/machine learning and anything math-related, it’s just cool how logic and numbers can make things "alive".
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Action Controls Group -->
-            <div class="xp-group mb-6">
-              <div class="xp-group-title">Quick Actions</div>
-              <div class="grid sm:grid-cols-3 gap-3 mt-4">
-                <button
-                    @click="toggleOpenContact"
-                    class="xp-button px-4 py-3 font-xp font-bold"
-                >
-                  📧 Get In Touch
-                </button>
-                <button
-                    @click="toggleOpenProjects"
-                    class="xp-button px-4 py-3 font-xp font-bold"
-                >
-                  💼 View Projects
-                </button>
-                <button
-                    @click="downloadCV"
-                    class="xp-button-primary px-4 py-3 font-xp font-bold"
-                >
-                  📄 Download CV
-                </button>
-              </div>
-            </div>
-
             <!-- Statistics Group -->
             <div class="xp-group">
               <div class="xp-group-title">Portfolio Overview</div>
-              <div class="grid grid-cols-3 gap-3 mt-4">
+              <div class="grid grid-cols-3 gap-3">
                 <!-- Projects Panel -->
                 <div class="xp-panel-raised p-3">
                   <div class="flex items-center space-x-2 mb-2">
@@ -144,7 +99,7 @@ onMounted(() => {
                     <div class="font-xp text-xs text-gray-600">Completed</div>
                   </div>
                   <div class="mt-2 pt-2 border-t border-gray-400">
-                    <div class="font-xp text-xs text-black">Web • Mobile • AI</div>
+                    <div class="font-xp text-xs text-black">Web • Mobile • AI/ML</div>
                   </div>
                 </div>
 
@@ -195,8 +150,8 @@ onMounted(() => {
                     <div class="font-xp text-xs text-gray-600">Framework</div>
                   </div>
                   <div class="text-center">
-                    <div class="font-xp text-lg font-bold text-cyan-600">TypeScript</div>
-                    <div class="font-xp text-xs text-gray-600">Support</div>
+                    <div class="font-xp text-lg font-bold text-cyan-600">Sci-Kit</div>
+                    <div class="font-xp text-xs text-gray-600">AI/ML</div>
                   </div>
                 </div>
               </div>

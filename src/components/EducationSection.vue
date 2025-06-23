@@ -58,9 +58,9 @@ function toggleOpen() {
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8 h-screen items-center justify-center">
+  <div class="">
     <!-- XP Window Container - 3/4 screen height -->
-    <div class="xp-window max-w-5xl mx-auto max-h-[70vh] flex flex-col">
+    <div class="xp-window max-w-7xl mx-auto flex flex-col">
       <!-- XP Title Bar -->
       <div class="xp-title-bar flex-shrink-0">
         <div class="flex items-center">
@@ -250,10 +250,6 @@ function toggleOpen() {
 </template>
 
 <style scoped>
-.container {
-  max-width: 1200px;
-}
-
 /* Custom XP Loading Animation for Progress Bar */
 @keyframes xp-loading {
   0% {

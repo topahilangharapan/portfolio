@@ -6,6 +6,8 @@ import EducationSection from '../components/EducationSection.vue';
 import ContactSection from '../components/ContactSection.vue';
 import ProjectExplorer from '../components/ProjectExplorer.vue';
 import ExperienceExplorer from '../components/ExperienceExplorer.vue';
+// Import the new WelcomeNotification component
+import WelcomeNotification from '../components/WelcomeNotification.vue';
 
 // Desktop State Management
 const currentTime = ref(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
@@ -39,24 +41,6 @@ const openWindow = (appId: string) => {
   }
   isStartMenuOpen.value = false;
 };
-
-// const closeWindow = (appId: string) => {
-//   openWindows.value = openWindows.value.filter((id) => id !== appId);
-//   minimizedWindows.value = minimizedWindows.value.filter((id) => id !== appId);
-//   if (activeWindow.value === appId) {
-//     activeWindow.value = openWindows.value[openWindows.value.length - 1] || null;
-//   }
-// };
-//
-// const minimizeWindow = (appId: string) => {
-//   if (!minimizedWindows.value.includes(appId)) {
-//     minimizedWindows.value.push(appId);
-//   }
-//   if (activeWindow.value === appId) {
-//     const remainingWindows = openWindows.value.filter((id) => !minimizedWindows.value.includes(id));
-//     activeWindow.value = remainingWindows[remainingWindows.length - 1] || null;
-//   }
-// };
 
 const focusWindow = (appId: string) => {
   activeWindow.value = appId;
@@ -113,8 +97,8 @@ watch(isOpenProjects, (newVal) => {
     <div class="absolute right-2 z-20 pointer-events-auto">
       <div class="">
         <HeroSection
-          v-model:isOpenContact="isOpenContact"
-          v-model:isOpenProjects="isOpenProjects"
+            v-model:isOpenContact="isOpenContact"
+            v-model:isOpenProjects="isOpenProjects"
         />
       </div>
     </div>
@@ -122,14 +106,14 @@ watch(isOpenProjects, (newVal) => {
     <!-- Desktop Icons -->
     <div class="absolute inset-0 z-10">
       <div
-        v-for="app in desktopApps"
-        :key="app.id"
-        :style="{ left: app.x + 'px', top: app.y + 'px' }"
-        class="absolute w-16 h-20 flex flex-col items-center justify-center cursor-pointer group"
-        @dblclick="openWindow(app.id)"
+          v-for="app in desktopApps"
+          :key="app.id"
+          :style="{ left: app.x + 'px', top: app.y + 'px' }"
+          class="absolute w-16 h-20 flex flex-col items-center justify-center cursor-pointer group"
+          @dblclick="openWindow(app.id)"
       >
         <div
-          class="w-12 h-12 bg-white border-2 border-gray-400 flex items-center justify-center text-2xl mb-1 group-hover:bg-blue-100 group-active:border-inset"
+            class="w-12 h-12 bg-white border-2 border-gray-400 flex items-center justify-center text-2xl mb-1 group-hover:bg-blue-100 group-active:border-inset"
         >
           {{ app.icon }}
         </div>
@@ -143,21 +127,21 @@ watch(isOpenProjects, (newVal) => {
     <div class="absolute inset-0 z-20 pointer-events-none">
       <!-- About Window -->
       <div
-        v-if="openWindows.includes('about')"
-        :class="[
+          v-if="openWindows.includes('about')"
+          :class="[
           'absolute w-4/5 max-w-4xl h-4/5 max-h-3xl',
           'pointer-events-auto',
           minimizedWindows.includes('about') ? 'hidden' : '',
           activeWindow === 'about' ? 'z-30' : 'z-20',
         ]"
-        style="left: 10%; top: 1.5%"
-        @click="focusWindow('about')"
+          style="left: 10%; top: 1.5%"
+          @click="focusWindow('about')"
       >
         <div class="">
           <AboutSection
-            :skills="skillsList"
-            :isOpen="openWindows.includes('about')"
-            @update:isOpen="
+              :skills="skillsList"
+              :isOpen="openWindows.includes('about')"
+              @update:isOpen="
               (val) => {
                 if (val) {
                   if (!openWindows.includes('about')) openWindows.push('about');
@@ -173,20 +157,20 @@ watch(isOpenProjects, (newVal) => {
 
       <!-- Projects Window -->
       <div
-        v-if="openWindows.includes('projects')"
-        :class="[
+          v-if="openWindows.includes('projects')"
+          :class="[
           'absolute w-4/5 max-w-5xl h-4/5 max-h-4xl',
           'pointer-events-auto',
           minimizedWindows.includes('projects') ? 'hidden' : '',
           activeWindow === 'projects' ? 'z-30' : 'z-20',
         ]"
-        style="left: 12%; top: 1.7%"
-        @click="focusWindow('projects')"
+          style="left: 12%; top: 1.7%"
+          @click="focusWindow('projects')"
       >
         <div>
           <ProjectExplorer
-            :isOpen="openWindows.includes('projects')"
-            @update:isOpen="
+              :isOpen="openWindows.includes('projects')"
+              @update:isOpen="
               (val) => {
                 if (val) {
                   if (!openWindows.includes('projects')) openWindows.push('projects');
@@ -203,20 +187,20 @@ watch(isOpenProjects, (newVal) => {
 
       <!-- Experience Window -->
       <div
-        v-if="openWindows.includes('experience')"
-        :class="[
+          v-if="openWindows.includes('experience')"
+          :class="[
           'absolute w-4/5 max-w-6xl h-4/5 max-h-3xl',
           'pointer-events-auto',
           minimizedWindows.includes('experience') ? 'hidden' : '',
           activeWindow === 'experience' ? 'z-30' : 'z-20',
         ]"
-        style="left: 14%; top: 5.5%"
-        @click="focusWindow('experience')"
+          style="left: 14%; top: 5.5%"
+          @click="focusWindow('experience')"
       >
         <div class="xp-scroll">
           <ExperienceExplorer
-            :isOpen="openWindows.includes('experience')"
-            @update:isOpen="
+              :isOpen="openWindows.includes('experience')"
+              @update:isOpen="
               (val) => {
                 if (val) {
                   if (!openWindows.includes('experience')) openWindows.push('experience');
@@ -232,20 +216,20 @@ watch(isOpenProjects, (newVal) => {
 
       <!-- Education Window -->
       <div
-        v-if="openWindows.includes('education')"
-        :class="[
+          v-if="openWindows.includes('education')"
+          :class="[
           'absolute w-4/5 max-w-5xl h-4/5 max-h-4xl',
           'pointer-events-auto',
           minimizedWindows.includes('education') ? 'hidden' : '',
           activeWindow === 'education' ? 'z-30' : 'z-20',
         ]"
-        style="left: 8%; top: 2.1%"
-        @click="focusWindow('education')"
+          style="left: 8%; top: 2.1%"
+          @click="focusWindow('education')"
       >
         <div class="">
           <EducationSection
-            :isOpen="openWindows.includes('education')"
-            @update:isOpen="
+              :isOpen="openWindows.includes('education')"
+              @update:isOpen="
               (val) => {
                 if (val) {
                   if (!openWindows.includes('education')) openWindows.push('education');
@@ -261,20 +245,20 @@ watch(isOpenProjects, (newVal) => {
 
       <!-- Contact Window -->
       <div
-        v-if="openWindows.includes('contact')"
-        :class="[
+          v-if="openWindows.includes('contact')"
+          :class="[
           'absolute w-4/5 max-w-3xl h-3/5 max-h-2xl',
           'pointer-events-auto',
           minimizedWindows.includes('contact') ? 'hidden' : '',
           activeWindow === 'contact' ? 'z-30' : 'z-20',
         ]"
-        style="left: 16%; top: 3.3%"
-        @click="focusWindow('contact')"
+          style="left: 16%; top: 3.3%"
+          @click="focusWindow('contact')"
       >
         <div class="">
           <ContactSection
-            :isOpen="openWindows.includes('contact')"
-            @update:isOpen="
+              :isOpen="openWindows.includes('contact')"
+              @update:isOpen="
               (val) => {
                 if (val) {
                   if (!openWindows.includes('contact')) openWindows.push('contact');
@@ -298,10 +282,10 @@ watch(isOpenProjects, (newVal) => {
       <div class="bg-xp-window p-2">
         <div class="space-y-1">
           <div
-            v-for="app in desktopApps"
-            :key="app.id"
-            class="xp-menu-item flex items-center p-2 cursor-pointer"
-            @click="openWindow(app.id)"
+              v-for="app in desktopApps"
+              :key="app.id"
+              class="xp-menu-item flex items-center p-2 cursor-pointer"
+              @click="openWindow(app.id)"
           >
             <span class="text-lg mr-3">{{ app.icon }}</span>
             <span class="font-xp">{{ app.name }}</span>
@@ -320,8 +304,6 @@ watch(isOpenProjects, (newVal) => {
       </div>
     </div>
 
-    <!-- Replace your existing XP Taskbar section with this improved version -->
-
     <!-- XP Taskbar -->
     <div class="xp-taskbar">
       <!-- Start Button -->
@@ -332,22 +314,6 @@ watch(isOpenProjects, (newVal) => {
       >
         Start
       </div>
-
-      <!-- Taskbar Separator -->
-<!--      <div class="w-px h-6 bg-gray-300 mx-1 opacity-50"></div>-->
-
-      <!-- Quick Launch Area -->
-<!--      <div class="flex items-center space-x-1 mr-2">-->
-<!--        <div class="xp-quick-launch-item cursor-pointer" title="Show Desktop">-->
-<!--          🖥️-->
-<!--        </div>-->
-<!--        <div class="xp-quick-launch-item cursor-pointer" title="Internet Explorer">-->
-<!--          🌐-->
-<!--        </div>-->
-<!--        <div class="xp-quick-launch-item cursor-pointer" title="Windows Media Player">-->
-<!--          🎵-->
-<!--        </div>-->
-<!--      </div>-->
 
       <!-- Taskbar Separator -->
       <div class="w-px h-6 bg-gray-300 mx-1 opacity-50"></div>
@@ -400,6 +366,9 @@ watch(isOpenProjects, (newVal) => {
       </div>
     </div>
 
+    <!-- Welcome Notification Component -->
+    <WelcomeNotification :duration="10" />
+
     <!-- Click outside to close start menu -->
     <div v-if="isStartMenuOpen" class="fixed inset-0 z-30" @click="isStartMenuOpen = false"></div>
   </div>
@@ -441,8 +410,8 @@ watch(isOpenProjects, (newVal) => {
 
 .xp-window {
   transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
+      transform 0.2s ease,
+      opacity 0.2s ease;
 }
 
 .xp-window:not(.hidden) {

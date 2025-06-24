@@ -1,8 +1,8 @@
 <template>
-  <div class="min-h-screen relative overflow-x-hidden">
+  <div class="min-h-screen bg-xp-desktop-fallback relative overflow-x-hidden">
 
     <!-- Main Content -->
-    <div class="relative z-10 p-4 pb-16">
+    <div class="relative z-10 p-6 pb-14 space-y-6">
       <HeroSection is-open-contact="" is-open-projects=""></HeroSection>
 
       <ExperienceItem></ExperienceItem>
@@ -62,7 +62,7 @@ const currentDate = ref('')
 
 // Personal Information
 const personalInfo = ref({
-  name: 'Alex Johnson',
+  name: 'Musthofa Joko Anggoro',
   title: 'Senior Full Stack Developer',
   bio: 'Passionate full stack developer with 6+ years of experience building modern web applications. Specialized in creating scalable solutions using cutting-edge technologies including React, Node.js, and cloud platforms. Strong focus on user experience and clean, maintainable code.',
   email: 'alex.johnson@email.com',

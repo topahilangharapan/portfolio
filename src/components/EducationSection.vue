@@ -9,7 +9,7 @@ const education = {
   major: 'Information Systems',
   expectedGraduation: 'June 2026',
   currentSemester: '7th Semester',
-  gpa: 3.84,
+  gpa: 3.85,
   maxGpa: 4,
   relevantCourses: [
     'Data Structures and Algorithms',
@@ -168,7 +168,7 @@ function toggleOpen() {
                   </p>
 
                   <!-- Course List -->
-                  <div class="xp-panel xp-scroll max-h-60 overflow-y-auto p-2">
+                  <div class="xp-panel p-2">
                     <div class="space-y-1">
                       <div
                           v-for="(course, index) in education.relevantCourses"

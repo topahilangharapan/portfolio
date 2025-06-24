@@ -195,8 +195,8 @@ onMounted(() => {
                     <div class="font-xp text-xs text-gray-600">Framework</div>
                   </div>
                   <div class="text-center">
-                    <div class="font-xp text-lg font-bold text-cyan-600">TypeScript</div>
-                    <div class="font-xp text-xs text-gray-600">Support</div>
+                    <div class="font-xp text-lg font-bold text-cyan-600">Sci-Kit</div>
+                    <div class="font-xp text-xs text-gray-600">AI/ML</div>
                   </div>
                 </div>
               </div>

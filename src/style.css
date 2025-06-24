@@ -74,8 +74,16 @@
 
     /* Fallback gradient in case image fails to load */
     .bg-xp-desktop-fallback {
-        background: linear-gradient(135deg, var(--xp-desktop-start) 0%, var(--xp-desktop-mid) 50%, var(--xp-desktop-end) 100%);
+        background: linear-gradient(
+                135deg,
+                var(--xp-desktop-start) 0%,         /* langit biru muda */
+                var(--xp-desktop-mid) 40%,          /* biru tengah */
+                var(--xp-desktop-end) 60%,          /* langit lebih gelap */
+                #6ccf3c 80%,                        /* hijau muda (rumput) */
+                #3fa52b 100%                        /* hijau lebih gelap */
+        );
     }
+
 }
 
 @layer components {

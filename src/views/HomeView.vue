@@ -16,32 +16,63 @@
     </div>
 
     <!-- XP Taskbar -->
+    <!-- XP Taskbar -->
     <div class="xp-taskbar">
-      <button class="xp-start-button">Start</button>
-
-      <!-- Quick Launch -->
-      <div class="flex items-center gap-1 mr-4">
-        <div class="xp-quick-launch-item">🌐</div>
-        <div class="xp-quick-launch-item">📧</div>
-        <div class="xp-quick-launch-item">📁</div>
+      <!-- Start Button -->
+      <div
+          class="xp-start-button cursor-pointer"
+          :class="{ 'border-inset': isStartMenuOpen }"
+          @click="toggleStartMenu"
+      >
+        Start
       </div>
 
-      <!-- Application Buttons -->
-      <div class="flex-1 flex items-center gap-1">
-        <button class="xp-button text-xs px-3 xp-taskbar-button-active">Portfolio - {{ personalInfo.name }}</button>
+      <!-- Taskbar Separator -->
+      <div class="w-px h-6 bg-gray-300 mx-1 opacity-50"></div>
+
+      <!-- Open Applications -->
+      <div class="flex space-x-1 flex-1 overflow-hidden">
+        <div
+            v-for="appId in openWindows"
+            :key="appId"
+            :class="[
+        'xp-taskbar-button cursor-pointer flex items-center px-3 py-3 min-w-0 max-w-40',
+        activeWindow === appId && !minimizedWindows.includes(appId)
+          ? 'xp-taskbar-button-active'
+          : 'xp-taskbar-button-inactive',
+        minimizedWindows.includes(appId) ? 'xp-taskbar-button-minimized' : ''
+      ]"
+            @click="focusWindow(appId)"
+            :title="getWindowTitle(appId)"
+        >
+          <span class="mr-2 text-sm flex-shrink-0">{{ getWindowIcon(appId) }}</span>
+          <span class="font-xp text-xs truncate">{{ getWindowTitle(appId) }}</span>
+        </div>
       </div>
 
-      <!-- System Tray -->
-      <div class="flex items-center gap-2">
-        <div class="xp-tray-icon">🔊</div>
-        <div class="xp-tray-icon">🌐</div>
-        <div class="xp-tray-icon">⚡</div>
+      <!-- System Tray Area -->
+      <div class="flex items-center ml-2">
+        <!-- Tray Separator -->
+        <div class="w-px h-6 bg-gray-300 mx-1 opacity-50"></div>
+
+        <!-- System Tray Icons -->
+        <div class="flex items-center space-x-1 px-2">
+          <div class="xp-tray-icon cursor-pointer" title="Volume">
+            🔊
+          </div>
+          <div class="xp-tray-icon cursor-pointer" title="Network">
+            🌐
+          </div>
+          <div class="xp-tray-icon cursor-pointer" title="Antivirus">
+            🛡️
+          </div>
+        </div>
 
         <!-- Clock -->
-        <div class="xp-clock">
-          <div class="text-white font-xp text-10 text-center">
+        <div class="xp-clock px-3 py-3 cursor-pointer" :title="new Date().toLocaleDateString()">
+          <div class="font-xp text-xs text-white text-center leading-tight">
             <div>{{ currentTime }}</div>
-            <div>{{ currentDate }}</div>
+            <div class="text-10">{{ new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) }}</div>
           </div>
         </div>
       </div>

@@ -97,7 +97,7 @@ onMounted(() => {
                   </div>
                   <div class="xp-panel p-4">
                     <p class="font-xp text-black">
-                      I'm driven by a simple question: "How can we make this better?" My curiosity is always pushing me to learn new technologies and understand how things tick. I enjoy putting together all the pieces, from the user's experience to the powerful systems in the Back-End, to build helpful and effective systems.
+                      I'm driven by a simple question: "How can we make this better?" My curiosity always gets me exploring new tech and figuring out how things work under the hood. I love putting everything together, from smooth user interfaces to solid back-end systems. And honestly, I have the most fun messing around with artificial intelligence/machine learning and anything math-related, it’s just cool how logic and numbers can make things "alive".
                     </p>
                   </div>
                 </div>

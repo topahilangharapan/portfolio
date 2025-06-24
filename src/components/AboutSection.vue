@@ -60,10 +60,11 @@ function toggleOpen() {
                     art form, a blend of creativity and logic to solve real-world problems.
                   </p>
                   <p class="font-xp text-black leading-relaxed mt-4">
-                    Every line of code I write is a reflection of my thought process and effort, so I
-                    always strive to give my best. I see myself as a professional who takes pride in
-                    his work, but I also like to keep things relaxed and fun. It's how I stay grounded
-                    and keep learning with joy.
+                    Every line of code I write is a reflection of my thought process and effort, so I always
+                    strive to give my best. I have the most fun messing around with artificial intelligence/machine
+                    learning and anything math-related, it's just cool how logic and numbers can make things "alive".
+                    I see myself as a professional who takes pride in his work, but I also like to keep things relaxed and fun.
+                    It's how I stay grounded and keep learning with joy.
                   </p>
                 </div>
               </div>

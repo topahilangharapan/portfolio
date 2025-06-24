@@ -115,8 +115,7 @@ const showAnimation = ref(false);
 const hideAnimation = ref(false);
 const timeLeft = ref(props.duration);
 const progressWidth = ref(100);
-
-let interval: NodeJS.Timeout | null = null;
+let interval: ReturnType<typeof setInterval> | null = null;
 
 // Methods
 const startTimer = () => {

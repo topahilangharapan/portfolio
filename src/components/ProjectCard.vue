@@ -9,124 +9,125 @@ const selectText = (event) => {
 const projects = ref([
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'Enterprise Information System for Event Organizer',
     category: 'Full Stack Application',
-    status: 'Production',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop',
-    demoUrl: 'https://demo-ecommerce.com',
-    githubUrl: 'https://github.com/yourusername/ecommerce-platform',
-    description: 'A complete e-commerce solution with payment integration, inventory management, and admin dashboard. Built for scalability and performance.',
+    status: 'Completed',
+    image: 'Screenshot 2025-06-23 at 13.48.55.png', // add image URL if needed
+    demoUrl: 'http://82.25.108.76/auth/login',
+    githubUrl: 'https://github.com/topahilangharapan/sispa-backend',
+    description: 'Enterprise-grade system for event organizers, covering finance, freelancer tracking, and secure deployment with clean code architecture.',
     highlights: [
-      'Handles 10,000+ concurrent users',
-      'Integrated Stripe & PayPal payments',
-      'Real-time inventory tracking',
-      'SEO optimized with SSR'
+      'JWT-secured RESTful API using Spring Boot',
+      'Frontend built with Vue.js and TypeScript',
+      'CI/CD and Docker-based deployment',
+      'PostgreSQL optimization and clean code'
     ],
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'AWS S3', 'Redis'],
+    technologies: ['Spring Boot', 'Vue.js', 'PostgreSQL', 'RESTful API', 'Docker', 'TypeScript'],
     duration: '4 months',
-    teamSize: '3 developers',
-    role: 'Lead Developer'
+    teamSize: '5 developers',
+    role: 'Lead Engineer & Full Stack Developer'
   },
   {
     id: 2,
-    title: 'Task Management Dashboard',
-    category: 'SaaS Application',
-    status: 'Production',
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop',
-    demoUrl: 'https://taskflow-demo.com',
-    githubUrl: 'https://github.com/yourusername/task-dashboard',
-    description: 'Collaborative project management tool with real-time updates, team collaboration features, and advanced reporting capabilities.',
+    title: 'Used Car Sales Prediction',
+    category: 'Machine Learning',
+    status: 'Completed',
+    image: 'output.png', // add image URL if needed
+    demoUrl: '',
+    githubUrl: '', // not available
+    description: 'Machine learning project to predict used car sales using classification, regression, and clustering techniques for business insight.',
     highlights: [
-      'Real-time collaboration with Socket.io',
-      'Advanced analytics dashboard',
-      'Mobile-responsive design',
-      'Role-based access control'
+      'Handled imbalanced data with over/undersampling',
+      'Built models using Random Forest, Gradient Boosting, Logistic & Linear Regression',
+      'Clustering with K-Means and EDA for insight',
+      'Applied full preprocessing-to-evaluation ML pipeline'
     ],
-    technologies: ['Vue.js', 'Express.js', 'PostgreSQL', 'Socket.io', 'Chart.js', 'Docker'],
-    duration: '3 months',
-    teamSize: '2 developers',
-    role: 'Full Stack Developer'
+    technologies: ['Python', 'Scikit-learn', 'Gradient Boosting', 'Random Forest', 'Logistic Regression', 'Linear Regression', 'Naive Bayes', 'K-Means', 'EDA', 'Pandas', 'NumPy'],
+    duration: '1.5 months',
+    teamSize: '1 developer',
+    role: 'Machine Learning Analyst'
   },
   {
     id: 3,
-    title: 'AI-Powered Content Generator',
-    category: 'Machine Learning',
-    status: 'Beta',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop',
-    demoUrl: 'https://ai-content-beta.com',
-    githubUrl: 'https://github.com/yourusername/ai-content-generator',
-    description: 'AI-driven platform that generates marketing content, blog posts, and social media content using natural language processing.',
+    title: 'Apap Medika Web - Enterprise Web Application',
+    category: 'Full Stack Application',
+    status: 'Completed',
+    image: '', // add image URL if needed
+    demoUrl: '',
+    githubUrl: 'https://github.com/topahilangharapan/apap-medika-insurance',
+    description: 'Secure and scalable enterprise web app for managing insurance and user profiles using Spring Boot microservices and Vue.js frontend.',
     highlights: [
-      'OpenAI GPT integration',
-      'Custom fine-tuned models',
-      'Content optimization algorithms',
-      'Multi-language support'
+      'Modular backend with JWT-auth microservices',
+      'CI/CD pipeline with Docker containers',
+      'Frontend-Backend integration via RESTful API',
+      'Built with clean architecture and MVC principles'
     ],
-    technologies: ['Python', 'FastAPI', 'OpenAI API', 'TensorFlow', 'React', 'PostgreSQL'],
-    duration: '6 months',
-    teamSize: '4 developers',
-    role: 'ML Engineer & Backend Lead'
-  },
-  {
-    id: 4,
-    title: 'Real Estate Marketplace',
-    category: 'Web Application',
-    status: 'Production',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=250&fit=crop',
-    demoUrl: 'https://realestate-marketplace.com',
-    githubUrl: 'https://github.com/yourusername/realestate-platform',
-    description: 'Comprehensive real estate platform with property listings, virtual tours, mortgage calculator, and agent management system.',
-    highlights: [
-      'Interactive map integration',
-      'Virtual tour functionality',
-      'Advanced search filters',
-      'CRM for real estate agents'
-    ],
-    technologies: ['Next.js', 'TypeScript', 'Prisma', 'Google Maps API', 'Vercel', 'Supabase'],
-    duration: '5 months',
-    teamSize: '5 developers',
-    role: 'Frontend Lead'
-  },
-  {
-    id: 5,
-    title: 'Cryptocurrency Portfolio Tracker',
-    category: 'FinTech Application',
-    status: 'Production',
-    image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=400&h=250&fit=crop',
-    demoUrl: 'https://crypto-portfolio-tracker.com',
-    githubUrl: 'https://github.com/yourusername/crypto-tracker',
-    description: 'Real-time cryptocurrency portfolio tracking with advanced analytics, price alerts, and tax reporting features.',
-    highlights: [
-      'Real-time price tracking',
-      'Portfolio performance analytics',
-      'Tax reporting generation',
-      'Custom price alerts'
-    ],
-    technologies: ['React', 'Node.js', 'WebSocket', 'CoinGecko API', 'MongoDB', 'JWT'],
+    technologies: ['Spring Boot', 'Vue.js', 'PostgreSQL', 'Typescript', 'RESTful API', 'Docker'],
     duration: '3 months',
-    teamSize: '2 developers',
+    teamSize: '4 developers',
     role: 'Full Stack Developer'
   },
   {
-    id: 6,
-    title: 'Learning Management System',
-    category: 'Educational Platform',
-    status: 'Production',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=250&fit=crop',
-    demoUrl: 'https://lms-platform.com',
-    githubUrl: 'https://github.com/yourusername/lms-platform',
-    description: 'Comprehensive learning management system with video streaming, progress tracking, assessments, and certification management.',
+    id: 4,
+    title: 'Marmut Merah Jambu - Music & Podcast Streaming Web',
+    category: 'Full Stack Application',
+    status: 'Completed',
+    image: '', // add image URL if needed
+    demoUrl: '',
+    githubUrl: 'https://github.com/BASDAT-F7/marmut_merah_jambu',
+    description: 'Django-based streaming platform for music and podcasts with full CRUD support, custom SQL integration, and playlist features.',
     highlights: [
-      'Video streaming with adaptive quality',
-      'Interactive quiz builder',
-      'Progress tracking & analytics',
-      'Certificate generation system'
+      'Custom SQL queries, triggers, and stored procedures',
+      'Relational DB design and optimization',
+      'User management and playlist CRUD',
+      'Full integration of backend logic and frontend UI'
     ],
-    technologies: ['Vue.js', 'Laravel', 'MySQL', 'AWS CloudFront', 'FFmpeg', 'Pusher'],
-    duration: '7 months',
-    teamSize: '6 developers',
-    role: 'Technical Lead'
+    technologies: ['Django', 'PostgreSQL', 'Manual SQL Queries', 'SQL Triggers', 'Stored Procedures', 'CRUD Operations'],
+    duration: '3.5 months',
+    teamSize: '5 developers',
+    role: 'Full Stack Developer'
+  },
+  {
+    id: 5,
+    title: 'PathFinder - Education and Career Guidance App',
+    category: 'UI/UX Design',
+    status: 'Completed',
+    image: '', // add image URL if needed
+    demoUrl: '',
+    githubUrl: '', // not available
+    description: 'Designed and validated user-centered education guidance app through UX research, prototyping, and usability testing.',
+    highlights: [
+      'Built wireframes and high-fidelity prototypes',
+      'Conducted usability testing with real users',
+      'Mapped user journeys and information architecture',
+      'Applied iterative UX design process'
+    ],
+    technologies: ['Figma', 'UX Research', 'Wireframing', 'Prototyping', 'Usability Testing'],
+    duration: '2.5 months',
+    teamSize: '3 designers',
+    role: 'UI/UX Designer & Researcher'
+  },
+  {
+    id: 6,
+    title: 'LibPanda - Online Library Management System',
+    category: 'Web & Mobile App',
+    status: 'Completed',
+    image: '', // add image URL if needed
+    demoUrl: '',
+    githubUrl: 'https://github.com/PBP-E15/LibPanda',
+    description: 'Cross-platform library system built with Django and Flutter, supporting book management, search, and wallet features.',
+    highlights: [
+      'Flutter mobile app integrated with Django backend',
+      'CRUD and search functionality with REST API',
+      'Responsive web & mobile design',
+      'Unit tested for reliability'
+    ],
+    technologies: ['Django', 'Flutter', 'PostgreSQL', 'Responsive CSS Framework', 'REST API', 'CRUD Operations'],
+    duration: '3 months',
+    teamSize: '4 developers',
+    role: 'Full Stack Developer'
   }
+
 ])
 
 const getCategoryIcon = (category) => {
@@ -134,9 +135,10 @@ const getCategoryIcon = (category) => {
     case 'Full Stack Application': return '🌐'
     case 'SaaS Application': return '💼'
     case 'Machine Learning': return '🤖'
-    case 'Web Application': return '📱'
+    case 'Web & Mobile App': return '📱'
     case 'FinTech Application': return '💰'
     case 'Educational Platform': return '📚'
+    case 'UI/UX Design': return '🎨'
     default: return '💻'
   }
 }
@@ -144,7 +146,7 @@ const getCategoryIcon = (category) => {
 
 <template>
   <!-- Projects Section -->
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-5xl mx-auto">
     <div class="xp-window">
       <!-- XP Title Bar -->
       <div class="xp-title-bar">
@@ -191,19 +193,22 @@ const getCategoryIcon = (category) => {
               <!-- Project Image & Quick Info -->
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <!-- Project Image -->
-                <div class="sm:col-span-1">
+                <div class="sm:col-span-3" v-if="project.image">
+
+                  <div class="xp-panel-raised p-4">
                   <div class="xp-panel-inset p-1">
                     <img
                         :src="project.image"
                         :alt="project.title"
-                        class="w-full h-32 object-cover rounded"
+                        class="w-full h-full object-cover xp-panel"
                         loading="lazy"
                     />
+                  </div>
                   </div>
                 </div>
 
                 <!-- Quick Info -->
-                <div class="sm:col-span-2 space-y-2">
+                <div class="sm:col-span-3 space-y-2">
                   <div class="xp-panel p-2">
                     <div class="grid grid-cols-2 gap-2 text-xs">
                       <div>
@@ -276,7 +281,7 @@ const getCategoryIcon = (category) => {
               <!-- Project Links (Enhanced) -->
               <div class="space-y-2">
                 <!-- Demo URL -->
-                <div class="xp-panel p-2">
+                <div class="xp-panel p-2" v-if="project.demoUrl">
                   <label class="font-xp text-xs font-bold text-gray-700 block mb-1">Live Demo URL:</label>
                   <div class="flex items-center space-x-2">
                     <textarea
@@ -294,7 +299,7 @@ const getCategoryIcon = (category) => {
                 </div>
 
                 <!-- GitHub URL -->
-                <div class="xp-panel p-2">
+                <div class="xp-panel p-2" v-if="project.githubUrl">
                   <label class="font-xp text-xs font-bold text-gray-700 block mb-1">Source Code Repository:</label>
                   <div class="flex items-center space-x-2">
                     <textarea

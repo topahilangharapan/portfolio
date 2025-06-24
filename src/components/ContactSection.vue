@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-5xl mx-auto">
       <!-- XP Window Container -->
       <div class="xp-window">
         <!-- XP Title Bar -->

@@ -43,7 +43,7 @@ const experiences = ref([
 
 <template>
   <!-- Experience Section -->
-  <div class="max-w-7xl mx-auto mb-6">
+  <div class="max-w-5xl mx-auto">
     <div class="xp-window">
       <!-- XP Title Bar -->
       <div class="xp-title-bar">

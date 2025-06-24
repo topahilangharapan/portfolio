@@ -60,7 +60,7 @@ function toggleOpen() {
 <template>
   <div class="">
     <!-- XP Window Container - 3/4 screen height -->
-    <div class="xp-window max-w-7xl mx-auto flex flex-col">
+    <div class="xp-window max-w-5xl mx-auto flex flex-col">
       <!-- XP Title Bar -->
       <div class="xp-title-bar flex-shrink-0">
         <div class="flex items-center">

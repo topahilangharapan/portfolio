@@ -37,7 +37,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-5xl mx-auto">
     <div class="flex flex-col lg:flex-row items-start justify-between gap-6 h-full">
       <!-- Main Content Window -->
       <div class="flex-1 h-full">

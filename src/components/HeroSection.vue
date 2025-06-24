@@ -41,7 +41,7 @@ onMounted(() => {
     <div class="flex flex-col lg:flex-row items-start justify-between gap-6 h-full">
       <!-- Main Content Window -->
       <div class="flex-1 h-full">
-        <div class="xp-window h-full flex flex-col max-h-[75vh] overflow-hidden">
+        <div class="xp-window h-full flex flex-col ">
           <!-- XP Title Bar -->
           <div class="xp-title-bar flex-shrink-0">
             <div class="flex items-center">
@@ -60,7 +60,7 @@ onMounted(() => {
           </div>
 
           <!-- Window Content - This will scroll independently -->
-          <div class="flex-1 bg-xp-window xp-scroll overflow-y-auto p-6 pt-2 pb-2">
+          <div class="flex-1 bg-xp-window p-6 pt-2 pb-2">
             <!-- Personal Information Group -->
             <div class="xp-group mb-6">
               <div class="xp-group-title">Personal Information</div>
@@ -77,8 +77,42 @@ onMounted(() => {
                   </div>
                   <div class="xp-panel p-4">
                     <p class="font-xp text-black">
-                      I'm driven by a simple question: "How can we make this better?" My curiosity always gets me exploring new tech and figuring out how things work under the hood. I love putting everything together, from smooth user interfaces to solid back-end systems. And honestly, I have the most fun messing around with artificial intelligence/machine learning and anything math-related, it’s just cool how logic and numbers can make things "alive".
+                      I'm driven by a simple question: "How can we make this better?" My curiosity always gets me exploring new tech and figuring out how things work under the hood. I love putting everything together, from smooth user interfaces to solid back-end systems. And honestly, I have the most fun messing around with artificial intelligence/machine learning and anything math-related, it's just cool how logic and numbers can make things "alive".
                     </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Portfolio Section -->
+            <div class="xp-group mb-6">
+              <div class="xp-group-title">Visit My Live Portfolio</div>
+              <div class="xp-panel-raised p-4">
+                <div class="flex items-center space-x-3 mb-3">
+                  <div class="w-8 h-8 xp-button flex items-center justify-center text-sm">🌐</div>
+                  <div>
+                    <div class="font-xp font-bold text-black">Interactive Web Portfolio</div>
+                    <div class="font-xp text-xs text-gray-600">Experience the full portfolio online</div>
+                  </div>
+                </div>
+                <div class="xp-panel p-2">
+                  <label class="font-xp text-xs font-bold text-gray-700 block mb-1">Company Website:</label>
+                  <div class="flex items-center space-x-2">
+                      <textarea
+                          readonly
+                          class="flex-1 px-2 py-1 text-xs font-xp border-2 border-xp-inset bg-white resize-none"
+                          rows="1"
+                      > https://portfolio-topahilangharapan-personal.vercel.app</textarea>
+                    <button class="xp-button px-2 py-1 font-xp text-xs">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-gray-400">
+                  <div class="font-xp text-xs text-gray-700 text-center">
+                    ✨ Features: Interactive projects, detailed skills showcase, contact form, and more!
                   </div>
                 </div>
               </div>
@@ -158,23 +192,23 @@ onMounted(() => {
             </div>
 
             <!-- Extra content to demonstrate scrolling -->
-<!--            <div class="xp-group mt-6">-->
-<!--              <div class="xp-group-title">Additional Information</div>-->
-<!--              <div class="xp-panel p-4 mt-4">-->
-<!--                <p class="font-xp text-black mb-4">-->
-<!--                  This section demonstrates independent scrolling. You can scroll this main content area without affecting the profile window on the right.-->
-<!--                </p>-->
-<!--                <p class="font-xp text-black mb-4">-->
-<!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.-->
-<!--                </p>-->
-<!--                <p class="font-xp text-black mb-4">-->
-<!--                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
-<!--                </p>-->
-<!--                <p class="font-xp text-black">-->
-<!--                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.-->
-<!--                </p>-->
-<!--              </div>-->
-<!--            </div>-->
+            <!--            <div class="xp-group mt-6">-->
+            <!--              <div class="xp-group-title">Additional Information</div>-->
+            <!--              <div class="xp-panel p-4 mt-4">-->
+            <!--                <p class="font-xp text-black mb-4">-->
+            <!--                  This section demonstrates independent scrolling. You can scroll this main content area without affecting the profile window on the right.-->
+            <!--                </p>-->
+            <!--                <p class="font-xp text-black mb-4">-->
+            <!--                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.-->
+            <!--                </p>-->
+            <!--                <p class="font-xp text-black mb-4">-->
+            <!--                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
+            <!--                </p>-->
+            <!--                <p class="font-xp text-black">-->
+            <!--                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.-->
+            <!--                </p>-->
+            <!--              </div>-->
+            <!--            </div>-->
           </div>
 
           <!-- XP Status Bar -->
@@ -242,33 +276,33 @@ onMounted(() => {
             </div>
 
             <!-- Extra content to demonstrate independent scrolling -->
-<!--            <div class="xp-group mt-4">-->
-<!--              <div class="xp-group-title">Skills & Interests</div>-->
-<!--              <div class="xp-panel p-3 mt-2">-->
-<!--                <div class="space-y-2">-->
-<!--                  <div class="font-xp text-sm font-bold text-black">Programming Languages:</div>-->
-<!--                  <div class="font-xp text-xs text-gray-700">Java, TypeScript, JavaScript, Python</div>-->
+            <!--            <div class="xp-group mt-4">-->
+            <!--              <div class="xp-group-title">Skills & Interests</div>-->
+            <!--              <div class="xp-panel p-3 mt-2">-->
+            <!--                <div class="space-y-2">-->
+            <!--                  <div class="font-xp text-sm font-bold text-black">Programming Languages:</div>-->
+            <!--                  <div class="font-xp text-xs text-gray-700">Java, TypeScript, JavaScript, Python</div>-->
 
-<!--                  <div class="font-xp text-sm font-bold text-black mt-3">Frameworks:</div>-->
-<!--                  <div class="font-xp text-xs text-gray-700">Vue.js, Spring Boot, Express.js</div>-->
+            <!--                  <div class="font-xp text-sm font-bold text-black mt-3">Frameworks:</div>-->
+            <!--                  <div class="font-xp text-xs text-gray-700">Vue.js, Spring Boot, Express.js</div>-->
 
-<!--                  <div class="font-xp text-sm font-bold text-black mt-3">Databases:</div>-->
-<!--                  <div class="font-xp text-xs text-gray-700">PostgreSQL, MongoDB, MySQL</div>-->
+            <!--                  <div class="font-xp text-sm font-bold text-black mt-3">Databases:</div>-->
+            <!--                  <div class="font-xp text-xs text-gray-700">PostgreSQL, MongoDB, MySQL</div>-->
 
-<!--                  <div class="font-xp text-sm font-bold text-black mt-3">Tools & Technologies:</div>-->
-<!--                  <div class="font-xp text-xs text-gray-700">Docker, Git, AWS, Firebase</div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
+            <!--                  <div class="font-xp text-sm font-bold text-black mt-3">Tools & Technologies:</div>-->
+            <!--                  <div class="font-xp text-xs text-gray-700">Docker, Git, AWS, Firebase</div>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </div>-->
 
-<!--            <div class="xp-panel mt-4 p-3">-->
-<!--              <div class="font-xp text-sm font-bold text-black mb-2">Recent Achievements:</div>-->
-<!--              <div class="space-y-1">-->
-<!--                <div class="font-xp text-xs text-gray-700">• Dean's List Student</div>-->
-<!--                <div class="font-xp text-xs text-gray-700">• Hackathon Finalist</div>-->
-<!--                <div class="font-xp text-xs text-gray-700">• Open Source Contributor</div>-->
-<!--              </div>-->
-<!--            </div>-->
+            <!--            <div class="xp-panel mt-4 p-3">-->
+            <!--              <div class="font-xp text-sm font-bold text-black mb-2">Recent Achievements:</div>-->
+            <!--              <div class="space-y-1">-->
+            <!--                <div class="font-xp text-xs text-gray-700">• Dean's List Student</div>-->
+            <!--                <div class="font-xp text-xs text-gray-700">• Hackathon Finalist</div>-->
+            <!--                <div class="font-xp text-xs text-gray-700">• Open Source Contributor</div>-->
+            <!--              </div>-->
+            <!--            </div>-->
           </div>
 
           <!-- Profile Status Bar -->

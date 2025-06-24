@@ -59,12 +59,12 @@ const experiences = ref([
       </div>
 
       <!-- XP Menu Bar -->
-      <div class="xp-menubar">
-        <span class="xp-menu-item">File</span>
-        <span class="xp-menu-item">View</span>
-        <span class="xp-menu-item">Timeline</span>
-        <span class="xp-menu-item">Export</span>
-        <span class="xp-menu-item">Help</span>
+      <div class="xp-menubar flex-shrink-0">
+        <span class="xp-menu-item inline-block">File</span>
+        <span class="xp-menu-item inline-block">Edit</span>
+        <span class="xp-menu-item inline-block">View</span>
+        <span class="xp-menu-item inline-block">Navigate</span>
+        <span class="xp-menu-item inline-block">Help</span>
       </div>
 
       <!-- XP Window Content -->
@@ -207,8 +207,7 @@ const experiences = ref([
       <!-- Enhanced XP Status Bar -->
       <div class="xp-status flex justify-between items-center">
         <div class="flex items-center space-x-2">
-          <div class="w-2 h-2 rounded-full bg-green-500"></div>
-          <span class="font-xp text-sm">Career Timeline Ready</span>
+          <span class="font-xp text-sm">Experience Ready</span>
         </div>
         <div class="flex items-center space-x-4">
           <span class="font-xp text-xs">{{ experiences.length }} Position{{ experiences.length !== 1 ? 's' : '' }}</span>

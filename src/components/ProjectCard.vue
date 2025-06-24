@@ -162,12 +162,12 @@ const getCategoryIcon = (category) => {
       </div>
 
       <!-- XP Menu Bar -->
-      <div class="xp-menubar">
-        <span class="xp-menu-item">File</span>
-        <span class="xp-menu-item">View</span>
-        <span class="xp-menu-item">Projects</span>
-        <span class="xp-menu-item">Filter</span>
-        <span class="xp-menu-item">Help</span>
+      <div class="xp-menubar flex-shrink-0">
+        <span class="xp-menu-item inline-block">File</span>
+        <span class="xp-menu-item inline-block">Edit</span>
+        <span class="xp-menu-item inline-block">View</span>
+        <span class="xp-menu-item inline-block">Navigate</span>
+        <span class="xp-menu-item inline-block">Help</span>
       </div>
 
       <!-- XP Window Content -->
@@ -325,12 +325,10 @@ const getCategoryIcon = (category) => {
       <!-- Enhanced XP Status Bar -->
       <div class="xp-status flex justify-between items-center">
         <div class="flex items-center space-x-2">
-          <div class="w-2 h-2 rounded-full bg-green-500"></div>
-          <span class="font-xp text-sm">Portfolio Loaded Successfully</span>
+          <span class="font-xp text-sm">Projets Loaded Successfully</span>
         </div>
         <div class="flex items-center space-x-4">
           <span class="font-xp text-xs">{{ projects.length }} Project{{ projects.length !== 1 ? 's' : '' }}</span>
-          <span class="font-xp text-xs">{{ projects.filter(p => p.status === 'Production').length }} Live</span>
           <span class="font-xp text-xs">{{ new Set(projects.flatMap(p => p.technologies)).size }} Technologies</span>
         </div>
       </div>

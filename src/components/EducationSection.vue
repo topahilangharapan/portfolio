@@ -9,7 +9,7 @@ const education = {
   major: 'Information Systems',
   expectedGraduation: 'June 2026',
   currentSemester: '7th Semester',
-  gpa: 3.84,
+  gpa: 3.85,
   maxGpa: 4,
   relevantCourses: [
     'Data Structures and Algorithms',

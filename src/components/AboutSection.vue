@@ -159,9 +159,6 @@ function toggleOpen() {
                         <span class="xp-button px-3 py-1 font-xp text-xs">Java</span>
                         <span class="xp-button px-3 py-1 font-xp text-xs">Python</span>
                         <span class="xp-button px-3 py-1 font-xp text-xs">TypeScript</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">C</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">C++</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Assembly</span>
                         <span class="xp-button px-3 py-1 font-xp text-xs">Golang</span>
                       </div>
                     </div>

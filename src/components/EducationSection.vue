@@ -1,15 +1,15 @@
 <script setup lang="ts">
 // Education data
-import {ref, watch} from "vue";
+import { ref, watch } from "vue";
 
 const education = {
   university: 'University of Indonesia (UI)',
   faculty: 'Faculty of Computer Science (Fasilkom)',
   degree: 'Bachelor of Computer Science',
   major: 'Information Systems',
-  expectedGraduation: 'June 2026',
-  currentSemester: '7th Semester',
-  gpa: 3.85,
+  expectedGraduation: 'June 2026 - August 2026',
+  currentSemester: '8th Semester',
+  gpa: 3.84,
   maxGpa: 4,
   relevantCourses: [
     'Data Structures and Algorithms',
@@ -24,7 +24,14 @@ const education = {
   achievements: [
     'Vice Person in Charge of UI/UX COMPFEST',
     'Mentor of Programming Foundations 0',
-  ]
+  ],
+  summerProgram: {
+    title: 'INSIPIRASI–NTU Summer Program 2025',
+    status: 'LPDP Scholarship Awardee',
+    description: 'Joined a collaborative program at Nanyang Technological University (NTU) Singapore and Institut Teknologi Sepuluh Nopember (ITS) Surabaya. Apply software engineering principles to sustainable development challenges. Analyzed the role of technical architecture in environmental solutions and produced a report proposing a solution for a specific real-world sustainability problem.',
+    institutions: 'NTU & ITS',
+    focus: 'Sustainable Development & Technology'
+  }
 }
 
 const progressWidth = ref('0%')
@@ -39,17 +46,17 @@ const emit = defineEmits<{
 }>();
 
 watch(
-    () => props.isOpen,
-    (newVal) => {
-      if (newVal) {
-        setTimeout(() => {
-          progressWidth.value = `${(education.gpa / education.maxGpa) * 100}%`
-        }, 500)
-      } else {
-        progressWidth.value = '0%';
-      }
-    },
-    { immediate: true }
+  () => props.isOpen,
+  (newVal) => {
+    if (newVal) {
+      setTimeout(() => {
+        progressWidth.value = `${(education.gpa / education.maxGpa) * 100}%`
+      }, 500)
+    } else {
+      progressWidth.value = '0%';
+    }
+  },
+  { immediate: true }
 );
 
 function toggleOpen() {
@@ -127,10 +134,8 @@ function toggleOpen() {
                       </span>
                     </div>
                     <div class="xp-progress">
-                      <div
-                          class="xp-progress-bar transition-all duration-[2000ms] ease-out"
-                          :style="{ width: progressWidth }"
-                      ></div>
+                      <div class="xp-progress-bar transition-all duration-[2000ms] ease-out"
+                        :style="{ width: progressWidth }"></div>
                     </div>
                     <div class="flex justify-between mt-1">
                       <span class="font-xp text-xs text-gray-600">0.00</span>
@@ -140,23 +145,54 @@ function toggleOpen() {
                 </div>
               </div>
 
-              <!-- Achievements Group -->
-              <div class="xp-group">
-                <div class="xp-group-title">Academic Achievements</div>
-                <div class="space-y-2">
-                  <div
-                      v-for="(achievement, index) in education.achievements"
-                      :key="index"
-                      class="flex items-start space-x-3 p-2 hover:bg-blue-50 cursor-pointer"
-                  >
-                    <div class="w-4 h-4 xp-button flex items-center justify-center text-xs mt-0.5">
-                      ★
+              <!-- Scrollable Achievements & Programs Container -->
+              <div class="xp-panel xp-scroll max-h-48 overflow-y-auto p-2">
+                <!-- Achievements Group -->
+                <div class="xp-group">
+                  <div class="xp-group-title">Academic Achievements</div>
+                  <div class="space-y-2">
+                    <div v-for="(achievement, index) in education.achievements" :key="index"
+                      class="flex items-start space-x-3 p-2 hover:bg-blue-50 cursor-pointer">
+                      <div class="w-4 h-4 xp-button flex items-center justify-center text-xs mt-0.5">
+                        ★
+                      </div>
+                      <span class="font-xp text-black text-sm">{{ achievement }}</span>
                     </div>
-                    <span class="font-xp text-black text-sm">{{ achievement }}</span>
+                  </div>
+                </div>
+
+                <!-- Summer Program Group -->
+                <div class="xp-group mt-4">
+                  <div class="xp-group-title">Summer Program</div>
+                  <div class="space-y-3">
+                    <div class="flex items-start space-x-3 p-2">
+                      <div class="w-4 h-4 xp-button flex items-center justify-center text-xs mt-0.5">
+                        🇸🇬
+                      </div>
+                      <div>
+                        <p class="font-xp text-black font-bold text-sm">{{ education.summerProgram.title }}</p>
+                        <p class="font-xp text-green-600 text-xs font-bold">{{ education.summerProgram.status }}</p>
+                      </div>
+                    </div>
+                    <div class="xp-panel p-2">
+                      <p class="font-xp text-black text-xs">{{ education.summerProgram.description }}</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                      <div class="xp-panel p-2">
+                        <span class="font-xp text-xs text-gray-600 block">Institutions:</span>
+                        <p class="font-xp text-black font-bold text-xs">{{ education.summerProgram.institutions }}</p>
+                      </div>
+                      <div class="xp-panel p-2">
+                        <span class="font-xp text-xs text-gray-600 block">Focus:</span>
+                        <p class="font-xp text-black font-bold text-xs">{{ education.summerProgram.focus }}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+
 
             <!-- Relevant Courses -->
             <div>
@@ -170,11 +206,8 @@ function toggleOpen() {
                   <!-- Course List -->
                   <div class="xp-panel xp-scroll max-h-60 overflow-y-auto p-2">
                     <div class="space-y-1">
-                      <div
-                          v-for="(course, index) in education.relevantCourses"
-                          :key="index"
-                          class="xp-button p-2 text-left hover:bg-blue-100 cursor-pointer transition-colors duration-100"
-                      >
+                      <div v-for="(course, index) in education.relevantCourses" :key="index"
+                        class="xp-button p-2 text-left hover:bg-blue-100 cursor-pointer transition-colors duration-100">
                         <div class="flex items-center space-x-2">
                           <div class="w-2 h-2 bg-green-500 rounded-full"></div>
                           <span class="font-xp text-sm">{{ course }}</span>
@@ -217,22 +250,22 @@ function toggleOpen() {
           </div>
 
           <!-- Statistics Panel -->
-<!--          <div class="mt-6 pt-4 border-t-2 border-gray-400">-->
-<!--            <div class="grid md:grid-cols-3 gap-4">-->
-<!--              <div class="xp-panel p-4 text-center">-->
-<!--                <div class="font-xp text-2xl font-bold text-blue-600 mb-1">6</div>-->
-<!--                <div class="font-xp text-xs text-gray-600">Semesters Completed</div>-->
-<!--              </div>-->
-<!--              <div class="xp-panel p-4 text-center">-->
-<!--                <div class="font-xp text-2xl font-bold text-green-600 mb-1">117+</div>-->
-<!--                <div class="font-xp text-xs text-gray-600">Credit Hours</div>-->
-<!--              </div>-->
-<!--              <div class="xp-panel p-4 text-center">-->
-<!--                <div class="font-xp text-2xl font-bold text-purple-600 mb-1">2026</div>-->
-<!--                <div class="font-xp text-xs text-gray-600">Expected Graduation</div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
+          <!--          <div class="mt-6 pt-4 border-t-2 border-gray-400">-->
+          <!--            <div class="grid md:grid-cols-3 gap-4">-->
+          <!--              <div class="xp-panel p-4 text-center">-->
+          <!--                <div class="font-xp text-2xl font-bold text-blue-600 mb-1">6</div>-->
+          <!--                <div class="font-xp text-xs text-gray-600">Semesters Completed</div>-->
+          <!--              </div>-->
+          <!--              <div class="xp-panel p-4 text-center">-->
+          <!--                <div class="font-xp text-2xl font-bold text-green-600 mb-1">117+</div>-->
+          <!--                <div class="font-xp text-xs text-gray-600">Credit Hours</div>-->
+          <!--              </div>-->
+          <!--              <div class="xp-panel p-4 text-center">-->
+          <!--                <div class="font-xp text-2xl font-bold text-purple-600 mb-1">2026</div>-->
+          <!--                <div class="font-xp text-xs text-gray-600">Expected Graduation</div>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--          </div>-->
         </div>
       </div>
 
@@ -259,19 +292,18 @@ function toggleOpen() {
   0% {
     background-position: 0% 0%;
   }
+
   100% {
     background-position: 100% 0%;
   }
 }
 
 .animate-xp-loading {
-  background-image: repeating-linear-gradient(
-      45deg,
+  background-image: repeating-linear-gradient(45deg,
       #4a9eff 0px,
       #4a9eff 10px,
       #0054e3 10px,
-      #0054e3 20px
-  );
+      #0054e3 20px);
   background-size: 40px 100%;
   animation: xp-loading 3s linear infinite;
 }

@@ -19,8 +19,26 @@ function toggleOpen() {
 
 const props = withDefaults(defineProps<Props>(), {
   experiences: () => [
+{
+      id: '1', // Or '2' if you want to keep MSI as '1'
+      role: 'Software Engineer Intern - Flight',
+      company: 'Traveloka',
+      achievements: [
+        'Engineered a secure Credential Management System using AES-GCM encryption, automated rotation snapshots, and granular audit logging with MongoDB.',
+        'Developed scalable Account Authentication automation services with configurable scrapers and failover backup mechanisms to ensure high availability.',
+        'Enhanced CI/CD pipelines by integrating Karate for automated API testing, implementing auto-rollback logic to prevent production defects.',
+        'Built real-time data synchronization services and optimized structured logging for BigQuery analytics dashboards.',
+      ],
+      technologies: ['Java', 'Spring Boot', 'MongoDB', 'Google Cloud Platform', 'BigQuery', 'Karate', 'Docker', 'Kubernetes'],
+      type: 'Internship',
+      location: 'WFO',
+      icon: '✈️', 
+      dateCreated: '2025-08-18', 
+      dateModified: '2026-02-14',
+      duration: '6 months',
+    },
     {
-      id: '1',
+      id: '2',
       role: 'Full Stack Developer',
       company: 'PT Magna Solusi Indonesia',
       achievements: [
@@ -38,7 +56,7 @@ const props = withDefaults(defineProps<Props>(), {
       duration: '6 months',
     },
     {
-      id: '2',
+      id: '3',
       role: 'Vice Person in Charge of UI/UX',
       company: 'COMPFEST',
       achievements: [

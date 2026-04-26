@@ -15,7 +15,7 @@ I am writing to express my strong interest in the PhD position in Edge AI system
 
 I have substantial exposure to systems-level work through both academic and industry experiences:
 
-- **Hardware Systems:** Currently completing my undergraduate thesis on implementing the Morris Mano computer architecture with enhancements on Xilinx Spartan-3 FPGA using VHDL, demonstrating hands-on experience in hardware-software co-design and digital logic optimization.
+- **Hardware Systems & Architecture Research:** Currently completing my undergraduate thesis under the supervision of **Prof. Petrus Mursanto** (Full Professor and former Dean of Faculty of Computer Science, UI) on implementing the Morris Mano computer architecture with enhanced jump branching capabilities on Xilinx Spartan-3 FPGA using VHDL. This work involved extending the baseline architecture's datapath to support complex control flow operations, demonstrating hands-on experience in hardware-software co-design and digital logic optimization. My research has been informed by publications from IEEE and ACM conferences on computer architecture and FPGA-based system design.
 
 - **Production Systems at Scale:** As a Software Engineer Intern at Traveloka (Aug 2025-Present), I have engineered production-grade distributed systems including:
   - Credential management systems with AES-GCM encryption and automated rotation for high-throughput operations

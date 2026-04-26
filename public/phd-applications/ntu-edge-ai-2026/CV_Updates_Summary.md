@@ -17,12 +17,11 @@
 - **Thesis Advisor Added:** Prof. Petrus Mursanto (Full Professor, former Dean of Faculty of Computer Science)
 - **Specific Enhancement Details:** "Enhanced Jump Branching Capabilities"
 - **Technical Implementation:** 
-  - Extended baseline Morris Mano architecture by implementing jump branching capabilities in datapath
-  - Enabled more complex control flow operations
+  - Extended baseline architecture by implementing jump branching in datapath for complex control flow operations
   - Designed and optimized digital logic circuits for hardware-level branching mechanisms
-- **Research Foundation:** "Research informed by IEEE and ACM conference publications on computer architecture and FPGA-based system design"
+- **Research Foundation:** "Mainly based on M. Morris Mano's Computer System Architecture"
 
-**Impact:** This directly addresses the professors' request to highlight systems research exposure and shows engagement with the research literature.
+**Impact:** This directly addresses the professors' request to highlight systems research exposure and shows foundation in canonical architecture text.
 
 ---
 
@@ -51,10 +50,10 @@
 **Added to Email:**
 - Explicit mention of Prof. Petrus Mursanto as thesis advisor with his credentials
 - Detailed description of jump branching enhancement in datapath
-- Reference to IEEE and ACM conference papers used as research foundation
+- Reference to M. Morris Mano's Computer System Architecture as research foundation
 - Clearer connection between hardware work and edge AI systems research
 
-**Impact:** Directly addresses the email requirement to "highlight your past exposures to system research" and demonstrates familiarity with systems conference literature.
+**Impact:** Directly addresses the email requirement to "highlight your past exposures to system research" and demonstrates foundation in canonical architecture text.
 
 ---
 
@@ -64,7 +63,7 @@
 
 1. ✅ **Systems Research Exposure:** Now explicitly mentions:
    - Working with a distinguished professor on hardware systems
-   - Reading IEEE/ACM conference papers
+   - Foundation in canonical architecture text (M. Morris Mano)
    - Implementing specific architectural enhancements (jump branching)
    
 2. ✅ **Technical Depth:** Provides concrete details about:
@@ -73,7 +72,7 @@
    - How it was done (digital logic optimization)
 
 3. ✅ **Research Mindset:** Shows:
-   - Literature review (IEEE/ACM papers)
+   - Foundation in canonical architecture text
    - Faculty mentorship (Prof. Mursanto)
    - Systems thinking (not just software, but hardware co-design)
 
@@ -103,13 +102,6 @@
    
    *Mitigation:* The enhanced thesis description and advisor mention help, but actual publication attempts would be stronger.
 
-3. **Systems Conference Familiarity:** While we mention "IEEE and ACM," we don't name specific conferences like:
-   - FPGA, FCCM (for FPGA work)
-   - DAC, ICCAD (for hardware design)
-   - ISCA, MICRO (for architecture)
-   
-   *Action if true:* If you've actually read papers from these venues, mention them specifically in the email.
-
 ---
 
 ## Recommended Next Steps
@@ -118,27 +110,24 @@
 
 1. **If you have performance data from your FPGA work:**
    - Add a bullet: "Achieved [X] MHz operating frequency with [Y]% resource utilization on Spartan-3AN XC3S700AN FPGA"
-   
-2. **If you've read specific papers:**
-   - Update email to say: "I've been following work from FPGA and DAC on [specific topic]" instead of generic "IEEE and ACM"
 
-3. **If you presented this work anywhere:**
+2. **If you presented this work anywhere:**
    - Add: "Presented preliminary results at [UI undergraduate research symposium/faculty seminar]"
 
 ### What You Can Say Honestly:
 
 Given what we've added, you can now confidently say in the email:
 
-> "My thesis work under Prof. Petrus Mursanto involves implementing architectural enhancements to the Morris Mano processor, specifically extending the datapath with jump branching capabilities. This research has been informed by publications from IEEE and ACM conferences on computer architecture and FPGA-based system design, exposing me to the systems research methodology and design space exploration approaches used in the field."
+> "My thesis work under Prof. Petrus Mursanto involves implementing architectural enhancements to the Morris Mano processor, specifically extending the datapath with jump branching capabilities. This work is mainly based on M. Morris Mano's Computer System Architecture, which I have studied extensively to understand fundamental architectural principles and apply them to practical FPGA implementation."
 
-This is honest, specific, and demonstrates systems research exposure without overstating your publication record.
+This is honest, specific, and demonstrates solid foundation in systems architecture without overstating your research experience.
 
 ---
 
 ## Files Updated:
 
-1. ✅ `CV_Research_Musthofa_Joko_Anggoro.tex` - Source file updated
-2. ✅ `CV_Research_Musthofa_Joko_Anggoro.pdf` - Rebuilt with changes (124KB, 2 pages)
+1. ✅ `CV_Research_Musthofa_Joko_Anggoro.tex` - Source file updated and condensed to one page
+2. ✅ `CV_Research_Musthofa_Joko_Anggoro.pdf` - Rebuilt with changes (one page format)
 3. ✅ `Email_Draft_NTU_PhD.md` - Systems research section enhanced
 
 ---
@@ -151,12 +140,14 @@ This is honest, specific, and demonstrates systems research exposure without ove
 - **Research:** No clear research exposure
 - **Projects:** ML-focused, business analytics feel
 - **Systems Knowledge:** Implied but not explicit
+- **Format:** Longer, 2-page CV
 
 ### After:
 - **Thesis:** Specific architectural enhancement (jump branching in datapath)
 - **Advisor:** Distinguished professor with credentials
-- **Research:** IEEE/ACM literature review, systems methodology
+- **Research:** Foundation in canonical architecture text (M. Morris Mano)
 - **Projects:** Systems-oriented, efficiency and performance focus
 - **Systems Knowledge:** Explicit and detailed (hardware, architecture, co-design)
+- **Format:** Concise, one-page CV optimized for readability
 
 This creates a much stronger research-oriented systems profile that aligns with what NTU IoT and NTU CPS are looking for.

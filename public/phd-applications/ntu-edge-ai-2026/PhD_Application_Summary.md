@@ -4,7 +4,7 @@
 
 ### 1. **CV_Research_Musthofa_Joko_Anggoro.pdf** (Research-Focused CV)
    - **Location:** `/public/CV_Research_Musthofa_Joko_Anggoro.pdf`
-   - **Format:** Professional LaTeX-generated PDF (2 pages, 129 KB)
+   - **Format:** Professional LaTeX-generated PDF (1 page, optimized)
    - **Purpose:** Tailored CV emphasizing systems research for PhD application
 
 ### 2. **Email_Draft_NTU_PhD.md** (Application Email)

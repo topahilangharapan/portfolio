@@ -28,14 +28,87 @@ const typingComplete = ref(false)
 const hero = heroData
 const contactStatuses = computed(() => hero.contactStatus)
 
-const downloadCV = () => {
+const CV_BASE_FILE = 'CV_Musthofa Joko Anggoro'
+const CV_EXTENSION = '.pdf'
+const DEFAULT_MAX_CV_VERSION = 99
+const CV_VERSION_SEARCH_LIMIT = Number(import.meta.env.VITE_MAX_CV_VERSION ?? DEFAULT_MAX_CV_VERSION)
+const cvVersionExistsCache = new Map<number, boolean>()
+let latestCVPathCache: string | null = null
+
+const checkFileExists = async (path: string) => {
+  try {
+    const response = await fetch(path, { method: 'HEAD', cache: 'no-cache' })
+    return response.ok
+  } catch {
+    return false
+  }
+}
+
+const getLatestCVPath = async () => {
+  if (latestCVPathCache) {
+    return latestCVPathCache
+  }
+
+  const checkVersionExists = async (version: number) => {
+    if (cvVersionExistsCache.has(version)) {
+      return cvVersionExistsCache.get(version) ?? false
+    }
+
+    const exists = await checkFileExists(`/${CV_BASE_FILE}-ver${version}${CV_EXTENSION}`)
+    cvVersionExistsCache.set(version, exists)
+    return exists
+  }
+
+  const hasVersionOne = await checkVersionExists(1)
+  if (!hasVersionOne) {
+    latestCVPathCache = `/${CV_BASE_FILE}${CV_EXTENSION}`
+    return latestCVPathCache
+  }
+
+  let low = 1
+  let high = 1
+
+  while (high < CV_VERSION_SEARCH_LIMIT && (await checkVersionExists(high))) {
+    low = high
+    high = Math.min(high * 2, CV_VERSION_SEARCH_LIMIT)
+  }
+
+  if (high === CV_VERSION_SEARCH_LIMIT && (await checkVersionExists(high))) {
+    latestCVPathCache = `/${CV_BASE_FILE}-ver${high}${CV_EXTENSION}`
+    return latestCVPathCache
+  }
+
+  let left = low
+  let right = high - 1
+  let latestVersion = low
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2)
+    const exists = await checkVersionExists(mid)
+
+    if (exists) {
+      latestVersion = mid
+      left = mid + 1
+    } else {
+      right = mid - 1
+    }
+  }
+
+  latestCVPathCache = `/${CV_BASE_FILE}-ver${latestVersion}${CV_EXTENSION}`
+  return latestCVPathCache
+}
+
+const downloadCV = async () => {
+  const latestCVPath = await getLatestCVPath()
+  const fileName = latestCVPath.split('/').pop() ?? `${CV_BASE_FILE}${CV_EXTENSION}`
   const confirmDownload = confirm(
-      'Do you want to download the CV file?\n\nThis will download Musthofa Joko Anggoro_CV.pdf to your computer.'
+      `Do you want to download the CV file?\n\nThis will download ${fileName} to your computer.`
   )
+
   if (confirmDownload) {
     const link = document.createElement('a')
-    link.href = '/CV_Musthofa Joko Anggoro.pdf'
-    link.download = 'CV_Musthofa Joko Anggoro.pdf'
+    link.href = latestCVPath
+    link.download = fileName
     link.click()
   }
 }

@@ -199,3 +199,40 @@ contact info, prefer these sources in this order:
 8. `docs/profile/contact.md`
 
 If markdown and JSON disagree, **JSON wins**; re-run `npm run sync:profile`.
+
+---
+
+## 7. CV authoring style (must follow for updated CV requests)
+
+When the user asks to generate or refresh a CV, mirror the current template in
+`public/CV_Musthofa Joko Anggoro.pdf`:
+
+- Keep it to **one page** with a compact, ATS-friendly layout.
+- Header format: `Full Name | Phone | LinkedIn | Portfolio | Email | Location`.
+- Section order should stay:
+  1. **Work Experience**
+  2. **Education**
+  3. **Skills**
+- Work experience entry format:
+  - `Company`
+  - `Role`
+  - `Date range`
+  - **2–3 bullets** focused on outcomes and implementation details.
+- Bullet style:
+  - Start with a strong action verb (Engineered, Enhanced, Implemented, Built, Developed, Led).
+  - Mention concrete technical stack/tools.
+  - End with impact (performance, reliability, security, delivery speed, usability).
+  - Keep each bullet concise (roughly one line in final layout; around 18–32 words).
+- Education section style:
+  - Institution + program + year range in compact format.
+  - Include GPA when available.
+  - For programs/organizations, keep descriptions very short (1–2 lines) and impact-oriented.
+- Skills section style:
+  - Group by category, currently:
+    - Languages & Frameworks
+    - Databases
+    - Cloud & DevOps
+    - Testing & Tools
+  - Use concise comma-separated lists; avoid long explanations.
+- Do not invent achievements, metrics, dates, or technologies not present in
+  `src/data/portfolio/*.json` (or explicitly provided by the user).

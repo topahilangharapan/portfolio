@@ -30,9 +30,9 @@ const contactStatuses = computed(() => hero.contactStatus)
 
 const CV_BASE_FILE = 'CV_Musthofa Joko Anggoro'
 const CV_EXTENSION = '.pdf'
-const MAX_CV_VERSION = Number(import.meta.env.VITE_MAX_CV_VERSION ?? '99')
-const versionExistsCache = new Map<number, boolean>()
-const latestCVPathCache = ref<string | null>(null)
+const CV_VERSION_SEARCH_LIMIT = Number(import.meta.env.VITE_MAX_CV_VERSION ?? '99')
+const cvVersionExistsCache = new Map<number, boolean>()
+let latestCVPathCache: string | null = null
 
 const checkFileExists = async (path: string) => {
   try {
@@ -44,37 +44,37 @@ const checkFileExists = async (path: string) => {
 }
 
 const getLatestCVPath = async () => {
-  if (latestCVPathCache.value) {
-    return latestCVPathCache.value
+  if (latestCVPathCache) {
+    return latestCVPathCache
   }
 
   const checkVersionExists = async (version: number) => {
-    if (versionExistsCache.has(version)) {
-      return versionExistsCache.get(version) ?? false
+    if (cvVersionExistsCache.has(version)) {
+      return cvVersionExistsCache.get(version) ?? false
     }
 
     const exists = await checkFileExists(`/${CV_BASE_FILE}-ver${version}${CV_EXTENSION}`)
-    versionExistsCache.set(version, exists)
+    cvVersionExistsCache.set(version, exists)
     return exists
   }
 
   const hasVersionOne = await checkVersionExists(1)
   if (!hasVersionOne) {
-    latestCVPathCache.value = `/${CV_BASE_FILE}${CV_EXTENSION}`
-    return latestCVPathCache.value
+    latestCVPathCache = `/${CV_BASE_FILE}${CV_EXTENSION}`
+    return latestCVPathCache
   }
 
   let low = 1
   let high = 1
 
-  while (high < MAX_CV_VERSION && (await checkVersionExists(high))) {
+  while (high < CV_VERSION_SEARCH_LIMIT && (await checkVersionExists(high))) {
     low = high
-    high = Math.min(high * 2, MAX_CV_VERSION)
+    high = Math.min(high * 2, CV_VERSION_SEARCH_LIMIT)
   }
 
-  if (high === MAX_CV_VERSION && (await checkVersionExists(high))) {
-    latestCVPathCache.value = `/${CV_BASE_FILE}-ver${high}${CV_EXTENSION}`
-    return latestCVPathCache.value
+  if (high === CV_VERSION_SEARCH_LIMIT && (await checkVersionExists(high))) {
+    latestCVPathCache = `/${CV_BASE_FILE}-ver${high}${CV_EXTENSION}`
+    return latestCVPathCache
   }
 
   let left = low
@@ -93,8 +93,8 @@ const getLatestCVPath = async () => {
     }
   }
 
-  latestCVPathCache.value = `/${CV_BASE_FILE}-ver${latestVersion}${CV_EXTENSION}`
-  return latestCVPathCache.value
+  latestCVPathCache = `/${CV_BASE_FILE}-ver${latestVersion}${CV_EXTENSION}`
+  return latestCVPathCache
 }
 
 const downloadCV = async () => {

@@ -15,10 +15,10 @@ This repo is **two things at once**:
 1. The Vue 3 + TypeScript + Vite source code of Musthofa Joko Anggoro's
    personal portfolio website (Windows‑XP themed).
 2. A **career / skill / portfolio data center** for the owner. The canonical,
-   structured profile data lives in [`docs/profile/`](docs/profile/) and is
-   the source of truth for any question about him.
+   structured profile data lives in `src/data/portfolio/*.json`. Markdown in
+   [`docs/profile/`](docs/profile/) is generated from that JSON for AI readability.
 
-Always read `docs/profile/` before answering questions about the owner's
+Read `docs/profile/` before answering questions about the owner's
 skills, experience, projects, education, or contact info.
 
 ## Stack
@@ -35,6 +35,7 @@ skills, experience, projects, education, or contact info.
 
 ```bash
 npm install        # install deps
+npm run sync:profile # regenerate docs/profile markdown from canonical JSON
 npm run dev        # dev server on http://localhost:5173
 npm run build      # type-check + production build  ← correctness gate
 npm run preview    # preview the prod build
@@ -51,6 +52,7 @@ the user asks.
 .github/copilot-instructions.md  ← detailed instructions (read this too)
 AGENTS.md                        ← this file
 docs/profile/                    ← career data center (markdown, ground truth)
+src/data/portfolio/             ← canonical profile JSON (ground truth)
 src/
   App.vue, main.ts, style.css
   router/, views/, components/, interfaces/, services/, files/
@@ -67,8 +69,8 @@ index.html, vite.config.ts, tsconfig*.json, eslint.config.js, .prettierrc
   `xp-panel`, `xp-button`, `xp-status`, `font-xp`, `font-xp-title`, …) plus
   Tailwind utilities. Don't invent a parallel design system.
 - 2-space indent, semicolons, single quotes (see `.prettierrc`).
-- When you change hard-coded portfolio data inside a component, update the
-  matching file in `docs/profile/` in the **same change**, and vice versa.
+- When you change profile data, update `src/data/portfolio/*.json`, then run
+  `npm run sync:profile` and commit regenerated markdown.
 
 ## Do / Don't
 
@@ -89,12 +91,13 @@ index.html, vite.config.ts, tsconfig*.json, eslint.config.js, .prettierrc
 
 Read these in order:
 
-1. [`docs/profile/README.md`](docs/profile/README.md)
-2. [`docs/profile/about.md`](docs/profile/about.md)
-3. [`docs/profile/skills.md`](docs/profile/skills.md)
-4. [`docs/profile/education.md`](docs/profile/education.md)
-5. [`docs/profile/experience.md`](docs/profile/experience.md)
-6. [`docs/profile/projects.md`](docs/profile/projects.md)
-7. [`docs/profile/contact.md`](docs/profile/contact.md)
+1. `src/data/portfolio/*.json` (canonical)
+2. [`docs/profile/README.md`](docs/profile/README.md)
+3. [`docs/profile/about.md`](docs/profile/about.md)
+4. [`docs/profile/skills.md`](docs/profile/skills.md)
+5. [`docs/profile/education.md`](docs/profile/education.md)
+6. [`docs/profile/experience.md`](docs/profile/experience.md)
+7. [`docs/profile/projects.md`](docs/profile/projects.md)
+8. [`docs/profile/contact.md`](docs/profile/contact.md)
 
-If markdown and a `.vue` component disagree, the markdown wins.
+If markdown and JSON disagree, JSON wins; re-run `npm run sync:profile`.

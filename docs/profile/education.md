@@ -44,7 +44,7 @@
 
 | Field | Value |
 |------|-------|
-| Program | INSIPIRASI–NTU Summer Program 2025 |
+| Program | INSPIRASI–NTU Summer Program 2025 |
 | Status | **LPDP Scholarship Awardee** |
 | Institutions | NTU & ITS |
 | Focus | Sustainable Development & Technology |

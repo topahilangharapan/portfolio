@@ -8,14 +8,13 @@
 
 ---
 
-## 1. Software Engineer Intern — Flight · Traveloka
+## 1. Software Engineer Intern — Flight (Reschedule Team) · Traveloka
 
 | Field      | Value                                                |
 |------------|------------------------------------------------------|
 | Type       | Internship                                           |
 | Location   | WFO (Work From Office)                               |
 | Duration   | 2025-08-18 – Present (Ongoing)                       |
-| Team       | Reschedule Team                                      |
 | Icon       | ✈️                                                    |
 
 ### Achievements

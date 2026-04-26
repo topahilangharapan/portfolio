@@ -30,13 +30,14 @@ const contactStatuses = computed(() => hero.contactStatus)
 
 const CV_BASE_FILE = 'CV_Musthofa Joko Anggoro'
 const CV_EXTENSION = '.pdf'
-const CV_VERSION_SEARCH_LIMIT = Number(import.meta.env.VITE_MAX_CV_VERSION ?? '99')
+const DEFAULT_MAX_CV_VERSION = 99
+const CV_VERSION_SEARCH_LIMIT = Number(import.meta.env.VITE_MAX_CV_VERSION ?? DEFAULT_MAX_CV_VERSION)
 const cvVersionExistsCache = new Map<number, boolean>()
 let latestCVPathCache: string | null = null
 
 const checkFileExists = async (path: string) => {
   try {
-    const response = await fetch(path, { method: 'HEAD', cache: 'default' })
+    const response = await fetch(path, { method: 'HEAD', cache: 'no-cache' })
     return response.ok
   } catch {
     return false

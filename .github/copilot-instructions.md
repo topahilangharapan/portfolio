@@ -202,13 +202,102 @@ If markdown and JSON disagree, **JSON wins**; re-run `npm run sync:profile`.
 
 ---
 
-## 7. CV authoring style (must follow for updated CV requests)
+## 7. LaTeX CV creation workflow
 
-When the user asks to generate or refresh a CV, mirror the current template in
-`public/CV_Musthofa Joko Anggoro.pdf`:
+When asked to create or update a LaTeX CV in this repository:
+
+### Quick Reference
+- **Comprehensive Guide**: Read `public/CV_GUIDE.md` for complete documentation
+- **Template**: Start with `public/CV_TEMPLATE.tex` (do not create from scratch)
+- **Standard Header**: Always use the format from NTU research CV (email, LinkedIn, GitHub, portfolio - NO phone number)
+
+### Installation
+```bash
+# Ubuntu/Debian
+sudo apt-get update
+sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+```
+
+### Compilation Process
+```bash
+# Navigate to CV directory
+cd public/{category}/{company-year}/
+
+# Compile twice (required for cross-references)
+pdflatex -interaction=nonstopmode CV_Musthofa_Joko_Anggoro_{Company}.tex
+pdflatex -interaction=nonstopmode CV_Musthofa_Joko_Anggoro_{Company}.tex
+
+# Verify page count (should be 1 page for most positions)
+# Look for: "Output written on *.pdf (1 page, XXXXX bytes)"
+
+# Clean up auxiliary files
+rm -f *.aux *.log *.out
+```
+
+### Standard Header Format (use this exactly)
+```latex
+\begin{center}
+    {\LARGE \textbf{MUSTHOFA JOKO ANGGORO}} \\[2pt]
+    \contactline{
+        \faEnvelope\ \href{mailto:musthofaja.topa@gmail.com}{musthofaja.topa@gmail.com} \ $|$ \ 
+        \faLinkedin\ \href{https://www.linkedin.com/in/musthofa-joko-anggoro/}{linkedin.com/in/musthofa-joko-anggoro} \ $|$ \
+        \faGithub\ \href{https://github.com/topahilangharapan}{github.com/topahilangharapan} \ $|$ \
+        \faGlobe\ \href{https://portfolio-topahilangharapan-personal.vercel.app/}{portfolio-topahilangharapan-personal.vercel.app}
+    }
+\end{center}
+```
+
+### Section Order by Role Type
+
+**Industry/Internship:**
+1. Education
+2. Work Experience  
+3. Projects (if relevant)
+4. Technical Skills
+5. Leadership & Activities
+
+**Research/PhD:**
+1. Research Interests (statement)
+2. Education
+3. Experience
+4. Skills
+5. Research & Technical Projects
+6. Publications (if any)
+
+### Bullet Point Style (Action + Tech + Impact)
+✓ **Good**: "Engineered secure Credential Management System with AES-GCM encryption and MongoDB, reducing security incidents by 90%"  
+✗ **Bad**: "Worked on backend systems"
+
+### Customization Guidelines
+- **Manufacturing/Enterprise**: Emphasize Oracle Database, enterprise systems, automation, microservices
+- **Research/PhD**: Emphasize computer architecture, systems programming, FPGA, distributed systems
+- **Software/Startups**: Balance full-stack, cloud, DevOps, modern frameworks
+
+### Data Source Priority
+1. `src/data/portfolio/*.json` — canonical biographical data
+2. `docs/profile/*.md` — AI-readable summaries
+3. Existing CVs in `public/phd-applications/` or `public/internship-applications/`
+
+### Page Length Targets
+- **1 page**: Most internships and entry-level positions
+- **2 pages**: Senior positions, research positions, or when explicitly requested
+
+### Post-Compilation Checklist
+- [ ] PDF compiles without errors
+- [ ] Page count matches target (usually 1 page)
+- [ ] All links are clickable (email, LinkedIn, GitHub, portfolio)
+- [ ] No biographical facts invented (all from profile data)
+- [ ] Auxiliary files cleaned up (*.aux, *.log, *.out)
+- [ ] Both .tex and .pdf committed to git
+
+---
+
+## 8. CV authoring style (legacy - for non-LaTeX CVs)
+
+When the user asks to generate or refresh a non-LaTeX CV:
 
 - Keep it to **one page** with a compact, ATS-friendly layout.
-- Header format: `Full Name | Phone | LinkedIn | Portfolio | Email | Location`.
+- Header format: `Full Name | Email | LinkedIn | GitHub | Portfolio` (NO phone number for privacy)
 - Section order should stay:
   1. **Work Experience**
   2. **Education**

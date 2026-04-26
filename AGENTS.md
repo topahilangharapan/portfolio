@@ -102,13 +102,32 @@ Read these in order:
 
 If markdown and JSON disagree, JSON wins; re-run `npm run sync:profile`.
 
-## CV writing style for future updates
+## LaTeX CV creation (quick reference)
 
-When generating an updated CV, follow the existing template in
+For creating or updating LaTeX CVs:
+
+1. **Read full guide**: `public/CV_GUIDE.md` (comprehensive documentation)
+2. **Use template**: Start with `public/CV_TEMPLATE.tex` (never from scratch)
+3. **Install LaTeX**: `sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra`
+4. **Standard header**: Email | LinkedIn | GitHub | Portfolio (NO phone number)
+5. **Compile**: Run `pdflatex -interaction=nonstopmode file.tex` twice
+6. **Target**: 1 page for most positions, 2 pages for research/senior only
+7. **Data source**: `src/data/portfolio/*.json` and `docs/profile/*.md`
+8. **Clean up**: `rm -f *.aux *.log *.out` before committing
+
+Section order varies by role:
+- **Industry**: Education → Work Experience → Projects → Skills → Leadership
+- **Research**: Research Interests → Education → Experience → Skills → Projects
+
+Bullet format: `Action verb + Technology + Impact with metrics`
+
+## CV writing style for non-LaTeX CVs
+
+When generating an updated non-LaTeX CV, follow the existing template in
 `public/CV_Musthofa Joko Anggoro.pdf`:
 
 - Keep it one page and compact.
-- Header: `Name | Phone | LinkedIn | Portfolio | Email | Location`.
+- Header: `Name | Email | LinkedIn | GitHub | Portfolio` (NO phone number for privacy).
 - Section order: **Work Experience → Education → Skills**.
 - Experience entries: company, role, date range, then 2–3 impact-oriented bullets.
 - Bullet style: action verb + tech stack + outcome; keep each bullet short

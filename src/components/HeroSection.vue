@@ -28,14 +28,49 @@ const typingComplete = ref(false)
 const hero = heroData
 const contactStatuses = computed(() => hero.contactStatus)
 
-const downloadCV = () => {
+const CV_BASE_FILE = 'CV_Musthofa Joko Anggoro'
+const CV_EXTENSION = '.pdf'
+const MAX_CV_VERSION = 20
+
+const checkFileExists = async (path: string) => {
+  try {
+    const response = await fetch(path, { method: 'HEAD', cache: 'no-store' })
+    return response.ok
+  } catch {
+    return false
+  }
+}
+
+const getLatestCVPath = async () => {
+  let latestVersion = 0
+
+  for (let version = 1; version <= MAX_CV_VERSION; version++) {
+    const versionedPath = `/${CV_BASE_FILE}-ver${version}${CV_EXTENSION}`
+    const exists = await checkFileExists(versionedPath)
+
+    if (exists) {
+      latestVersion = version
+    }
+  }
+
+  if (latestVersion > 0) {
+    return `/${CV_BASE_FILE}-ver${latestVersion}${CV_EXTENSION}`
+  }
+
+  return `/${CV_BASE_FILE}${CV_EXTENSION}`
+}
+
+const downloadCV = async () => {
+  const latestCVPath = await getLatestCVPath()
+  const fileName = latestCVPath.split('/').pop() ?? `${CV_BASE_FILE}${CV_EXTENSION}`
   const confirmDownload = confirm(
-      'Do you want to download the CV file?\n\nThis will download Musthofa Joko Anggoro_CV.pdf to your computer.'
+      `Do you want to download the CV file?\n\nThis will download ${fileName} to your computer.`
   )
+
   if (confirmDownload) {
     const link = document.createElement('a')
-    link.href = '/CV_Musthofa Joko Anggoro.pdf'
-    link.download = 'CV_Musthofa Joko Anggoro.pdf'
+    link.href = latestCVPath
+    link.download = fileName
     link.click()
   }
 }

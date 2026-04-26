@@ -1,0 +1,132 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{mediumgray}{RGB}{80,80,80}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    pdftitle={CV - Musthofa Joko Anggoro},
+    pdfauthor={Musthofa Joko Anggoro}
+}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{darkblue}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{6pt}{2pt}
+
+% Remove page numbering
+\pagestyle{empty}
+
+% Custom commands
+\newcommand{\contactline}[1]{\small #1}
+\newcommand{\experienceheader}[4]{
+    \textbf{#1} \hfill #2 \\
+    \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\LARGE \textbf{MUSTHOFA JOKO ANGGORO}} \\[4pt]
+    \contactline{
+        \faEnvelope\ \href{mailto:musthofaja.topa@gmail.com}{musthofaja.topa@gmail.com} \ $|$ \ 
+        \faLinkedin\ \href{https://www.linkedin.com/in/musthofa-joko-anggoro/}{linkedin.com/in/musthofa-joko-anggoro} \ $|$ \
+        \faGithub\ \href{https://github.com/topahilangharapan}{github.com/topahilangharapan} \ $|$ \
+        \faGlobe\ \href{https://topahilangharapan.github.io/portfolio/}{topahilangharapan.github.io/portfolio}
+    }
+\end{center}
+
+\vspace{-8pt}
+
+% Research Interests
+\section*{RESEARCH INTERESTS}
+Edge AI systems, resource-aware computing in edge-fog-cloud continuum, sustainable computing, energy-efficient systems, distributed systems architectures, hardware-software co-design
+
+% Education
+\section*{EDUCATION}
+
+\experienceheader{University of Indonesia (UI)}{Jakarta, Indonesia}{Bachelor of Computer Science, Information Systems}{Expected Graduation: Aug 2026}
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+    \item \textbf{GPA: 3.84/4.00} (8th Semester, Dean's List)
+    \item \textbf{Thesis:} Implementation of Morris Mano Computer Architecture with Enhancements on Xilinx Spartan-3 FPGA (X3700AN) using VHDL — demonstrating hardware design, digital logic optimization, and system-level architecture implementation
+    \item \textbf{Relevant Coursework:} Computer Architecture, Operating Systems, Data Structures \& Algorithms, Introduction to AI \& Data Science, Statistics \& Probability, Data Communication Networks, Database Systems
+\end{itemize}
+
+\vspace{4pt}
+
+\experienceheader{Nanyang Technological University (NTU) \& ITS}{Singapore \& Surabaya}{INSPIRASI–NTU Summer Program 2025 (LPDP Scholarship Awardee)}{Jan 2025 - Feb 2025}
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+    \item Conducted sustainability-focused research on smart port automation and green technology adoption in distributed maritime systems, analyzing IoT sensor networks, automation architectures, and energy-efficient deployments
+    \item Produced comprehensive technical report proposing tiered port automation framework emphasizing renewable energy utilization and carbon emission reduction — directly aligned with sustainability objectives in edge computing systems
+    \item Collaborated with international research teams on applying systems thinking to environmental challenges
+\end{itemize}
+
+% Research & Systems Experience
+\section*{SYSTEMS \& RESEARCH EXPERIENCE}
+
+\experienceheader{Software Engineer Intern}{Traveloka (Travel Technology Company)}{Systems Engineering \& Backend Development}{Aug 2025 - Present}
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+    \item Engineered production-grade distributed systems including credential management with AES-GCM encryption, automated rotation snapshots, and granular audit logging using MongoDB for high-throughput operations
+    \item Developed scalable automation services with configurable scrapers and failover mechanisms ensuring 99.9\% availability, processing thousands of daily transactions with auto-recovery logic
+    \item Enhanced CI/CD pipelines with automated API testing (Karate framework) and auto-rollback logic to maintain system reliability and prevent production defects in microservice architecture
+    \item Built real-time data synchronization services and optimized structured logging for BigQuery analytics, demonstrating proficiency in distributed data flow and performance optimization
+    \item \textbf{Systems Tools:} Java, Spring Boot, MongoDB, Google Cloud Platform, Docker, Kubernetes, BigQuery
+\end{itemize}
+
+\vspace{4pt}
+
+\experienceheader{Full Stack Developer}{PT Magna Solusi Indonesia}{Enterprise Systems Development}{Jan 2025 - Jun 2025}
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+    \item Developed full-stack enterprise modules with focus on database performance optimization, query efficiency, and backup strategies for high-reliability production systems
+    \item Built RESTful APIs supporting dynamic data flow in distributed web architecture with Spring Boot microservices
+    \item \textbf{Systems Tools:} Spring Boot, Angular, PostgreSQL, Apache HTTP Server, Docker, Kubernetes
+\end{itemize}
+
+\vspace{4pt}
+
+\experienceheader{Lead Engineer \& Full Stack Developer}{Event Organizer Enterprise System (Course Project)}{System Architecture \& Implementation}{Feb 2025 - May 2025}
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+    \item Led engineering team in designing and implementing enterprise-scale system with focus on clean architecture, secure authentication (JWT), and containerized deployment demonstrating leadership in systems development
+    \item Architected full-stack solution with PostgreSQL optimization, RESTful API design, and CI/CD integration
+    \item \textbf{Systems Tools:} Spring Boot, Vue.js, PostgreSQL, Docker, TypeScript
+\end{itemize}
+
+% Technical Skills
+\section*{TECHNICAL SKILLS}
+
+\textbf{Systems Programming:} Java, Python, C (VHDL for hardware), TypeScript, Go \\
+\textbf{Hardware \& Architecture:} VHDL, FPGA development (Xilinx Spartan-3), digital logic design, computer architecture implementation \\
+\textbf{Systems \& Frameworks:} Spring Boot, Django, microservices architecture, RESTful API design \\
+\textbf{Databases \& Storage:} PostgreSQL, MongoDB, manual SQL optimization, query performance tuning \\
+\textbf{DevOps \& Infrastructure:} Docker, Kubernetes, CI/CD pipelines, Google Cloud Platform \\
+\textbf{AI/ML Fundamentals:} Scikit-learn, supervised/unsupervised learning, data preprocessing, model evaluation \\
+\textbf{Operating Systems:} Linux, Unix, Windows — familiar with OS internals, process management, memory management
+
+% Additional Leadership
+\section*{LEADERSHIP \& SERVICE}
+
+\experienceheader{Vice Person in Charge of UI/UX}{COMPFEST (Annual Tech Festival, UI)}{Design System \& Cross-functional Collaboration}{Jan 2023 - Dec 2023}
+\begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+    \item Led 11-member design team in creating scalable design system and managing 5 development sprints for compfest.id website, demonstrating project management and cross-functional collaboration skills
+    \item Coordinated with software and automation engineers to ensure design-engineering alignment, bridging technical and design perspectives in system development
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Mentor, Programming Foundations 0} — University of Indonesia (2024) \\
+\textbf{Relevant Projects:} Machine learning predictive modeling (imbalanced data, Scikit-learn), database-driven web systems (Django, PostgreSQL with triggers/stored procedures), microservices architecture (Spring Boot)
+
+\end{document}

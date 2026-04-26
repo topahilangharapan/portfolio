@@ -7,29 +7,27 @@
 
 Dear Prof. Rui Tan and Prof. Arvind Easwaran,
 
-I am writing to express my strong interest in the PhD position in Edge AI Systems for Fall 2026 intake, as advertised in your recent email. I was encouraged to apply by Raditya Chema Hafizh Pradigta, one of your current PhD students, who spoke highly of the research environment and opportunities in your groups.
+I am writing to express my strong interest in the PhD position in Edge AI Systems for Fall 2026 intake. I was encouraged to apply by Raditya Chema Hafizh Pradigta, one of your current PhD students, who spoke highly of the research environment and collaborative opportunities in your groups.
 
-I believe my background in computer systems—spanning hardware-software co-design and distributed systems optimization—positions me well for contributing to systems research in the edge-fog-cloud continuum.
+## Why Edge AI Systems Research
 
-## Background in Systems Research
+What draws me to edge AI systems is a question that emerged during my undergraduate thesis: *How do we bridge the gap between theoretical computing models and the physical constraints of real hardware?* While implementing an FPGA-based architecture, I found myself constantly negotiating between what I wanted the system to do and what the hardware could actually support within power, timing, and resource constraints. This tension—between computational ideals and physical reality—is exactly what makes edge AI systems compelling.
 
-My undergraduate thesis at the University of Indonesia (GPA: 3.84/4.00, supervised by Prof. Petrus Mursanto) involved implementing an extended Morris Mano computer architecture on Xilinx Spartan-3AN FPGA using VHDL. I designed digital logic circuits for enhanced jump branching capabilities, optimized hardware resource utilization under timing constraints, and validated the implementation on physical FPGA hardware—not just simulation. This experience taught me to think deeply about hardware-level optimization and the interplay between architecture and performance.
+Edge computing represents this challenge at scale: deploying intelligent workloads where resources are scarce, energy matters, and decisions must be made locally. Unlike cloud environments where we can scale resources almost arbitrarily, edge systems force us to think fundamentally about efficiency, trade-offs, and system boundaries. The opportunity to work on AI deployment across the edge-fog-cloud continuum, particularly with access to real industrial deployments, would allow me to explore these questions rigorously.
 
-Currently, as a Software Engineer Intern at Traveloka, I work on distributed backend systems where I focus on resource optimization, fault tolerance, and cloud infrastructure (AWS, Terraform, Docker, Kubernetes). I developed a secure credential management system with automated rotation and audit logging, built scalable authentication services with failover mechanisms, and enhanced CI/CD pipelines with automated testing and rollback logic. These experiences have given me practical exposure to distributed system design, reliability engineering, and system-level thinking at scale.
+## What I Hope to Contribute and Learn
 
-During the NTU-INSPIRASI Summer Program 2025 (LPDP Scholarship awardee), I conducted research on smart port automation and IoT sensor networks, producing a technical report on tiered automation frameworks with renewable energy utilization and carbon emission reduction—directly relevant to the sustainability objectives mentioned in the position description.
+My background spans two complementary perspectives on systems: **hardware constraints** (from FPGA work) and **distributed system behavior** (from backend engineering). What I lack—and what I'm eager to develop through PhD training—is the rigorous research methodology to transform these practical insights into generalizable knowledge. I want to move from building systems that work to understanding *why* they work, identifying their fundamental limits, and discovering principled optimization techniques.
 
-## Research Motivation and Fit
+During the NTU-INSPIRASI program, I worked on smart port automation and proposed frameworks for energy-efficient IoT deployments. This experience showed me how sustainability constraints fundamentally change system design decisions—not as an afterthought, but as a first-class optimization objective. I'm particularly interested in how your groups integrate energy-awareness and sustainability into cyber-physical systems and IoT deployments, as this aligns with my belief that future computing systems must be both intelligent and responsible.
 
-I am drawn to edge AI systems because it sits at a fascinating intersection: resource-constrained computing meets intelligent workload deployment, all while balancing application performance and sustainability constraints. My thesis work gave me foundational understanding of hardware limitations and optimization, while my industry experience taught me how distributed systems behave under real-world operational constraints. The opportunity to bridge these perspectives—optimizing AI deployments across the edge-fog-cloud continuum with access to real industrial systems—is precisely the research direction I want to pursue.
+I have read several recent publications from both the NTU IoT and NTU CPS research groups [*TODO: replace with specific papers after deeper review*], and I'm inspired by the focus on systems research with tangible real-world impact. The combination of theoretical rigor and practical deployment resonates strongly with how I think about research.
 
-I have reviewed the publications of both the NTU IoT and NTU CPS research groups, and I am particularly inspired by the focus on cutting-edge systems research with real-world impact. Your work on cyber-physical systems, energy-aware computing, and IoT deployments aligns closely with my interests in systems optimization and sustainable computing.
+## Long-Term Vision
 
-## Career Aspirations
+My goal is an academic research career where I can contribute to the foundations of computer systems—not just building the next generation of systems, but understanding their underlying principles and limits. I am committed to developing the skills necessary to publish at top-tier systems venues and to mentoring future students. While my research experience is still emerging, I bring genuine intellectual curiosity, a solid technical foundation, and—most importantly—a clear sense of the research questions I want to spend years exploring.
 
-My goal is to pursue a research career in academia. I am passionate about pushing the frontiers of computer systems research—not just building systems, but understanding their fundamental limits and discovering new optimization techniques. I want to contribute to the next generation of efficient, sustainable computing systems, and I believe that rigorous PhD training under your guidance, combined with access to large-scale edge computing deployments, would provide the ideal foundation for this career path.
-
-I am fully committed to conducting high-quality systems research and publishing at top-tier venues. While I acknowledge that my systems research exposure is still at the early stage compared to candidates with prior publications, I am confident in my technical foundation, my capacity to learn quickly, and my genuine intellectual curiosity about systems problems. I am eager to develop the rigorous research skills necessary to become an independent researcher who contributes meaningfully to the systems community.
+I believe PhD training under your guidance would provide the ideal environment to develop from an engineer who builds systems into a researcher who advances our understanding of them.
 
 Please find attached my CV for your review. I would be honored to discuss how my background and aspirations align with this PhD position. I am available for an interview at your earliest convenience.
 

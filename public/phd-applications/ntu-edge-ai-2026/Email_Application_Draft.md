@@ -7,7 +7,9 @@
 
 Dear Prof. Rui Tan and Prof. Arvind Easwaran,
 
-I am writing to express my strong interest in the PhD position in Edge AI Systems for Fall 2026 intake, as advertised in your recent email. I believe my background in computer systems—spanning hardware-software co-design and distributed systems optimization—positions me well for contributing to systems research in the edge-fog-cloud continuum.
+I am writing to express my strong interest in the PhD position in Edge AI Systems for Fall 2026 intake, as advertised in your recent email. I was encouraged to apply by Raditya Chema Hafizh Pradigta, one of your current PhD students, who spoke highly of the research environment and opportunities in your groups.
+
+I believe my background in computer systems—spanning hardware-software co-design and distributed systems optimization—positions me well for contributing to systems research in the edge-fog-cloud continuum.
 
 ## Background in Systems Research
 

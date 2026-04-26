@@ -101,3 +101,21 @@ Read these in order:
 8. [`docs/profile/contact.md`](docs/profile/contact.md)
 
 If markdown and JSON disagree, JSON wins; re-run `npm run sync:profile`.
+
+## CV writing style for future updates
+
+When generating an updated CV, follow the existing template in
+`public/CV_Musthofa Joko Anggoro.pdf`:
+
+- Keep it one page and compact.
+- Header: `Name | Phone | LinkedIn | Portfolio | Email | Location`.
+- Section order: **Work Experience → Education → Skills**.
+- Experience entries: company, role, date range, then 2–3 impact-oriented bullets.
+- Bullet style: action verb + tech stack + outcome; keep each bullet short
+  (roughly one line, around 18–32 words).
+- Education: concise institution/program/date format; include GPA when known;
+  program/organization descriptions stay brief (1–2 lines).
+- Skills: grouped categories with concise comma-separated lists
+  (Languages & Frameworks, Databases, Cloud & DevOps, Testing & Tools).
+- Never invent facts; source details from `src/data/portfolio/*.json` or direct
+  user input.

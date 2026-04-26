@@ -25,7 +25,7 @@ Application materials for **Manufacturing Intern (Digital Transformation)** posi
 **Strong Matches:**
 - GPA 3.84/4.00 (exceeds 3.0 requirement)
 - Full-stack development (Java/Spring Boot, Vue.js, Angular)
-- Database expertise (PostgreSQL (SQL/PL/SQL), MongoDB)
+- Database expertise (PostgreSQL (SQL, PL/SQL), MongoDB)
 - AI-assisted development (GitHub Copilot CLI)
 - DevOps & CI/CD (Docker, Kubernetes, automated testing)
 - Proven automation impact (85% reduction in manual work)

@@ -7,7 +7,7 @@
 
 ---
 
-## 1. Software Engineer Intern - Flight (Reschedule Team) · Traveloka
+## 1. Software Engineer Intern · Traveloka
 
 | Field | Value |
 |------|-------|

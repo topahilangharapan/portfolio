@@ -105,7 +105,7 @@ watch(
     </div>
 
     <!-- XP Window Content -->
-    <div class="flex-1 flex flex-col p-4 bg-xp-window overflow-hidden">
+    <div class="flex-1 min-h-0 flex flex-col p-4 bg-xp-window overflow-hidden">
       <!-- Loading State (XP Style) -->
       <div v-if="isLoading" class="flex-1 flex items-center justify-center">
         <div class="text-center">
@@ -117,7 +117,7 @@ watch(
       </div>
 
       <!-- Main Content -->
-      <div v-else class="flex-1 flex flex-col space-y-4 overflow-hidden">
+      <div v-else class="flex-1 min-h-0 flex flex-col space-y-4 overflow-hidden">
         <!-- Company Header - Fixed at top -->
         <div class="flex items-center space-x-3 flex-shrink-0">
           <div class="w-12 h-12 xp-button flex items-center justify-center text-2xl">
@@ -146,10 +146,12 @@ watch(
         </div>
 
         <!-- Enhanced Scrollable Content Section -->
-        <div class="flex-1 relative overflow-hidden">
+        <div class="flex-1 min-h-0 relative overflow-hidden">
           <!-- Main scrollable content -->
           <div
+              ref="scrollContainer"
               class="h-full space-y-4 overflow-y-auto pr-2 xp-scroll scroll-smooth"
+              @scroll="handleScroll"
           >
             <!-- Achievements Group -->
             <div class="xp-group">
@@ -157,7 +159,7 @@ watch(
               <div class="space-y-3">
 
                 <!-- Achievements List with enhanced styling -->
-                <div class="space-y-2">
+                <div class="xp-panel xp-scroll max-h-60 overflow-y-auto p-2 space-y-2">
                   <div
                       v-for="(achievement, index) in achievements"
                       :key="index"

@@ -1,73 +1,49 @@
 # Email Application Draft for NTU Edge AI Systems PhD Position
 
 **To:** tanrui@ntu.edu.sg, arvinde@ntu.edu.sg  
-**Subject:** PhD Application - Edge AI Systems (Fall 2026/Spring 2027 Intake) - Musthofa Joko Anggoro
+**Subject:** PhD Application - Edge AI Systems (Fall 2026) - Musthofa Joko Anggoro
 
 ---
 
-Dear Dr. Rui Tan and Dr. Arvind Easwaran,
+Dear Prof. Rui Tan and Prof. Arvind Easwaran,
 
-I am writing to express my strong interest in the PhD position in Edge AI Systems for the Fall 2026 or Spring 2027 intake at NTU's College of Computing and Data Science. I am currently completing my Bachelor of Computer Science at the University of Indonesia (GPA: 3.84/4.00, expected graduation: August 2026) with a focus on computer systems architecture and hardware-software co-design.
+I am writing to express my strong interest in the PhD position in Edge AI Systems for Fall 2026 intake, as advertised in your recent email. I believe my background in computer systems—spanning hardware-software co-design and distributed systems optimization—positions me well for contributing to systems research in the edge-fog-cloud continuum.
 
-## Systems Research Background
+## Background in Systems Research
 
-While I have not yet published at systems conferences, my exposure to systems research includes:
+My undergraduate thesis at the University of Indonesia (GPA: 3.84/4.00, supervised by Prof. Petrus Mursanto) involved implementing an extended Morris Mano computer architecture on Xilinx Spartan-3AN FPGA using VHDL. I designed digital logic circuits for enhanced jump branching capabilities, optimized hardware resource utilization under timing constraints, and validated the implementation on physical FPGA hardware—not just simulation. This experience taught me to think deeply about hardware-level optimization and the interplay between architecture and performance.
 
-1. **Undergraduate Thesis Research** (In Progress, Defense: Aug 2026)
-   - Working under Prof. Petrus Mursanto (Full Professor, former Dean of Faculty of Computer Science)
-   - Implementing Morris Mano Computer Architecture with enhanced jump branching on Xilinx Spartan-3AN FPGA (XC3S700AN) using VHDL
-   - Investigating hardware resource utilization, timing constraints, and performance trade-offs in digital logic design
-   - Synthesizing and validating on physical FPGA hardware, not just simulation
-   - This hands-on work with hardware-software interfaces has deepened my understanding of system-level constraints that are critical for edge AI deployments
+Currently, as a Software Engineer Intern at Traveloka, I work on distributed backend systems where I focus on resource optimization, fault tolerance, and cloud infrastructure (AWS, Terraform, Docker, Kubernetes). I developed a secure credential management system with automated rotation and audit logging, built scalable authentication services with failover mechanisms, and enhanced CI/CD pipelines with automated testing and rollback logic. These experiences have given me practical exposure to distributed system design, reliability engineering, and system-level thinking at scale.
 
-2. **NTU INSPIRASI Summer Research Program** (July 2025, LPDP Scholarship Awardee)
-   - Conducted research on smart port automation with distributed IoT sensor networks
-   - Analyzed edge-fog-cloud tiered architectures for distributed maritime systems
-   - Proposed framework integrating renewable energy utilization and carbon emission reduction strategies
-   - This experience introduced me to the edge-fog-cloud continuum and sustainability considerations in distributed systems
+During the NTU-INSPIRASI Summer Program 2025 (LPDP Scholarship awardee), I conducted research on smart port automation and IoT sensor networks, producing a technical report on tiered automation frameworks with renewable energy utilization and carbon emission reduction—directly relevant to the sustainability objectives mentioned in the position description.
 
-3. **Industry Systems Experience** (Aug 2025 - Present)
-   - Software Engineering Intern at Traveloka (major travel technology company in Southeast Asia)
-   - Working on distributed backend systems with focus on resource optimization, fault tolerance, and scalability
-   - Hands-on experience with containerization (Docker, Kubernetes), cloud infrastructure (AWS, Terraform)
-   - Exposure to production-scale distributed systems challenges and solutions
+## Research Motivation and Fit
 
-## Research Alignment
+I am drawn to edge AI systems because it sits at a fascinating intersection: resource-constrained computing meets intelligent workload deployment, all while balancing application performance and sustainability constraints. My thesis work gave me foundational understanding of hardware limitations and optimization, while my industry experience taught me how distributed systems behave under real-world operational constraints. The opportunity to bridge these perspectives—optimizing AI deployments across the edge-fog-cloud continuum with access to real industrial systems—is precisely the research direction I want to pursue.
 
-I have carefully reviewed the publications from both the NTU IoT and NTU CPS research groups. I am particularly drawn to:
+I have reviewed the publications of both the NTU IoT and NTU CPS research groups, and I am particularly inspired by the focus on cutting-edge systems research with real-world impact. Your work on cyber-physical systems, energy-aware computing, and IoT deployments aligns closely with my interests in systems optimization and sustainable computing.
 
-- **From NTU IoT Group:** [Mention 1-2 specific recent papers that resonate with you, e.g., work on energy-efficient edge computing, IoT system optimization, or distributed sensing]
-- **From NTU CPS Group:** [Mention 1-2 specific recent papers, e.g., real-time systems, cyber-physical systems optimization, or resource-constrained computing]
+## Career Aspirations
 
-The intersection of these research directions aligns perfectly with my background in hardware architecture and growing experience in distributed systems. I am especially excited about the opportunity to:
-- Bridge my hardware-level understanding (from FPGA/VHDL work) with system-level AI deployment challenges
-- Contribute to sustainability-aware edge AI systems, building on my summer research on renewable energy integration
-- Work on real edge computing systems with industrial partners, connecting theory to practice
+My goal is to pursue a research career in academia. I am passionate about pushing the frontiers of computer systems research—not just building systems, but understanding their fundamental limits and discovering new optimization techniques. I want to contribute to the next generation of efficient, sustainable computing systems, and I believe that rigorous PhD training under your guidance, combined with access to large-scale edge computing deployments, would provide the ideal foundation for this career path.
 
-## Research Trajectory as an Emerging Researcher
+I am fully committed to conducting high-quality systems research and publishing at top-tier venues. While I acknowledge that my systems research exposure is still at the early stage compared to candidates with prior publications, I am confident in my technical foundation, my capacity to learn quickly, and my genuine intellectual curiosity about systems problems. I am eager to develop the rigorous research skills necessary to become an independent researcher who contributes meaningfully to the systems community.
 
-I am honest that I am at the beginning of my research career. My thesis work represents my first significant research contribution, and I have not yet submitted to systems conferences. However, I am eager to develop as an independent researcher and believe my combination of:
-- Strong foundational knowledge in computer architecture and operating systems
-- Hands-on hardware experience (FPGA synthesis, VHDL, digital logic optimization)
-- Distributed systems exposure through both research and industry
-- Solid mathematical and analytical skills (evidenced by strong GPA and coursework)
+Please find attached my CV for your review. I would be honored to discuss how my background and aspirations align with this PhD position. I am available for an interview at your earliest convenience.
 
-positions me well to contribute to cutting-edge research in edge AI systems. I am particularly drawn to the systems focus of this position (rather than pure AI), as this aligns with my core strengths and interests.
-
-I have attached my CV for your review. I would be honored to discuss how my background and research interests align with your groups' work. I am available for an interview at your convenience and can provide additional materials (thesis draft, recommendation letters, transcripts) as needed.
-
-Thank you for considering my application. I look forward to the opportunity to contribute to NTU's renowned research programs in cyber-physical systems and IoT.
+Thank you very much for considering my application.
 
 Best regards,
 
-**Musthofa Joko Anggoro**  
-Bachelor of Computer Science (Expected: Aug 2026)  
-University of Indonesia  
+**Musthofa Joko Anggoro**
 
+**Contact Information:**  
 Email: musthofaja.topa@gmail.com  
 LinkedIn: [linkedin.com/in/musthofa-joko-anggoro](https://www.linkedin.com/in/musthofa-joko-anggoro/)  
 GitHub: [github.com/topahilangharapan](https://github.com/topahilangharapan)  
 Portfolio: [portfolio-topahilangharapan-personal.vercel.app](https://portfolio-topahilangharapan-personal.vercel.app/)
+
+**Attachment:** CV_Research_Musthofa_Joko_Anggoro.pdf
 
 ---
 

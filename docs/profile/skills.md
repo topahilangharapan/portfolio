@@ -1,10 +1,9 @@
 # 🛠 Skills
 
-> **Summary:** Polyglot full‑stack engineer comfortable across the JVM (Java /
-> Spring Boot), Python (Django, scikit‑learn), JS/TS (Vue, Angular, React), and
-> Go. Strong on relational and document databases, container/orchestration
-> tooling, and applied machine‑learning workflows. Also experienced in UI/UX
-> design and design‑system leadership.
+> ⚠️ This file is auto-generated from JSON in `/src/data/portfolio/`.
+> Edit JSON, then run `npm run sync:profile`.
+
+> **Summary:** Polyglot full-stack engineer comfortable across the JVM (Java / Spring Boot), Python (Django, scikit-learn), JS/TS (Vue, Angular, React), and Go. Strong on relational and document databases, container/orchestration tooling, and applied machine-learning workflows. Also experienced in UI/UX design and design-system leadership.
 
 ## Programming languages
 
@@ -37,7 +36,7 @@
 - Model development with Scikit-learn
 - Data preprocessing
 - Supervised and unsupervised learning
-- EDA, regression, classification, clustering, imbalanced‑data handling
+- EDA, regression, classification, clustering, imbalanced-data handling
 - Workflow tooling: pandas, NumPy
 
 ## UI / UX & design
@@ -50,7 +49,7 @@
 ## Other engineering practices
 
 - RESTful API design and integration
-- JWT-based authentication, AES‑GCM encryption, audit logging
+- JWT-based authentication, AES-GCM encryption, audit logging
 - CI/CD pipelines, automated API testing (Karate)
 - Auto-rollback and failover strategies
 - Microservice architecture
@@ -63,6 +62,5 @@
 
 - Engineering project leadership (lead engineer, vice PIC of UI/UX)
 - Mentoring (Programming Foundations 0)
-- Cross-functional collaboration with software engineers, automation engineers,
-  and other stakeholders
+- Cross-functional collaboration with software engineers, automation engineers, and other stakeholders
 - Clear communication; comfortable bridging design and engineering

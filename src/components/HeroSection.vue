@@ -34,7 +34,7 @@ const MAX_CV_VERSION = Number(import.meta.env.VITE_MAX_CV_VERSION ?? '99')
 
 const checkFileExists = async (path: string) => {
   try {
-    const response = await fetch(path, { method: 'HEAD', cache: 'no-store' })
+    const response = await fetch(path, { method: 'HEAD', cache: 'no-cache' })
     return response.ok
   } catch {
     return false
@@ -42,16 +42,51 @@ const checkFileExists = async (path: string) => {
 }
 
 const getLatestCVPath = async () => {
-  for (let version = MAX_CV_VERSION; version >= 1; version--) {
-    const versionedPath = `/${CV_BASE_FILE}-ver${version}${CV_EXTENSION}`
-    const exists = await checkFileExists(versionedPath)
+  const versionExistsCache = new Map<number, boolean>()
+  const checkVersionExists = async (version: number) => {
+    if (versionExistsCache.has(version)) {
+      return versionExistsCache.get(version) ?? false
+    }
+
+    const exists = await checkFileExists(`/${CV_BASE_FILE}-ver${version}${CV_EXTENSION}`)
+    versionExistsCache.set(version, exists)
+    return exists
+  }
+
+  const hasVersionOne = await checkVersionExists(1)
+  if (!hasVersionOne) {
+    return `/${CV_BASE_FILE}${CV_EXTENSION}`
+  }
+
+  let low = 1
+  let high = 1
+
+  while (high < MAX_CV_VERSION && (await checkVersionExists(high))) {
+    low = high
+    high = Math.min(high * 2, MAX_CV_VERSION)
+  }
+
+  if (high === MAX_CV_VERSION && (await checkVersionExists(high))) {
+    return `/${CV_BASE_FILE}-ver${high}${CV_EXTENSION}`
+  }
+
+  let left = low
+  let right = high - 1
+  let latestVersion = low
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2)
+    const exists = await checkVersionExists(mid)
 
     if (exists) {
-      return versionedPath
+      latestVersion = mid
+      left = mid + 1
+    } else {
+      right = mid - 1
     }
   }
 
-  return `/${CV_BASE_FILE}${CV_EXTENSION}`
+  return `/${CV_BASE_FILE}-ver${latestVersion}${CV_EXTENSION}`
 }
 
 const downloadCV = async () => {

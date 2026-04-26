@@ -24,7 +24,7 @@
 
 #### ✅ **1. Systems Research Experience (Top Priority)**
 The position emphasizes "focus on systems, rather than AI." Your CV highlights:
-- **FPGA/Hardware:** Morris Mano architecture implementation on Xilinx Spartan-3 using VHDL
+- **FPGA/Hardware:** Morris Mano architecture implementation on Xilinx Spartan-3AN XC3S700AN using VHDL
 - **Production Systems:** Distributed systems at Traveloka (credential management, automation services, real-time data sync)
 - **Database Systems:** PostgreSQL optimization, manual SQL tuning, triggers/stored procedures
 - **Infrastructure:** Docker, Kubernetes, CI/CD, microservices architecture

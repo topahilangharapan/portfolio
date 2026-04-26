@@ -117,7 +117,7 @@
 ### Before Sending Application:
 
 1. **If you have performance data from your FPGA work:**
-   - Add a bullet: "Achieved [X] MHz operating frequency with [Y]% resource utilization on Spartan-3 FPGA"
+   - Add a bullet: "Achieved [X] MHz operating frequency with [Y]% resource utilization on Spartan-3AN XC3S700AN FPGA"
    
 2. **If you've read specific papers:**
    - Update email to say: "I've been following work from FPGA and DAC on [specific topic]" instead of generic "IEEE and ACM"

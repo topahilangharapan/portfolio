@@ -1,15 +1,17 @@
 # 📧 Contact
 
-> **Summary:** Open to new opportunities, collaborations, and casual chats
-> about technology and development. Best reached by email.
+> ⚠️ This file is auto-generated from JSON in `/src/data/portfolio/`.
+> Edit JSON, then run `npm run sync:profile`.
+
+> **Summary:** I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and development. Feel free to reach out!
 
 ## Primary contact
 
-| Channel  | Where                                                                  |
-|----------|------------------------------------------------------------------------|
-| Email    | [musthofaja.topa@gmail.com](mailto:musthofaja.topa@gmail.com)          |
-| LinkedIn | [linkedin.com/in/musthofa-joko-anggoro](https://www.linkedin.com/in/musthofa-joko-anggoro/) |
-| GitHub   | [github.com/topahilangharapan](https://github.com/topahilangharapan)   |
+| Channel | Where |
+|------|-------|
+| Email | [musthofaja.topa@gmail.com](mailto:musthofaja.topa@gmail.com) |
+| LinkedIn | [https://www.linkedin.com/in/musthofa-joko-anggoro/](https://www.linkedin.com/in/musthofa-joko-anggoro/) |
+| GitHub | [https://github.com/topahilangharapan](https://github.com/topahilangharapan) |
 
 ## Availability
 
@@ -17,12 +19,6 @@
 - **Open to collaboration:** Yes
 - **Open to internships:** Yes
 
-## How to reach out
+## Response time
 
-Feel free to email directly with:
-- New opportunities (full‑time, internship, freelance).
-- Collaboration ideas — especially around full‑stack web, AI/ML, or applied math.
-- Mentorship, talks, or just a conversation about software engineering.
-
-Replies typically come within a reasonable business window; for time-sensitive
-matters, mention urgency in the subject line.
+Usually within 24 hours.

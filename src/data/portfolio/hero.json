@@ -1,0 +1,52 @@
+{
+  "fullText": "Full Stack Developer | Student at Universitas Indonesia",
+  "intro": "I'm driven by a simple question: \"How can we make this better?\" My curiosity always gets me exploring new tech and figuring out how things work under the hood. I love putting everything together, from smooth user interfaces to solid back-end systems. And honestly, I have the most fun messing around with artificial intelligence/machine learning and anything math-related, it’s just cool how logic and numbers can make things \"alive\".",
+  "quickActions": {
+    "contact": "📧 Get In Touch",
+    "projects": "💼 View Projects",
+    "downloadCv": "📄 Download CV"
+  },
+  "overviewCards": [
+    {
+      "icon": "💼",
+      "title": "Projects",
+      "value": "6",
+      "label": "Completed",
+      "valueClass": "text-blue-600",
+      "footer": "Web • Mobile • AI"
+    },
+    {
+      "icon": "⏱️",
+      "title": "Experience",
+      "value": "2+",
+      "label": "Years",
+      "valueClass": "text-green-600",
+      "footer": "Learning • Building"
+    },
+    {
+      "icon": "⚙️",
+      "title": "Tech Stack",
+      "value": "10+",
+      "label": "Technologies",
+      "valueClass": "text-purple-600",
+      "footer": "Frontend • Backend • AI/ML"
+    }
+  ],
+  "detailedStats": [
+    { "name": "Vue.js", "category": "Frontend", "valueClass": "text-blue-600" },
+    { "name": "Java", "category": "Backend", "valueClass": "text-green-600" },
+    { "name": "Spring Boot", "category": "Framework", "valueClass": "text-purple-600" },
+    { "name": "Sci-Kit", "category": "AI/ML", "valueClass": "text-cyan-600" }
+  ],
+  "contactStatus": [
+    { "label": "Available for work", "value": true },
+    { "label": "Open to collaboration", "value": true },
+    { "label": "Seeking internships", "value": true }
+  ],
+  "universityInfo": {
+    "name": "🎓 University of Indonesia",
+    "faculty": "Faculty of Computer Science",
+    "graduation": "Expected Graduation: 2026"
+  },
+  "profileStatus": "Status: Available for opportunities"
+}

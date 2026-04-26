@@ -36,7 +36,7 @@
                 <div class="xp-group-title">Contact Details</div>
                 <div class="space-y-4">
                   <p class="font-xp text-black leading-relaxed">
-                    I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and development. Feel free to reach out!
+                    {{ contact.intro }}
                   </p>
 
                   <!-- Email Info -->
@@ -47,8 +47,8 @@
                       </div>
                       <div>
                         <p class="font-xp text-xs text-gray-600 mb-1">Email Address</p>
-                        <a href="mailto:musthofaja.topa@gmail.com" class="font-xp text-blue-600 hover:text-blue-800 font-bold underline">
-                          musthofaja.topa@gmail.com
+                        <a :href="`mailto:${contact.email}`" class="font-xp text-blue-600 hover:text-blue-800 font-bold underline">
+                          {{ contact.email }}
                         </a>
                       </div>
                     </div>
@@ -62,7 +62,7 @@
                       </div>
                       <div>
                         <p class="font-xp text-xs text-gray-600 mb-1">Response Time</p>
-                        <p class="font-xp text-green-700 font-bold">Usually within 24 hours</p>
+                        <p class="font-xp text-green-700 font-bold">{{ contact.responseTime }}</p>
                       </div>
                     </div>
                   </div>
@@ -77,28 +77,18 @@
                 <div class="xp-group-title">Social Networks</div>
                 <div class="space-y-3">
 
-                  <!-- LinkedIn Button -->
                   <a
-                      href="https://www.linkedin.com/in/musthofa-joko-anggoro/"
-                      target="_blank"
-                      class="xp-button w-full py-3 px-4 flex items-center justify-center text-center hover:bg-blue-100 transition-colors duration-200"
+                    v-for="link in contact.socialLinks"
+                    :key="link.name"
+                    :href="link.url"
+                    target="_blank"
+                    class="xp-button w-full py-3 px-4 flex items-center justify-center text-center transition-colors duration-200"
+                    :class="link.name.includes('LinkedIn') ? 'hover:bg-blue-100' : 'hover:bg-gray-100'"
                   >
-                    <span class="w-6 h-6 bg-blue-600 text-white rounded-sm mr-3 flex items-center justify-center text-xs font-bold">
-                      in
+                    <span class="w-6 h-6 rounded-sm mr-3 flex items-center justify-center text-xs font-bold" :class="link.badgeClass">
+                      {{ link.badge }}
                     </span>
-                    <span class="font-xp font-bold">LinkedIn Profile</span>
-                  </a>
-
-                  <!-- GitHub Button -->
-                  <a
-                      href="https://github.com/topahilangharapan"
-                      target="_blank"
-                      class="xp-button w-full py-3 px-4 flex items-center justify-center text-center hover:bg-gray-100 transition-colors duration-200"
-                  >
-                    <span class="w-6 h-6 bg-gray-800 text-white rounded-sm mr-3 flex items-center justify-center text-xs font-bold">
-                      { }
-                    </span>
-                    <span class="font-xp font-bold">GitHub</span>
+                    <span class="font-xp font-bold">{{ link.name }}</span>
                   </a>
 
                   <!-- Portfolio Button -->
@@ -123,7 +113,7 @@
                     <div class="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></div>
                     <div>
                       <p class="font-xp text-xs text-gray-600 mb-1">Availability</p>
-                      <p class="font-xp text-green-800 font-bold">Available for opportunities</p>
+                      <p class="font-xp text-green-800 font-bold">{{ contact.availability }}</p>
                     </div>
                   </div>
                 </div>
@@ -149,11 +139,9 @@
         </div>
         <!-- XP Status Bar -->
         <div class="xp-status flex justify-between items-center">
-          <span class="font-xp">Contact form ready</span>
+          <span class="font-xp">{{ contact.statusBar.left }}</span>
           <div class="flex items-center space-x-4">
-            <span class="font-xp text-xs">📧 Email enabled</span>
-            <span class="font-xp text-xs">🌐 Links verified</span>
-            <span class="font-xp text-xs">Ready</span>
+            <span v-for="item in contact.statusBar.items" :key="item" class="font-xp text-xs">{{ item }}</span>
           </div>
         </div>
       </div>
@@ -162,10 +150,32 @@
 </template>
 
 <script setup lang="ts">
+import contactData from '../data/portfolio/contact.json';
 
 interface Props {
   isOpen: boolean;
 }
+
+interface SocialLink {
+  name: string;
+  url: string;
+  badge: string;
+  badgeClass: string;
+}
+
+interface ContactData {
+  intro: string;
+  email: string;
+  responseTime: string;
+  socialLinks: SocialLink[];
+  availability: string;
+  statusBar: {
+    left: string;
+    items: string[];
+  };
+}
+
+const contact = contactData as ContactData;
 
 const props = defineProps<Props>();
 const emit = defineEmits<{

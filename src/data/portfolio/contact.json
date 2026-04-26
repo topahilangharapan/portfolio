@@ -1,0 +1,24 @@
+{
+  "intro": "I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and development. Feel free to reach out!",
+  "email": "musthofaja.topa@gmail.com",
+  "responseTime": "Usually within 24 hours",
+  "socialLinks": [
+    {
+      "name": "LinkedIn Profile",
+      "url": "https://www.linkedin.com/in/musthofa-joko-anggoro/",
+      "badge": "in",
+      "badgeClass": "bg-blue-600 text-white"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/topahilangharapan",
+      "badge": "{ }",
+      "badgeClass": "bg-gray-800 text-white"
+    }
+  ],
+  "availability": "Available for opportunities",
+  "statusBar": {
+    "left": "Contact form ready",
+    "items": ["📧 Email enabled", "🌐 Links verified", "Ready"]
+  }
+}

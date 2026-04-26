@@ -1,54 +1,64 @@
 # 👤 About
 
-> **Summary:** Musthofa Joko Anggoro is a final‑year Computer Science student
-> at Universitas Indonesia and a full‑stack software engineer. He treats
-> programming as a craft — a blend of creativity and logic — and most enjoys
-> working at the intersection of software engineering, AI/ML, and applied
-> mathematics. Professional in attitude, relaxed in tone.
-
-## Identity
-
-| Field        | Value                                                  |
-|--------------|--------------------------------------------------------|
-| Full name    | Musthofa Joko Anggoro                                  |
-| Tagline      | Full Stack Developer · Student at Universitas Indonesia |
-| Handle       | [`@topahilangharapan`](https://github.com/topahilangharapan) |
-| Based in     | Indonesia                                              |
-| Open to      | Internships, full-time roles, collaborations           |
+> ⚠️ This file is auto-generated from JSON in `/src/data/portfolio/`.
+> Edit JSON, then run `npm run sync:profile`.
 
 ## Personal summary
 
-Musthofa is someone who genuinely enjoys learning, especially when it opens up
-new perspectives about the world and how things work — that's what led him to
-fall in love with computers. To him, programming is more than writing code:
-it's an art form, a blend of creativity and logic to solve real‑world problems.
+I'm someone who truly enjoys learning, especially when it opens up new perspectives about the world and how things work. That's what led me to fall in love with computers. For me, programming is more than just writing code, it's an art form, a blend of creativity and logic to solve real-world problems.
 
-Every line of code he writes is a reflection of his thought process and effort,
-so he always strives to give his best. He has the most fun working with
-artificial intelligence, machine learning, and anything math‑related — it's
-just cool how logic and numbers can make things "alive". He sees himself as a
-professional who takes pride in his work, but he also likes to keep things
-relaxed and fun. That's how he stays grounded and keeps learning with joy.
+Every line of code I write is a reflection of my thought process and effort, so I always strive to give my best. I have the most fun messing around with artificial intelligence/machine learning and anything math-related, it's just cool how logic and numbers can make things "alive". I see myself as a professional who takes pride in his work, but I also like to keep things relaxed and fun. It's how I stay grounded and keep learning with joy.
 
 ## Core strengths
 
-- Full-stack web development
-- RESTful API design and integration
-- Database design and optimization
-- Responsive UI and UX implementation
-- CI/CD and DevOps practices
-- Leadership in engineering projects
-- Solid computer science foundation
-- Determination and hopes & dreams
+- Full-Stack Web Development
+- RESTful API Design & Integration
+- Database Design & Optimization
+- Responsive UI & UX Implementation
+- CI/CD & DevOps Practices
+- Leadership in Engineering Projects
+- Solid Computer Science Foundation
+- Determination and Hopes & Dreams
 
-## Currently learning
+## Technical skill groups
 
-Machine learning, AWS, microservices.
+### Programming Languages
 
-## Interests
+- Java
+- Python
+- TypeScript
+- Golang
 
-AI / ML, cloud computing, distributed systems.
+### Frameworks
 
-## Career goal
+- Vue.js
+- Angular
+- React.js
+- Spring Boot
+- Django
 
-To become a software engineer who inspires a lot of people.
+### Database & Tools
+
+- PostgreSQL
+- MongoDB
+- Git/GitHub
+- Docker
+- Kubernetes
+
+### Operating Systems
+
+- Windows
+- Linux
+- Unix
+
+### AI/ML
+
+- Model Development (Sci-Kit Learn)
+- Data Preprocessing
+- Supervised & Unsupervised Learning
+
+## Additional information
+
+- **Currently Learning:** Machine Learning, AWS, Microservices
+- **Interests:** AI/ML, Cloud Computing, Distributed Systems
+- **Career Goal:** Software Engineer that inspire a lot of people

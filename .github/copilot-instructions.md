@@ -12,9 +12,8 @@ This repository serves **two purposes**:
    about the owner that AI assistants can reference when answering questions, drafting
    resumes/cover letters, suggesting projects, etc.
 
-When in doubt, **prefer the data in `docs/profile/` as the source of truth** over what
-you might infer from individual `.vue` files. Component data (e.g. project lists in
-`src/components/ProjectExplorer.vue`) and the markdown profile **must stay in sync**.
+When in doubt, treat **`src/data/portfolio/*.json` as the canonical source of truth**.
+`docs/profile/*.md` is generated from those JSON files for AI/LLM readability.
 
 ---
 
@@ -54,7 +53,7 @@ you might infer from individual `.vue` files. Component data (e.g. project lists
 ├── AGENTS.md                     ← same guidance for non-Copilot agents
 ├── README.md
 ├── docs/
-│   └── profile/                  ← career / skill / portfolio data center (markdown)
+│   └── profile/                  ← AI-readable markdown generated from JSON
 │       ├── README.md
 │       ├── about.md
 │       ├── skills.md
@@ -62,6 +61,8 @@ you might infer from individual `.vue` files. Component data (e.g. project lists
 │       ├── experience.md
 │       ├── projects.md
 │       └── contact.md
+├── scripts/
+│   └── sync-profile-docs.mjs     ← generates docs/profile from src/data/portfolio JSON
 ├── public/                       ← static assets served as-is (e.g. CV PDF)
 ├── src/
 │   ├── App.vue
@@ -81,7 +82,9 @@ you might infer from individual `.vue` files. Component data (e.g. project lists
 │   │   └── WelcomeNotification.vue
 │   ├── interfaces/               ← shared TypeScript types (Experience, Project, …)
 │   ├── services/                 ← axios-based API clients (if/when added)
-│   └── files/                    ← bundled image assets
+│   ├── files/                    ← bundled image assets
+│   └── data/
+│       └── portfolio/            ← canonical profile JSON used by Vue + markdown generator
 ├── index.html
 ├── eslint.config.js
 ├── .prettierrc
@@ -98,6 +101,7 @@ Always run these from the repository root.
 
 ```bash
 npm install        # install dependencies
+npm run sync:profile # regenerate docs/profile markdown from canonical JSON
 npm run dev        # start Vite dev server at http://localhost:5173
 npm run build      # type-check (vue-tsc -b) AND production build
 npm run preview    # preview the production build locally
@@ -144,10 +148,9 @@ gate — it both type-checks and bundles. **Run it after non-trivial changes.**
   windows still fit on narrow viewports.
 
 ### Data
-- Hard‑coded data (experiences, projects, education, etc.) currently lives
-  inside the relevant component as a `withDefaults(defineProps<Props>(), { … })`
-  default. When you change that data, **also update the matching markdown
-  file in `docs/profile/`** (and vice versa). They must agree.
+- Profile data lives in `src/data/portfolio/*.json` and is used directly by Vue.
+- `docs/profile/*.md` is generated output for AI/LLM consumption.
+- After changing JSON, run `npm run sync:profile` and commit the regenerated markdown.
 
 ### Formatting
 - 2-space indent, semicolons, single quotes (see `.prettierrc`).
@@ -165,8 +168,8 @@ gate — it both type-checks and bundles. **Run it after non-trivial changes.**
 - Keep the Windows‑XP aesthetic consistent — every "section" is a fake XP window
   with title bar, menu bar, content area, and status bar.
 - Run `npm run build` after non-trivial code changes.
-- When adding a new project / experience / skill: update **both** the relevant
-  Vue component **and** the corresponding markdown file in `docs/profile/`.
+- When adding or updating profile data, edit `src/data/portfolio/*.json`,
+  run `npm run sync:profile`, and commit both JSON + regenerated markdown.
 
 ### Don't
 - Don't rewrite the styling system or replace Tailwind / the XP CSS.
@@ -174,8 +177,8 @@ gate — it both type-checks and bundles. **Run it after non-trivial changes.**
   without being asked.
 - Don't change the package name, build scripts, or TS config "to clean up"
   unless the user asks.
-- Don't invent biographical facts. If something isn't in `docs/profile/` or
-  in a component, ask the user instead of guessing.
+- Don't invent biographical facts. If something isn't in canonical JSON or
+  generated markdown, ask the user instead of guessing.
 - Don't commit secrets, the user's CV PDF source data beyond what's already
   in `public/`, or any file under `node_modules/` or `dist/`.
 
@@ -184,16 +187,15 @@ gate — it both type-checks and bundles. **Run it after non-trivial changes.**
 ## 6. Where to find ground truth about the owner
 
 For any question about Musthofa's career, skills, education, projects, or
-contact info, read these files (in this order of authority):
+contact info, prefer these sources in this order:
 
-1. `docs/profile/README.md` — index + last-updated marker
-2. `docs/profile/about.md`
-3. `docs/profile/skills.md`
-4. `docs/profile/education.md`
-5. `docs/profile/experience.md`
-6. `docs/profile/projects.md`
-7. `docs/profile/contact.md`
+1. `src/data/portfolio/*.json` — canonical source
+2. `docs/profile/README.md` — generated index
+3. `docs/profile/about.md`
+4. `docs/profile/skills.md`
+5. `docs/profile/education.md`
+6. `docs/profile/experience.md`
+7. `docs/profile/projects.md`
+8. `docs/profile/contact.md`
 
-If a fact disagrees between markdown and a `.vue` component, **the markdown
-wins** and the component should be updated to match (after confirming with
-the user).
+If markdown and JSON disagree, **JSON wins**; re-run `npm run sync:profile`.

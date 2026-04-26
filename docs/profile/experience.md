@@ -14,7 +14,8 @@
 |------------|------------------------------------------------------|
 | Type       | Internship                                           |
 | Location   | WFO (Work From Office)                               |
-| Duration   | 2025-08-18 – 2026-02-14 (≈ 6 months)                 |
+| Duration   | 2025-08-18 – Present (Ongoing)                       |
+| Team       | Reschedule Team                                      |
 | Icon       | ✈️                                                    |
 
 ### Achievements
@@ -28,6 +29,12 @@
   testing, implementing auto-rollback logic to prevent production defects.
 - Built **real-time data synchronization services** and optimized structured
   logging for **BigQuery** analytics dashboards.
+- Leveraging **AI-powered tools** (including **GitHub Copilot CLI**) to
+  significantly enhance development velocity, code quality, and automated
+  testing workflows.
+- Developed **automated reschedule solution** for one of Traveloka's largest
+  flight inventory providers, processing thousands of daily booking
+  modifications with 99.9% accuracy and reducing manual intervention by 85%.
 
 ### Technologies
 Java · Spring Boot · MongoDB · Google Cloud Platform · BigQuery · Karate ·

@@ -34,7 +34,7 @@ Application materials for **Manufacturing Intern (Digital Transformation)** posi
 - Languages: Java, Python, TypeScript, JavaScript (learning C#/ASP.NET)
 - Databases: PostgreSQL, MongoDB, Oracle DB (familiar), BigQuery
 - Cloud & DevOps: GCP, Docker, Kubernetes, CI/CD
-- Integration: RESTful APIs, JSON, XML, JWT, OAuth, microservices
+- Integration: RESTful APIs, JSON, XML, JWT, OAuth, microservices, Oracle Integration Cloud (learning)
 - AI Tools: GitHub Copilot CLI, Scikit-learn, LLM API integration
 
 ## Compilation

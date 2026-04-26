@@ -159,7 +159,7 @@ watch(
               <div class="space-y-3">
 
                 <!-- Achievements List with enhanced styling -->
-                <div class="space-y-2">
+                <div class="xp-panel xp-scroll max-h-60 overflow-y-auto p-2 space-y-2">
                   <div
                       v-for="(achievement, index) in achievements"
                       :key="index"

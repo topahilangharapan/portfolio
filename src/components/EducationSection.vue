@@ -1,38 +1,38 @@
 <script setup lang="ts">
 // Education data
-import { ref, watch } from "vue";
+import { ref, watch } from 'vue';
+import educationData from '../data/portfolio/education.json';
 
-const education = {
-  university: 'University of Indonesia (UI)',
-  faculty: 'Faculty of Computer Science (Fasilkom)',
-  degree: 'Bachelor of Computer Science',
-  major: 'Information Systems',
-  expectedGraduation: 'June 2026 - August 2026',
-  currentSemester: '8th Semester',
-  gpa: 3.84,
-  maxGpa: 4,
-  relevantCourses: [
-    'Data Structures and Algorithms',
-    'Enterprise Application Architecture and Programming',
-    'Information Systems Development Project',
-    'Introduction to AI & Data Science',
-    'Databases',
-    'Data Communication Networks',
-    'Operating System for Information System',
-    'Introduction to Computer Architecture',
-  ],
-  achievements: [
-    'Vice Person in Charge of UI/UX COMPFEST',
-    'Mentor of Programming Foundations 0',
-  ],
-  summerProgram: {
-    title: 'INSIPIRASI–NTU Summer Program 2025',
-    status: 'LPDP Scholarship Awardee',
-    description: 'Joined a collaborative program at Nanyang Technological University (NTU) Singapore and Institut Teknologi Sepuluh Nopember (ITS) Surabaya. Apply software engineering principles to sustainable development challenges. Analyzed the role of technical architecture in environmental solutions and produced a report proposing a solution for a specific real-world sustainability problem.',
-    institutions: 'NTU & ITS',
-    focus: 'Sustainable Development & Technology'
-  }
+interface SummerProgram {
+  title: string;
+  status: string;
+  description: string;
+  institutions: string;
+  focus: string;
 }
+
+interface CourseCategory {
+  title: string;
+  items: string[];
+}
+
+interface EducationData {
+  university: string;
+  faculty: string;
+  degree: string;
+  major: string;
+  expectedGraduation: string;
+  currentSemester: string;
+  gpa: number;
+  maxGpa: number;
+  relevantCourses: string[];
+  achievements: string[];
+  summerProgram: SummerProgram;
+  courseCategories: CourseCategory[];
+  statusBarAcademicYear: string;
+}
+
+const education = educationData as EducationData;
 
 const progressWidth = ref('0%')
 
@@ -273,7 +273,7 @@ function toggleOpen() {
       <div class="xp-status flex justify-between items-center flex-shrink-0">
         <span class="font-xp">Student record loaded successfully</span>
         <div class="flex items-center space-x-4">
-          <span class="font-xp text-xs">🎓 Academic Year: 2022-2026</span>
+          <span class="font-xp text-xs">🎓 Academic Year: {{ education.statusBarAcademicYear }}</span>
           <span class="font-xp text-xs">📊 GPA: {{ education.gpa.toFixed(2) }}</span>
           <span class="font-xp text-xs">Ready</span>
         </div>

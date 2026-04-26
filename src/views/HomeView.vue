@@ -8,6 +8,7 @@ import ProjectExplorer from '../components/ProjectExplorer.vue';
 import ExperienceExplorer from '../components/ExperienceExplorer.vue';
 // Import the new WelcomeNotification component
 import WelcomeNotification from '../components/WelcomeNotification.vue';
+import desktopData from '../data/portfolio/desktop.json';
 
 // Desktop State Management
 const currentTime = ref(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
@@ -19,16 +20,10 @@ const minimizedWindows = ref<string[]>([]);
 const isOpenContact = ref(false);
 const isOpenProjects = ref(false);
 
-const skillsList = ref(['JavaScript/TypeScript', 'Vue.js']);
+const skillsList = ref(desktopData.skillsList);
 
 // Desktop Applications (removed 'hero' from the list)
-const desktopApps = ref([
-  { id: 'about', name: 'About Me', icon: '👤', x: 20, y: 20 },
-  { id: 'projects', name: 'My Projects', icon: '💼', x: 20, y: 100 },
-  { id: 'experience', name: 'Experience', icon: '🧠', x: 20, y: 180 },
-  { id: 'education', name: 'Education', icon: '🎓', x: 20, y: 260 },
-  { id: 'contact', name: 'Contact', icon: '📧', x: 20, y: 340 },
-]);
+const desktopApps = ref(desktopData.desktopApps);
 
 // Window Management Functions
 const openWindow = (appId: string) => {

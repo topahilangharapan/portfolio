@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import heroData from '../data/portfolio/hero.json';
 
 interface Props {
   isOpenContact: boolean
@@ -22,12 +23,10 @@ function toggleOpenProjects() {
 }
 
 const typingText = ref('')
-const fullText = 'Full Stack Developer | Student at Universitas Indonesia'
+const fullText = heroData.fullText
 const typingComplete = ref(false)
-
-const available = ref(true)
-const collaboration = ref(true)
-const internship = ref(true)
+const hero = heroData
+const contactStatuses = computed(() => hero.contactStatus)
 
 const downloadCV = () => {
   const confirmDownload = confirm(
@@ -97,7 +96,7 @@ onMounted(() => {
                   </div>
                   <div class="xp-panel p-4">
                     <p class="font-xp text-black">
-                      I'm driven by a simple question: "How can we make this better?" My curiosity always gets me exploring new tech and figuring out how things work under the hood. I love putting everything together, from smooth user interfaces to solid back-end systems. And honestly, I have the most fun messing around with artificial intelligence/machine learning and anything math-related, it’s just cool how logic and numbers can make things "alive".
+                      {{ hero.intro }}
                     </p>
                   </div>
                 </div>
@@ -112,19 +111,19 @@ onMounted(() => {
                     @click="toggleOpenContact"
                     class="xp-button px-4 py-3 font-xp font-bold"
                 >
-                  📧 Get In Touch
+                  {{ hero.quickActions.contact }}
                 </button>
                 <button
                     @click="toggleOpenProjects"
                     class="xp-button px-4 py-3 font-xp font-bold"
                 >
-                  💼 View Projects
+                  {{ hero.quickActions.projects }}
                 </button>
                 <button
                     @click="downloadCV"
                     class="xp-button-primary px-4 py-3 font-xp font-bold"
                 >
-                  📄 Download CV
+                  {{ hero.quickActions.downloadCv }}
                 </button>
               </div>
             </div>
@@ -133,48 +132,17 @@ onMounted(() => {
             <div class="xp-group">
               <div class="xp-group-title">Portfolio Overview</div>
               <div class="grid grid-cols-3 gap-3 mt-4">
-                <!-- Projects Panel -->
-                <div class="xp-panel-raised p-3">
+                <div v-for="card in hero.overviewCards" :key="card.title" class="xp-panel-raised p-3">
                   <div class="flex items-center space-x-2 mb-2">
-                    <div class="w-6 h-6 xp-button flex items-center justify-center text-xs">💼</div>
-                    <span class="font-xp text-xs font-bold text-black">Projects</span>
+                    <div class="w-6 h-6 xp-button flex items-center justify-center text-xs">{{ card.icon }}</div>
+                    <span class="font-xp text-xs font-bold text-black">{{ card.title }}</span>
                   </div>
                   <div class="text-center">
-                    <div class="text-2xl font-bold text-blue-600 font-xp">6</div>
-                    <div class="font-xp text-xs text-gray-600">Completed</div>
+                    <div class="text-2xl font-bold font-xp" :class="card.valueClass">{{ card.value }}</div>
+                    <div class="font-xp text-xs text-gray-600">{{ card.label }}</div>
                   </div>
                   <div class="mt-2 pt-2 border-t border-gray-400">
-                    <div class="font-xp text-xs text-black">Web • Mobile • AI</div>
-                  </div>
-                </div>
-
-                <!-- Experience Panel -->
-                <div class="xp-panel-raised p-3">
-                  <div class="flex items-center space-x-2 mb-2">
-                    <div class="w-6 h-6 xp-button flex items-center justify-center text-xs">⏱️</div>
-                    <span class="font-xp text-xs font-bold text-black">Experience</span>
-                  </div>
-                  <div class="text-center">
-                    <div class="text-2xl font-bold text-green-600 font-xp">2+</div>
-                    <div class="font-xp text-xs text-gray-600">Years</div>
-                  </div>
-                  <div class="mt-2 pt-2 border-t border-gray-400">
-                    <div class="font-xp text-xs text-black">Learning • Building</div>
-                  </div>
-                </div>
-
-                <!-- Tech Stack Panel -->
-                <div class="xp-panel-raised p-3">
-                  <div class="flex items-center space-x-2 mb-2">
-                    <div class="w-6 h-6 xp-button flex items-center justify-center text-xs">⚙️</div>
-                    <span class="font-xp text-xs font-bold text-black">Tech Stack</span>
-                  </div>
-                  <div class="text-center">
-                    <div class="text-2xl font-bold text-purple-600 font-xp">10+</div>
-                    <div class="font-xp text-xs text-gray-600">Technologies</div>
-                  </div>
-                  <div class="mt-2 pt-2 border-t border-gray-400">
-                    <div class="font-xp text-xs text-black">Frontend • Backend • AI/ML</div>
+                    <div class="font-xp text-xs text-black">{{ card.footer }}</div>
                   </div>
                 </div>
               </div>
@@ -182,21 +150,13 @@ onMounted(() => {
               <!-- Detailed Stats Row -->
               <div class="mt-4 xp-panel p-3">
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                  <div class="text-center">
-                    <div class="font-xp text-lg font-bold text-blue-600">Vue.js</div>
-                    <div class="font-xp text-xs text-gray-600">Frontend</div>
-                  </div>
-                  <div class="text-center">
-                    <div class="font-xp text-lg font-bold text-green-600">Java</div>
-                    <div class="font-xp text-xs text-gray-600">Backend</div>
-                  </div>
-                  <div class="text-center">
-                    <div class="font-xp text-lg font-bold text-purple-600">Spring Boot</div>
-                    <div class="font-xp text-xs text-gray-600">Framework</div>
-                  </div>
-                  <div class="text-center">
-                    <div class="font-xp text-lg font-bold text-cyan-600">Sci-Kit</div>
-                    <div class="font-xp text-xs text-gray-600">AI/ML</div>
+                  <div
+                    v-for="item in hero.detailedStats"
+                    :key="item.name"
+                    class="text-center"
+                  >
+                    <div class="font-xp text-lg font-bold" :class="item.valueClass">{{ item.name }}</div>
+                    <div class="font-xp text-xs text-gray-600">{{ item.category }}</div>
                   </div>
                 </div>
               </div>
@@ -262,17 +222,9 @@ onMounted(() => {
             <div class="xp-group">
               <div class="xp-group-title">Contact Status</div>
               <div class="space-y-2 mt-2">
-                <div class="flex items-center space-x-2">
-                  <input v-model="available" type="checkbox" class="xp-checkbox" disabled/>
-                  <span class="font-xp text-sm">Available for work</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                  <input v-model="collaboration" type="checkbox" class="xp-checkbox" disabled/>
-                  <span class="font-xp text-sm">Open to collaboration</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                  <input v-model="internship" type="checkbox" class="xp-checkbox" disabled/>
-                  <span class="font-xp text-sm">Seeking internships</span>
+                <div v-for="status in contactStatuses" :key="status.label" class="flex items-center space-x-2">
+                  <input :checked="status.value" type="checkbox" class="xp-checkbox" disabled />
+                  <span class="font-xp text-sm">{{ status.label }}</span>
                 </div>
               </div>
             </div>
@@ -280,9 +232,9 @@ onMounted(() => {
             <!-- University Info -->
             <div class="xp-panel mt-4 p-3">
               <div class="text-center">
-                <div class="font-xp text-sm font-bold text-black">🎓 University of Indonesia</div>
-                <div class="font-xp text-xs text-gray-600">Faculty of Computer Science</div>
-                <div class="font-xp text-xs text-blue-600">Expected Graduation: 2026</div>
+                <div class="font-xp text-sm font-bold text-black">{{ hero.universityInfo.name }}</div>
+                <div class="font-xp text-xs text-gray-600">{{ hero.universityInfo.faculty }}</div>
+                <div class="font-xp text-xs text-blue-600">{{ hero.universityInfo.graduation }}</div>
               </div>
             </div>
 
@@ -318,7 +270,7 @@ onMounted(() => {
 
           <!-- Profile Status Bar -->
           <div class="xp-status flex-shrink-0">
-            <span class="font-xp">Status: Available for opportunities</span>
+            <span class="font-xp">{{ hero.profileStatus }}</span>
           </div>
         </div>
       </div>

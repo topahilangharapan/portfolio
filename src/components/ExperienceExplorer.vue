@@ -1,8 +1,9 @@
 <script setup lang="ts">
 //Experience Explorer
 import { ref, computed } from 'vue';
-import ExperienceItem from "./ExperienceItem.vue";
-import type { Experience } from "../interfaces/experience.interface.ts";
+import ExperienceItem from './ExperienceItem.vue';
+import type { Experience } from '../interfaces/experience.interface.ts';
+import experiencesData from '../data/portfolio/experience.json';
 
 interface Props {
   experiences?: Experience[];
@@ -18,63 +19,7 @@ function toggleOpen() {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  experiences: () => [
-{
-      id: '1', // Or '2' if you want to keep MSI as '1'
-      role: 'Software Engineer Intern - Flight (Reschedule Team)',
-      company: 'Traveloka',
-      achievements: [
-        'Engineered a secure Credential Management System using AES-GCM encryption, automated rotation snapshots, and granular audit logging with MongoDB.',
-        'Developed scalable Account Authentication automation services with configurable scrapers and failover backup mechanisms to ensure high availability.',
-        'Enhanced CI/CD pipelines by integrating Karate for automated API testing, implementing auto-rollback logic to prevent production defects.',
-        'Built real-time data synchronization services and optimized structured logging for BigQuery analytics dashboards.',
-        'Leveraging AI-powered tools (including GitHub Copilot CLI) to significantly enhance development velocity, code quality, and automated testing workflows.',
-        'Developed automated reschedule solution for one of Traveloka\'s largest flight inventory providers, processing thousands of daily booking modifications with 99.9% accuracy and reducing manual intervention by 85%.',
-      ],
-      technologies: ['Java', 'Spring Boot', 'MongoDB', 'Google Cloud Platform', 'BigQuery', 'Karate', 'Docker', 'Kubernetes', 'GitHub Copilot CLI'],
-      type: 'Internship',
-      location: 'WFO',
-      icon: '✈️', 
-      dateCreated: '2025-08-18', 
-      dateModified: '2026-04-26',
-      duration: 'Ongoing',
-    },
-    {
-      id: '2',
-      role: 'Full Stack Developer',
-      company: 'PT Magna Solusi Indonesia',
-      achievements: [
-        'Developed and integrated full-stack modules using modern frameworks to ensure system reliability',
-        'Optimized database performance through efficient query design and backup strategies',
-        'Built RESTful APIs to support dynamic data flow and scalable web architecture',
-        'Performed testing and debugging to maintain high standards of security and usability',
-      ],
-      technologies: ['Spring Boot', 'Angular', 'PostgreSQL', 'Apache HTTP Server', 'Bootstrap', 'Docker', 'Kubernetes'],
-      type: 'Internship',
-      location: 'Hybrid',
-      icon: '🌐',
-      dateCreated: '2025-01-06',
-      dateModified: '2025-06-30',
-      duration: '6 months',
-    },
-    {
-      id: '3',
-      role: 'Vice Person in Charge of UI/UX',
-      company: 'COMPFEST',
-      achievements: [
-        'Successfully leading the running of the design process in 5 sprints, and oversaw the implementation of a dark & light mode in website compfest.id',
-        'Leading a team of 11 designers in creating a landing page and renewal of the design system',
-        'Lead designer in discussions with other IT development divisions, such as software engineers and automation engineers, to ensure that the design system meets the needs of all stakeholders',
-      ],
-      technologies: ['Figma', 'ClickUp'],
-      type: 'Organization',
-      location: 'Hybrid',
-      icon: '🎨',
-      dateCreated: '2023-01-02',
-      dateModified: '2023-12-29',
-      duration: '1 year',
-    }
-  ]
+  experiences: () => experiencesData as Experience[],
 });
 
 // Component state

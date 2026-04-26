@@ -1,0 +1,46 @@
+{
+  "university": "University of Indonesia (UI)",
+  "faculty": "Faculty of Computer Science (Fasilkom)",
+  "degree": "Bachelor of Computer Science",
+  "major": "Information Systems",
+  "expectedGraduation": "June 2026 - August 2026",
+  "currentSemester": "8th Semester",
+  "gpa": 3.84,
+  "maxGpa": 4,
+  "relevantCourses": [
+    "Data Structures and Algorithms",
+    "Enterprise Application Architecture and Programming",
+    "Information Systems Development Project",
+    "Introduction to AI & Data Science",
+    "Databases",
+    "Data Communication Networks",
+    "Operating System for Information System",
+    "Introduction to Computer Architecture"
+  ],
+  "achievements": [
+    "Vice Person in Charge of UI/UX COMPFEST",
+    "Mentor of Programming Foundations 0"
+  ],
+  "summerProgram": {
+    "title": "INSIPIRASI–NTU Summer Program 2025",
+    "status": "LPDP Scholarship Awardee",
+    "description": "Joined a collaborative program at Nanyang Technological University (NTU) Singapore and Institut Teknologi Sepuluh Nopember (ITS) Surabaya. Apply software engineering principles to sustainable development challenges. Analyzed the role of technical architecture in environmental solutions and produced a report proposing a solution for a specific real-world sustainability problem.",
+    "institutions": "NTU & ITS",
+    "focus": "Sustainable Development & Technology"
+  },
+  "courseCategories": [
+    {
+      "title": "📚 Core Programming",
+      "items": ["Data Structures", "Algorithms", "OOP"]
+    },
+    {
+      "title": "🌐 Web & Mobile",
+      "items": ["Web Programming", "Mobile Development"]
+    },
+    {
+      "title": "⚙️ Systems",
+      "items": ["Database Systems", "Operating Systems", "Networks"]
+    }
+  ],
+  "statusBarAcademicYear": "2022-2026"
+}

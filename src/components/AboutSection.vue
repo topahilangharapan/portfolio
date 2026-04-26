@@ -1,9 +1,34 @@
 <script setup lang="ts">
+import aboutData from '../data/portfolio/about.json';
 
 interface Props {
   skills: string[];
   isOpen: boolean;
 }
+
+interface SkillCategory {
+  title: string;
+  dotClass: string;
+  items: string[];
+}
+
+interface AdditionalInfoCard {
+  title: string;
+  value: string;
+  titleClass: string;
+}
+
+interface AboutData {
+  professionalSummary: string[];
+  coreStrengths: string[];
+  technicalSkills: SkillCategory[];
+  additionalInfo: AdditionalInfoCard[];
+  statusBar: {
+    right: string[];
+  };
+}
+
+const about = aboutData as AboutData;
 
 const props = defineProps<Props>();
 const emit = defineEmits<{
@@ -53,18 +78,13 @@ function toggleOpen() {
               <div class="xp-group">
                 <div class="xp-group-title">Professional Summary</div>
                 <div class="xp-panel-raised p-4">
-                  <p class="font-xp text-black leading-relaxed">
-                    I'm someone who truly enjoys learning, especially when it opens up new
-                    perspectives about the world and how things work. That's what led me to fall in
-                    love with computers. For me, programming is more than just writing code, it's an
-                    art form, a blend of creativity and logic to solve real-world problems.
-                  </p>
-                  <p class="font-xp text-black leading-relaxed mt-4">
-                    Every line of code I write is a reflection of my thought process and effort, so I always
-                    strive to give my best. I have the most fun messing around with artificial intelligence/machine
-                    learning and anything math-related, it's just cool how logic and numbers can make things "alive".
-                    I see myself as a professional who takes pride in his work, but I also like to keep things relaxed and fun.
-                    It's how I stay grounded and keep learning with joy.
+                  <p
+                    v-for="(paragraph, index) in about.professionalSummary"
+                    :key="index"
+                    class="font-xp text-black leading-relaxed"
+                    :class="{ 'mt-4': index > 0 }"
+                  >
+                    {{ paragraph }}
                   </p>
                 </div>
               </div>
@@ -74,69 +94,13 @@ function toggleOpen() {
                 <div class="xp-group-title">Core Strengths</div>
                 <div class="xp-panel p-3">
                   <div class="space-y-2">
-                    <div class="flex items-start">
+                    <div v-for="strength in about.coreStrengths" :key="strength" class="flex items-start">
                       <div
-                          class="w-3 h-3 xp-button flex items-center justify-center text-xs mr-3 mt-0.5"
+                        class="w-3 h-3 xp-button flex items-center justify-center text-xs mr-3 mt-0.5"
                       >
                         *
                       </div>
-                      <span class="font-xp text-black">Full-Stack Web Development</span>
-                    </div>
-                    <div class="flex items-start">
-                      <div
-                          class="w-3 h-3 xp-button flex items-center justify-center text-xs mr-3 mt-0.5"
-                      >
-                        *
-                      </div>
-                      <span class="font-xp text-black">RESTful API Design & Integration</span>
-                    </div>
-                    <div class="flex items-start">
-                      <div
-                          class="w-3 h-3 xp-button flex items-center justify-center text-xs mr-3 mt-0.5"
-                      >
-                        *
-                      </div>
-                      <span class="font-xp text-black">Database Design & Optimization</span>
-                    </div>
-                    <div class="flex items-start">
-                      <div
-                          class="w-3 h-3 xp-button flex items-center justify-center text-xs mr-3 mt-0.5"
-                      >
-                        *
-                      </div>
-                      <span class="font-xp text-black">Responsive UI & UX Implementation</span>
-                    </div>
-                    <div class="flex items-start">
-                      <div
-                          class="w-3 h-3 xp-button flex items-center justify-center text-xs mr-3 mt-0.5"
-                      >
-                        *
-                      </div>
-                      <span class="font-xp text-black">CI/CD & DevOps Practices</span>
-                    </div>
-                    <div class="flex items-start">
-                      <div
-                          class="w-3 h-3 xp-button flex items-center justify-center text-xs mr-3 mt-0.5"
-                      >
-                        *
-                      </div>
-                      <span class="font-xp text-black">Leadership in Engineering Projects</span>
-                    </div>
-                    <div class="flex items-start">
-                      <div
-                          class="w-3 h-3 xp-button flex items-center justify-center text-xs mr-3 mt-0.5"
-                      >
-                        *
-                      </div>
-                      <span class="font-xp text-black">Solid Computer Science Foundation</span>
-                    </div>
-                    <div class="flex items-start">
-                      <div
-                          class="w-3 h-3 xp-button flex items-center justify-center text-xs mr-3 mt-0.5"
-                      >
-                        *
-                      </div>
-                      <span class="font-xp text-black">Determination and Hopes & Dreams</span>
+                      <span class="font-xp text-black">{{ strength }}</span>
                     </div>
                   </div>
                 </div>
@@ -150,72 +114,19 @@ function toggleOpen() {
                 <div class="xp-panel p-3">
                   <div class="space-y-4">
                     <!-- Programming Languages -->
-                    <div>
+                    <div v-for="category in about.technicalSkills" :key="category.title">
                       <h4 class="font-xp font-bold text-black text-sm mb-2 flex items-center">
-                        <span class="w-3 h-3 bg-blue-500 rounded-sm mr-2"></span>
-                        Programming Languages
+                        <span class="w-3 h-3 rounded-sm mr-2" :class="category.dotClass"></span>
+                        {{ category.title }}
                       </h4>
                       <div class="flex flex-wrap gap-2">
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Java</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Python</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">TypeScript</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Golang</span>
-                      </div>
-                    </div>
-
-                    <!-- Frontend Technologies -->
-                    <div>
-                      <h4 class="font-xp font-bold text-black text-sm mb-2 flex items-center">
-                        <span class="w-3 h-3 bg-green-500 rounded-sm mr-2"></span>
-                        Frameworks
-                      </h4>
-                      <div class="flex flex-wrap gap-2">
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Vue.js</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Angular</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">React.js</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Spring Boot</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Django</span>
-                      </div>
-                    </div>
-
-                    <!-- Database & Tools -->
-                    <div>
-                      <h4 class="font-xp font-bold text-black text-sm mb-2 flex items-center">
-                        <span class="w-3 h-3 bg-purple-500 rounded-sm mr-2"></span>
-                        Database & Tools
-                      </h4>
-                      <div class="flex flex-wrap gap-2">
-                        <span class="xp-button px-3 py-1 font-xp text-xs">PostgreSQL</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">MongoDB</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Git/GitHub</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Docker</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Kubernetes</span>
-                      </div>
-                    </div>
-
-                    <!-- Operating System -->
-                    <div>
-                      <h4 class="font-xp font-bold text-black text-sm mb-2 flex items-center">
-                        <span class="w-3 h-3 bg-yellow-500 rounded-sm mr-2"></span>
-                        Operating Systems
-                      </h4>
-                      <div class="flex flex-wrap gap-2">
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Windows</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Linux</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Unix</span>
-                      </div>
-                    </div>
-
-                    <!-- ML -->
-                    <div>
-                      <h4 class="font-xp font-bold text-black text-sm mb-2 flex items-center">
-                        <span class="w-3 h-3 bg-red-500 rounded-sm mr-2"></span>
-                        AI/ML
-                      </h4>
-                      <div class="flex flex-wrap gap-2">
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Model Development (Sci-Kit Learn)</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Data Preprocessing</span>
-                        <span class="xp-button px-3 py-1 font-xp text-xs">Supervised & Unsupervised Learning</span>
+                        <span
+                          v-for="item in category.items"
+                          :key="item"
+                          class="xp-button px-3 py-1 font-xp text-xs"
+                        >
+                          {{ item }}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -227,17 +138,9 @@ function toggleOpen() {
           <!-- Additional Information Panel -->
           <div class="mt-6 pt-4 border-t-2 border-gray-400">
             <div class="grid md:grid-cols-3 gap-4">
-              <div class="xp-panel p-4 text-center">
-                <div class="font-xp text-lg font-bold text-blue-600 mb-2">📚 Currently Learning</div>
-                <div class="font-xp text-sm text-black">Machine Learning, AWS, Microservices</div>
-              </div>
-              <div class="xp-panel p-4 text-center">
-                <div class="font-xp text-lg font-bold text-green-600 mb-2">💡 Interests</div>
-                <div class="font-xp text-sm text-black">AI/ML, Cloud Computing, Distributed Systems</div>
-              </div>
-              <div class="xp-panel p-4 text-center">
-                <div class="font-xp text-lg font-bold text-purple-600 mb-2">🎯 Career Goal</div>
-                <div class="font-xp text-sm text-black">Software Engineer that inspire a lot of people</div>
+              <div v-for="card in about.additionalInfo" :key="card.title" class="xp-panel p-4 text-center">
+                <div class="font-xp text-lg font-bold mb-2" :class="card.titleClass">{{ card.title }}</div>
+                <div class="font-xp text-sm text-black">{{ card.value }}</div>
               </div>
             </div>
           </div>
@@ -251,9 +154,7 @@ function toggleOpen() {
           <span class="font-xp">Profile loaded successfully</span>
         </div>
         <div class="flex items-center space-x-4">
-          <span class="font-xp text-xs">💼 CS Student</span>
-          <span class="font-xp text-xs">🎓 UI 2022-2026</span>
-          <span class="font-xp text-xs">Ready</span>
+          <span v-for="item in about.statusBar.right" :key="item" class="font-xp text-xs">{{ item }}</span>
         </div>
       </div>
     </div>

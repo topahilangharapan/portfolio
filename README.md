@@ -1,51 +1,93 @@
-# 🌟 B01 - Radiant - FE
+# 🪟 Musthofa Joko Anggoro — Portfolio
 
-SiSPA adalah solusi sistem informasi untuk mengelola dokumentasi event, data administrasi, klien, vendor, dan inventaris. Repository ini berisi frontend dari SiSPA yang dikembangkan menggunakan **Vue.js** dengan manajemen state menggunakan **Pinia**.
+Personal portfolio site of [**Musthofa Joko Anggoro**](https://github.com/topahilangharapan)
+— a full-stack developer and final-year Computer Science student at Universitas
+Indonesia. The site is a Vue 3 + TypeScript + Vite single-page app with a
+custom Windows‑XP‑themed UI.
+
+This repository is also the owner's **career / skill / portfolio data center**:
+structured markdown files in [`docs/profile/`](docs/profile/) act as the
+canonical source of truth for AI assistants, recruiters, and humans who want
+the facts without having to render the site.
+
+---
+
+## 🧠 For AI assistants (Copilot, Cursor, Codex, Claude, …)
+
+If you are an AI / LLM / coding agent working in this repo, **read these
+first** — in this order:
+
+1. [`.github/copilot-instructions.md`](.github/copilot-instructions.md) — full
+   repo-specific instructions (stack, conventions, do/don't, build commands).
+2. [`AGENTS.md`](AGENTS.md) — condensed cross-tool version of the same.
+3. [`docs/profile/README.md`](docs/profile/README.md) — index of the career /
+   skill / portfolio data center, plus links to:
+   - [`about.md`](docs/profile/about.md)
+   - [`skills.md`](docs/profile/skills.md)
+   - [`education.md`](docs/profile/education.md)
+   - [`experience.md`](docs/profile/experience.md)
+   - [`projects.md`](docs/profile/projects.md)
+   - [`contact.md`](docs/profile/contact.md)
+
+Treat the markdown in `docs/profile/` as the **source of truth** about the
+owner. If a `.vue` component disagrees, the markdown wins.
 
 ---
 
-## 🚀 **Fitur Utama**
-- 🎨 **Komponen Reusable** untuk pengembangan yang lebih cepat dan efisien.
-- 📦 **Manajemen State dengan Pinia** untuk pengelolaan data yang optimal.
-- 📡 **Integrasi API Backend** untuk sinkronisasi data yang lancar.
-- 🎯 **Routing Dinamis** menggunakan Vue Router.
+## 🧱 Tech stack
 
----
+- [Vue 3](https://vuejs.org/) (Composition API, `<script setup lang="ts">`)
+- [TypeScript](https://www.typescriptlang.org/) (strict, type-checked via `vue-tsc`)
+- [Vite 6](https://vitejs.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/) + custom Windows‑XP design system in `src/style.css`
+- [Pinia 3](https://pinia.vuejs.org/) (+ `pinia-plugin-persistedstate`)
+- [Vue Router 4](https://router.vuejs.org/)
+- [axios](https://axios-http.com/), `@heroicons/vue`, `flowbite`, `flowbite-vue`, `simple-datatables`, `jwt-decode`
+- ESLint 9 (flat config) + Prettier 3
 
-## 🛠 **Setup & Instalasi**
-### 1️⃣ **Clone Repository**
+## 🚀 Getting started
+
 ```bash
-git clone https://gitlab.cs.ui.ac.id/propensi-2024-2025-genap/kelas-b/b01-radiant-fe.git
-cd b01-radiant-fe
+# 1. Install dependencies
+npm install
+
+# 2. Start the dev server (http://localhost:5173)
+npm run dev
+
+# 3. Type-check + production build
+npm run build
+
+# 4. Preview the production build
+npm run preview
 ```
 
-### 2️⃣ **Instalasi Dependensi**
-Gunakan **npm** atau **yarn** untuk menginstal semua package yang dibutuhkan:
+Optional manual checks (no npm scripts are configured for these):
+
 ```bash
-npm install  # atau yarn install
+npx eslint .
+npx prettier --check .
 ```
 
-### 3️⃣ **Konfigurasi Environment**
-Buat file `.env` berdasarkan contoh `env.example`:
+## 🗂 Repository layout
 
-#### **📌 macOS & Linux**
-```bash
-cp .env.example .env
+```
+.github/copilot-instructions.md   AI guidance for GitHub Copilot
+AGENTS.md                         AI guidance for other coding agents
+docs/profile/                     Career / skill / portfolio data center (markdown)
+src/
+  App.vue, main.ts, style.css
+  router/, views/, components/, interfaces/, services/, files/
+public/                           Static assets (CV PDF, etc.)
+index.html, vite.config.ts, tsconfig*.json, eslint.config.js, .prettierrc
 ```
 
-#### **📌 Windows (Git Bash, WSL, atau PowerShell)**
-```bash
-copy .env.example .env
-```
+See [`.github/copilot-instructions.md`](.github/copilot-instructions.md) for a
+deeper tour, conventions, and the dos and don'ts.
 
-### 4️⃣ **Menjalankan Aplikasi**
-Jalankan proyek dalam mode pengembangan:
-```bash
-npm run dev  # atau yarn dev
-```
-Aplikasi akan berjalan di `http://localhost:5173` secara default.
+## 📬 Contact
 
----
-🌸 _Made with luv, Radiant_ 
+- **Email:** [musthofaja.topa@gmail.com](mailto:musthofaja.topa@gmail.com)
+- **LinkedIn:** [musthofa-joko-anggoro](https://www.linkedin.com/in/musthofa-joko-anggoro/)
+- **GitHub:** [@topahilangharapan](https://github.com/topahilangharapan)
 
-# portfolio
+More in [`docs/profile/contact.md`](docs/profile/contact.md).

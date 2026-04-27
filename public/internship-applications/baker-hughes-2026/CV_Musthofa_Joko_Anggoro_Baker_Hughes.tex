@@ -1,0 +1,107 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{mediumgray}{RGB}{80,80,80}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    pdftitle={CV - Musthofa Joko Anggoro - Baker Hughes},
+    pdfauthor={Musthofa Joko Anggoro}
+}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{darkblue}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
+
+% Remove page numbering
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Custom commands
+\newcommand{\contactline}[1]{\small #1}
+\newcommand{\experienceheader}[4]{
+    \textbf{#1} \hfill #2 \\
+    \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\LARGE \textbf{MUSTHOFA JOKO ANGGORO}} \\[2pt]
+    \contactline{
+        \faEnvelope\ \href{mailto:musthofaja.topa@gmail.com}{musthofaja.topa@gmail.com} \ $|$ \ 
+        \faLinkedin\ \href{https://www.linkedin.com/in/musthofa-joko-anggoro/}{linkedin.com/in/musthofa-joko-anggoro} \ $|$ \
+        \faGithub\ \href{https://github.com/topahilangharapan}{github.com/topahilangharapan} \ $|$ \
+        \faGlobe\ \href{https://portfolio-topahilangharapan-personal.vercel.app/}{portfolio-topahilangharapan-personal.vercel.app}
+    }
+\end{center}
+
+\vspace{-10pt}
+
+% Education
+\section*{EDUCATION}
+
+\experienceheader{University of Indonesia (UI)}{Jakarta, Indonesia}{Bachelor of Computer Science, Information Systems}{Aug 2022 - Jun 2026 (Expected)}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item \textbf{GPA: 3.84/4.00}
+    \item \textbf{Relevant Coursework:} Enterprise Application Architecture, Databases, AI \& Data Science
+\end{itemize}
+
+% Work Experience
+\section*{WORK EXPERIENCE}
+
+\experienceheader{Software Engineer Intern}{Traveloka}{Backend Development \& Automation}{Aug 2025 - Apr 2026}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Engineered secure Credential Management System with AES-GCM encryption and MongoDB, implementing automated credential rotation and audit logging for enterprise-grade security compliance
+    \item Developed automated reschedule solution processing 1000+ daily bookings with 99.9\% accuracy, reducing manual intervention by 85\% through intelligent failover mechanisms and workflow optimization
+    \item Enhanced CI/CD pipelines with automated API testing and leveraged GitHub Copilot CLI for AI-assisted development, accelerating feature delivery by 30\%
+\end{itemize}
+
+\experienceheader{Full Stack Developer Intern}{PT Magna Solusi Indonesia}{Enterprise Application Development}{Jan 2025 - Jun 2025}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Developed enterprise modules using Spring Boot and Angular with seamless frontend-backend integration, deploying across production environments
+    \item Optimized PostgreSQL database performance through efficient query design, indexing strategies, and stored procedures, reducing average response time by 35\%
+    \item Built RESTful APIs for microservice architecture handling 10,000+ daily requests with sub-200ms response times
+\end{itemize}
+
+% Projects
+\section*{KEY PROJECTS}
+
+\experienceheader{Enterprise Information System for Event Organizer}{Lead Engineer \& Full Stack Developer}{}{Feb 2025 - May 2025}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Led development of enterprise system using Spring Boot, Vue.js, and PostgreSQL with Docker containerization, implementing JWT authentication and RESTful API design
+    \item Deployed production-ready system with CI/CD pipeline, demonstrating end-to-end full-stack capabilities and DevOps practices
+\end{itemize}
+
+% Skills
+\section*{TECHNICAL SKILLS}
+
+\textbf{Languages \& Frameworks:} Java, Python, TypeScript, JavaScript $|$ Spring Boot (Java), Vue.js, Angular, ASP.NET \\
+\textbf{Databases:} PostgreSQL (SQL, PL/SQL, stored procedures), MongoDB, Oracle Database, BigQuery \\
+\textbf{Cloud \& DevOps:} Docker, Kubernetes, CI/CD pipelines, automated testing, infrastructure automation \\
+\textbf{Integration:} RESTful APIs, microservices, Oracle Integration Cloud, JWT/OAuth authentication \\
+\textbf{AI/ML Tools:} GitHub Copilot CLI, LLM API integration, Scikit-learn, prompt engineering
+
+% Leadership & Activities
+\section*{LEADERSHIP \& ACTIVITIES}
+
+\experienceheader{Vice Person in Charge of UI/UX}{COMPFEST (Indonesia's Largest IT Event Held by Students)}{Design Leadership}{Jan 2023 - Dec 2023}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Led team of 11 designers across 5 development sprints, collaborating with 20+ engineers on cross-functional requirements
+\end{itemize}
+
+\end{document}

@@ -126,15 +126,23 @@ Bullet format: `Action verb + Technology + Impact with metrics`
 
 For creating a cover letter:
 
-1. **Read full guide**: `public/COVER_LETTER_GUIDE.md` (paragraph blueprint, mapping matrix, checklist)
+1. **Read full guide**: `public/COVER_LETTER_GUIDE.md` (paragraph blueprint, mapping matrix, LaTeX template, checklist)
 2. **Read voice file**: `docs/profile/voice.md` **before drafting** — non-negotiable
 3. **Target**: 300–400 words, 4 paragraphs (P1 Hook → P2 Proof → P3 Fit → P4 CTA), no bullets in body
 4. **P1**: Open with result/story/curiosity. Never "I am writing to apply for…". Mirror JD keywords.
 5. **P2**: One STAR-lite story with a hard number. Pull from `experience.md` first.
 6. **P3**: Specific company reference + genuine interest from `about.md`. No "I am passionate about…".
 7. **P4**: Forward momentum closing. Never "Thank you for your time and consideration."
-8. **Save as**: `public/{category}/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.md`
-9. **Commit alongside** the matching CV `.tex` and `.pdf` files
+8. **Save Markdown draft**: `public/{category}/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.md`
+9. **Create LaTeX source** using the template in Section 9 of `COVER_LETTER_GUIDE.md`:
+   `CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex`
+10. **Compile to PDF** (run twice, then clean aux files):
+    ```bash
+    pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
+    pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
+    rm -f *.aux *.log *.out
+    ```
+11. **Commit all three** (`.md`, `.tex`, `.pdf`) alongside the matching CV files
 
 **Forbidden phrases**: "responsible for" · "passionate about" · "I am a quick learner" ·
 "leverage my skills" · "synergize" · "Thank you for your time and consideration"

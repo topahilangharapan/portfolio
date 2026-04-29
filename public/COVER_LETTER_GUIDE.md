@@ -16,7 +16,8 @@ Mirror of `CV_GUIDE.md` for cover letters. Read both when creating application m
 6. [What HR Actually Reads](#6-what-hr-actually-reads-priority-order)
 7. [Self-Review Checklist](#7-self-review-checklist)
 8. [File & Directory Conventions](#8-file--directory-conventions)
-9. [Example Letter Skeletons](#9-example-letter-skeletons)
+9. [LaTeX Cover Letter Template & Compilation](#9-latex-cover-letter-template--compilation)
+10. [Example Letter Skeletons](#10-example-letter-skeletons)
 
 ---
 
@@ -44,11 +45,21 @@ Step 4 → Draft using the 4-paragraph blueprint in Section 2
 
 Step 5 → Run the Self-Review Checklist in Section 7
 
-Step 6 → Save as Markdown alongside the matching CV:
+Step 6 → Save Markdown draft alongside the matching CV:
            public/internship-applications/{company}-{year}/
              CoverLetter_Musthofa_Joko_Anggoro_{Company}.md
 
-Step 7 → Commit both .md cover letter and .tex/.pdf CV together
+Step 7 → Create LaTeX source file (see Section 9):
+           public/internship-applications/{company}-{year}/
+             CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
+
+Step 8 → Compile LaTeX to PDF (see Section 9):
+           cd public/internship-applications/{company}-{year}/
+           pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
+           pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
+           rm -f *.aux *.log *.out
+
+Step 9 → Commit .md, .tex, and .pdf together
 ```
 
 **Never skip Step 3.** Voice consistency is what makes the letter sound human.
@@ -328,6 +339,12 @@ Run this **before** saving the final file. Every box must be checked.
 - [ ] Saved as `CoverLetter_Musthofa_Joko_Anggoro_{Company}.md` in the correct directory
 - [ ] Placed alongside the matching CV file for that application
 
+**LaTeX & PDF**
+- [ ] LaTeX source created as `CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex` (see Section 9)
+- [ ] PDF compiled with `pdflatex` (run twice): output shows `(1 page, XXXXX bytes)`
+- [ ] Auxiliary files removed (`*.aux`, `*.log`, `*.out`)
+- [ ] All three files (`.md`, `.tex`, `.pdf`) committed together
+
 ---
 
 ## 8. File & Directory Conventions
@@ -343,28 +360,34 @@ public/
 │   └── {company}-{year}/
 │       ├── CV_Musthofa_Joko_Anggoro_{Company}.tex
 │       ├── CV_Musthofa_Joko_Anggoro_{Company}.pdf
-│       └── CoverLetter_Musthofa_Joko_Anggoro_{Company}.md   ← cover letter here
+│       ├── CoverLetter_Musthofa_Joko_Anggoro_{Company}.md   ← Markdown draft
+│       ├── CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex  ← LaTeX source
+│       └── CoverLetter_Musthofa_Joko_Anggoro_{Company}.pdf  ← compiled PDF
 └── phd-applications/
     └── {university}-{program}-{year}/
         ├── CV_Research_Musthofa_Joko_Anggoro.tex
         ├── CV_Research_Musthofa_Joko_Anggoro.pdf
-        └── CoverLetter_Musthofa_Joko_Anggoro_{University}.md
+        ├── CoverLetter_Musthofa_Joko_Anggoro_{University}.md
+        ├── CoverLetter_Musthofa_Joko_Anggoro_{University}.tex
+        └── CoverLetter_Musthofa_Joko_Anggoro_{University}.pdf
 ```
 
 ### Naming convention
 
-| Application type | Cover letter filename |
-|------------------|-----------------------|
-| Internship | `CoverLetter_Musthofa_Joko_Anggoro_{CompanyName}.md` |
-| PhD / Research | `CoverLetter_Musthofa_Joko_Anggoro_{UniversityName}.md` |
-| General | `CoverLetter_Musthofa_Joko_Anggoro.md` |
+| Application type | Cover letter filenames (all three) |
+|------------------|------------------------------------|
+| Internship | `CoverLetter_Musthofa_Joko_Anggoro_{CompanyName}.{md\|tex\|pdf}` |
+| PhD / Research | `CoverLetter_Musthofa_Joko_Anggoro_{UniversityName}.{md\|tex\|pdf}` |
+| General | `CoverLetter_Musthofa_Joko_Anggoro.{md\|tex\|pdf}` |
 
 ### What to commit
 
-Always commit the cover letter `.md` file alongside its matching CV files.
+Always commit all three cover letter files alongside their matching CV files.
 
 ```bash
 git add public/internship-applications/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.md
+git add public/internship-applications/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
+git add public/internship-applications/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.pdf
 git add public/internship-applications/{company}-{year}/CV_Musthofa_Joko_Anggoro_{Company}.tex
 git add public/internship-applications/{company}-{year}/CV_Musthofa_Joko_Anggoro_{Company}.pdf
 git commit -m "Add application materials for {Company} {Year}"
@@ -372,7 +395,147 @@ git commit -m "Add application materials for {Company} {Year}"
 
 ---
 
-## 9. Example Letter Skeletons
+## 9. LaTeX Cover Letter Template & Compilation
+
+Every cover letter **must** be created as both a Markdown draft (`.md`) and a compiled
+LaTeX PDF (`.tex` + `.pdf`). The LaTeX version is the document you actually submit.
+
+---
+
+### Installation
+
+```bash
+# Ubuntu/Debian (CI/sandboxed environments — e.g. GitHub Copilot agent)
+sudo apt-get update
+sudo apt-get install -y texlive-latex-base texlive-latex-extra \
+     texlive-fonts-recommended texlive-fonts-extra
+
+# macOS
+brew install --cask mactex          # full distribution
+# or: brew install --cask basictex  # lighter alternative
+```
+
+---
+
+### LaTeX template structure
+
+A cover letter `.tex` file should follow this skeleton exactly.
+Use the packages already proven to work: `geometry`, `hyperref`, `xcolor`,
+`fontawesome5`, `parskip`.
+
+```latex
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=0.75in, bottom=0.75in, left=0.85in, right=0.85in]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{parskip}
+
+\definecolor{darkblue}{RGB}{0,51,102}
+\hypersetup{colorlinks=true, urlcolor=darkblue,
+    pdftitle={Cover Letter - Musthofa Joko Anggoro - {Company}},
+    pdfauthor={Musthofa Joko Anggoro}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{10pt}
+
+\begin{document}
+
+% ── HEADER ──────────────────────────────────────────────────
+\begin{center}
+    {\LARGE \textbf{MUSTHOFA JOKO ANGGORO}} \\[4pt]
+    \small
+    \faEnvelope\ \href{mailto:musthofaja.topa@gmail.com}{musthofaja.topa@gmail.com}
+    \ $|$ \
+    \faLinkedin\ \href{https://www.linkedin.com/in/musthofa-joko-anggoro/}{linkedin.com/in/musthofa-joko-anggoro}
+    \ $|$ \
+    \faGithub\ \href{https://github.com/topahilangharapan}{github.com/topahilangharapan}
+    \ $|$ \
+    \faGlobe\ \href{https://portfolio-topahilangharapan-personal.vercel.app/}{portfolio-topahilangharapan-personal.vercel.app}
+\end{center}
+
+\vspace{4pt}\hrule\vspace{14pt}
+
+% ── DATE & SALUTATION ────────────────────────────────────────
+{Month Day, Year}
+
+\vspace{6pt}
+Hiring Team \\
+{Company Name} \\
+{City, Country}
+
+\vspace{6pt}
+Dear {Company Name} Hiring Team,
+
+% ── P1 HOOK ──────────────────────────────────────────────────
+{P1 paragraph — result/curiosity hook, company named, role signal}
+
+% ── P2 PROOF ─────────────────────────────────────────────────
+{P2 paragraph — STAR-lite story with hard number}
+
+% ── P3 FIT ───────────────────────────────────────────────────
+{P3 paragraph — specific company reference + genuine interest}
+
+% ── P4 CTA ───────────────────────────────────────────────────
+{P4 paragraph — forward momentum, no "Thank you for your time"}
+
+\vspace{10pt}
+Sincerely,
+
+\vspace{18pt}
+\textbf{Musthofa Joko Anggoro}
+
+% ── FOOTER ───────────────────────────────────────────────────
+\vspace{10pt}\hrule\vspace{6pt}
+\footnotesize
+\textit{University of Indonesia, Fasilkom\ $\cdot$\ Information Systems\ $\cdot$\
+GPA 3.84/4.00\ $\cdot$\ Expected graduation June--August 2026}
+
+\end{document}
+```
+
+**Key rules for the `.tex` file:**
+- Match the header exactly (same icons and links as the CV template)
+- Use `---` in LaTeX as `---` (em-dash: `---`) inside text blocks
+- Escape special LaTeX characters: `%` → `\%`, `&` → `\&`, `_` → `\_`, `#` → `\#`
+- Keep the footer with academic credentials — it fills the page naturally and adds credibility
+
+---
+
+### Compilation commands
+
+```bash
+# Navigate to the application directory
+cd public/internship-applications/{company}-{year}/
+# (or phd-applications/{university}-{program}-{year}/)
+
+# Compile — must run TWICE to resolve cross-references and hyperlinks
+pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
+pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
+
+# Verify: expected output on second run
+# "Output written on CoverLetter_Musthofa_Joko_Anggoro_{Company}.pdf (1 page, XXXXX bytes)"
+
+# Clean up auxiliary files (do not commit these)
+rm -f CoverLetter_Musthofa_Joko_Anggoro_{Company}.aux \
+      CoverLetter_Musthofa_Joko_Anggoro_{Company}.log \
+      CoverLetter_Musthofa_Joko_Anggoro_{Company}.out
+```
+
+---
+
+### Post-compilation checklist
+
+- [ ] PDF compiles without errors (exit code 0)
+- [ ] Output confirms exactly **1 page**
+- [ ] All hyperlinks are clickable (email, LinkedIn, GitHub, portfolio)
+- [ ] Auxiliary files removed (`*.aux`, `*.log`, `*.out`)
+- [ ] `.md`, `.tex`, and `.pdf` all committed in the same commit
+
+---
+
+## 10. Example Letter Skeletons
 
 These are fill-in-the-blank starting points. Replace all `{placeholders}` with real content
 from the mapping matrix (Section 3) and the job posting.
@@ -449,7 +612,9 @@ momentum closing}.
 4. **Count words before finalizing** — run `wc -w` on the file; cut if over 400
 5. **Never invent facts** — if a claim isn't in `docs/profile/` or `src/data/portfolio/`, cut it
 6. **Re-read P1 sentence 1 last** — it's the highest-leverage sentence; refine it after drafting the rest
-7. **Commit alongside the CV** — application materials should live together in the same directory
+7. **Always produce all three artefacts** — `.md` draft, `.tex` source, and compiled `.pdf`; commit them together
+8. **Run pdflatex twice** — the second pass resolves hyperlinks and outlines correctly
+9. **Clean aux files** — never commit `*.aux`, `*.log`, or `*.out`
 
 ---
 

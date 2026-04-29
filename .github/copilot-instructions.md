@@ -60,7 +60,8 @@ When in doubt, treat **`src/data/portfolio/*.json` as the canonical source of tr
 │       ├── education.md
 │       ├── experience.md
 │       ├── projects.md
-│       └── contact.md
+│       ├── contact.md
+│       └── voice.md              ← writing voice & tone guardrails for cover letters
 ├── scripts/
 │   └── sync-profile-docs.mjs     ← generates docs/profile from src/data/portfolio JSON
 ├── public/                       ← static assets served as-is (e.g. CV PDF)
@@ -197,6 +198,7 @@ contact info, prefer these sources in this order:
 6. `docs/profile/experience.md`
 7. `docs/profile/projects.md`
 8. `docs/profile/contact.md`
+9. `docs/profile/voice.md` — writing voice & tone guardrails (cover letters only)
 
 If markdown and JSON disagree, **JSON wins**; re-run `npm run sync:profile`.
 
@@ -292,7 +294,49 @@ rm -f *.aux *.log *.out
 
 ---
 
-## 8. CV authoring style (legacy - for non-LaTeX CVs)
+## 8. Cover Letter creation workflow
+
+When asked to create a cover letter in this repository:
+
+### Quick Reference
+- **Comprehensive Guide**: Read `public/COVER_LETTER_GUIDE.md` for the full blueprint
+- **Voice & Tone**: Read `docs/profile/voice.md` **before** drafting — tone consistency is critical
+- **Target length**: 300–400 words, exactly 4 paragraphs, no bullet points in the letter body
+
+### Workflow
+```
+1. Read job description → identify top 1–2 requirements + keywords to mirror
+2. Read docs/profile/experience.md, projects.md, skills.md, education.md, about.md
+3. Read docs/profile/voice.md
+4. Draft using the 4-paragraph blueprint (P1 Hook → P2 Proof → P3 Fit → P4 CTA)
+5. Run Self-Review Checklist (Section 7 of COVER_LETTER_GUIDE.md)
+6. Save as: public/{category}/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.md
+7. Commit alongside matching CV files
+```
+
+### Paragraph Blueprint (summary)
+- **P1 Hook (2–3 sentences):** Open with a result/story/curiosity — never "I am writing to apply for…". Mirror 1–2 JD keywords. Name the company.
+- **P2 Proof (3–4 sentences):** One STAR-lite story (Situation → Action + tech → Metric). Must include a hard number. Pull from `experience.md` first.
+- **P3 Fit (2–3 sentences):** Reference something specific about the company. Tie to genuine interest from `about.md` — no "I am passionate about…".
+- **P4 CTA (2 sentences):** Forward momentum, not gratitude. Never end with "Thank you for your time".
+
+### Hard-Forbidden Phrases
+`"I am writing to apply for…"` · `"passionate about"` · `"I am a quick learner"` ·
+`"I am a team player"` · `"responsible for"` · `"leverage my skills"` · `"synergize"` ·
+`"Thank you for your time and consideration"` · `"To Whom It May Concern"`
+
+### Post-Draft Checklist
+- [ ] Opening sentence does NOT start with "I am writing to apply for…"
+- [ ] At least one metric cited (%, count, time, scale)
+- [ ] At least one JD keyword mirrored
+- [ ] Company named by name (not "your company")
+- [ ] No invented facts (traceable to `docs/profile/` or `src/data/portfolio/`)
+- [ ] Word count ≤ 400
+- [ ] Saved as `.md` alongside the matching CV
+
+---
+
+## 9. CV authoring style (legacy - for non-LaTeX CVs)
 
 When the user asks to generate or refresh a non-LaTeX CV:
 

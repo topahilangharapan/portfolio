@@ -99,6 +99,7 @@ Read these in order:
 6. [`docs/profile/experience.md`](docs/profile/experience.md)
 7. [`docs/profile/projects.md`](docs/profile/projects.md)
 8. [`docs/profile/contact.md`](docs/profile/contact.md)
+9. [`docs/profile/voice.md`](docs/profile/voice.md) — writing voice & tone (cover letters only)
 
 If markdown and JSON disagree, JSON wins; re-run `npm run sync:profile`.
 
@@ -120,6 +121,23 @@ Section order varies by role:
 - **Research**: Research Interests → Education → Experience → Skills → Projects
 
 Bullet format: `Action verb + Technology + Impact with metrics`
+
+## Cover Letter creation (quick reference)
+
+For creating a cover letter:
+
+1. **Read full guide**: `public/COVER_LETTER_GUIDE.md` (paragraph blueprint, mapping matrix, checklist)
+2. **Read voice file**: `docs/profile/voice.md` **before drafting** — non-negotiable
+3. **Target**: 300–400 words, 4 paragraphs (P1 Hook → P2 Proof → P3 Fit → P4 CTA), no bullets in body
+4. **P1**: Open with result/story/curiosity. Never "I am writing to apply for…". Mirror JD keywords.
+5. **P2**: One STAR-lite story with a hard number. Pull from `experience.md` first.
+6. **P3**: Specific company reference + genuine interest from `about.md`. No "I am passionate about…".
+7. **P4**: Forward momentum closing. Never "Thank you for your time and consideration."
+8. **Save as**: `public/{category}/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.md`
+9. **Commit alongside** the matching CV `.tex` and `.pdf` files
+
+**Forbidden phrases**: "responsible for" · "passionate about" · "I am a quick learner" ·
+"leverage my skills" · "synergize" · "Thank you for your time and consideration"
 
 ## CV writing style for non-LaTeX CVs
 

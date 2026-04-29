@@ -1,0 +1,138 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{mediumgray}{RGB}{80,80,80}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    pdftitle={CV - Musthofa Joko Anggoro - DBS},
+    pdfauthor={Musthofa Joko Anggoro}
+}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{darkblue}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
+
+% Remove page numbering
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Custom commands
+\newcommand{\contactline}[1]{\small #1}
+\newcommand{\experienceheader}[4]{
+    \textbf{#1} \hfill #2 \\
+    \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% ============================================================================
+% HEADER
+% ============================================================================
+\begin{center}
+    {\LARGE \textbf{MUSTHOFA JOKO ANGGORO}} \\[2pt]
+    \contactline{
+        \faEnvelope\ \href{mailto:musthofaja.topa@gmail.com}{musthofaja.topa@gmail.com} \ $|$ \ 
+        \faLinkedin\ \href{https://www.linkedin.com/in/musthofa-joko-anggoro/}{linkedin.com/in/musthofa-joko-anggoro} \ $|$ \
+        \faGithub\ \href{https://github.com/topahilangharapan}{github.com/topahilangharapan} \ $|$ \
+        \faGlobe\ \href{https://portfolio-topahilangharapan-personal.vercel.app/}{portfolio-topahilangharapan-personal.vercel.app}
+    }
+\end{center}
+
+\vspace{-8pt}
+
+% ============================================================================
+% EDUCATION
+% ============================================================================
+\section*{EDUCATION}
+
+\experienceheader{University of Indonesia (UI) — Fasilkom}{Jakarta, Indonesia}{Bachelor of Computer Science, Information Systems \textbf{| GPA: 3.84/4.00}}{Aug 2022 -- Jun 2026 (Expected)}
+\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1pt]
+    \item \textbf{Relevant Coursework:} Enterprise Application Architecture, Database Systems, Data Comm. Networks, AI \& Data Science, Operating Systems
+    \item \textbf{LPDP Scholarship Awardee} — INSPIRASI--NTU Summer Programme 2025 at Nanyang Technological University (Singapore) \& ITS; applied software engineering principles to sustainable development challenges in a cross-cultural cohort
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% WORK EXPERIENCE
+% ============================================================================
+\section*{WORK EXPERIENCE}
+
+\experienceheader{Software Engineer Intern}{Traveloka · Jakarta (WFO)}{Backend Engineering \& Operations Automation}{Aug 2025 -- Apr 2026}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Engineered a secure Credential Management System with AES-GCM encryption, automated rotation, and granular audit logging on MongoDB — achieving enterprise-grade security compliance for sensitive operational data
+    \item Built an automated flight-booking reschedule engine processing \textbf{1,000+ daily transactions} with \textbf{99.9\% accuracy}, cutting manual intervention by \textbf{85\%} and reducing operational error risk
+    \item Developed real-time data-sync services and structured-logging pipelines feeding \textbf{BigQuery} analytics dashboards, enabling data-driven business decisions across operations
+    \item Enhanced CI/CD pipelines with Karate automated API testing and auto-rollback logic, ensuring zero-defect deployments in a high-throughput production environment
+\end{itemize}
+
+\vspace{2pt}
+
+\experienceheader{Full Stack Developer Intern}{PT Magna Solusi Indonesia · Jakarta (Hybrid)}{Enterprise Application Development}{Jan 2025 -- Jun 2025}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Delivered end-to-end enterprise modules (Spring Boot + Angular) integrated across production, improving operational efficiency for corporate clients
+    \item Optimised PostgreSQL database through query tuning, indexing strategies, and stored procedures, reducing average response time by \textbf{35\%} for high-volume data workflows
+    \item Designed RESTful APIs for a microservice architecture, handling \textbf{10,000+ daily requests} at sub-200 ms latency, supporting scalable business operations
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% KEY PROJECTS
+% ============================================================================
+\section*{KEY PROJECTS}
+
+\experienceheader{Enterprise Information System — Event Organizer}{Lead Engineer \& Full Stack Developer}{Spring Boot · Vue.js · PostgreSQL · Docker · JWT}{Feb 2025 -- May 2025}
+\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1pt]
+    \item Led a cross-functional team to design and deploy a production-ready all-in-one enterprise platform covering finance, freelancer tracking, and secure user management
+    \item Implemented JWT-based authentication, CI/CD pipelines, and Dockerised deployment — demonstrating end-to-end ownership from architecture to production release
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% LEADERSHIP & ACTIVITIES
+% ============================================================================
+\section*{LEADERSHIP \& ACTIVITIES}
+
+\experienceheader{Vice Person in Charge of UI/UX}{COMPFEST — Indonesia's Largest IT Event (Fasilkom UI)}{}{Jan 2023 -- Dec 2023}
+\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1pt]
+    \item Directed a \textbf{team of 11 designers} through 5 agile sprints to redesign compfest.id's landing page and launch a new design system with dark \& light mode
+    \item Acted as primary liaison between design, software engineering, and automation divisions — aligning diverse stakeholders on product direction and delivery timelines
+\end{itemize}
+
+\vspace{2pt}
+
+\experienceheader{Mentor — Programming Foundations 0}{Faculty of Computer Science, University of Indonesia}{}{2024}
+\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1pt]
+    \item Guided first-year students through foundational programming concepts, fostering problem-solving skills and a growth mindset in a group learning environment
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% TECHNICAL SKILLS
+% ============================================================================
+\section*{TECHNICAL SKILLS}
+
+\textbf{Languages \& Frameworks:} Java, Python, TypeScript, Golang $|$ Spring Boot, Vue.js, Angular, Django \\
+\textbf{Databases \& Analytics:} PostgreSQL, MongoDB, BigQuery, SQL (stored procedures, triggers, indexing) \\
+\textbf{Cloud \& DevOps:} Docker, Kubernetes, CI/CD pipelines, Google Cloud Platform, automated API testing \\
+\textbf{Security \& Integration:} AES-GCM encryption, JWT/OAuth, RESTful APIs, microservice architecture \\
+\textbf{AI \& Automation:} GitHub Copilot CLI, Scikit-learn, data preprocessing, workflow automation
+
+\end{document}

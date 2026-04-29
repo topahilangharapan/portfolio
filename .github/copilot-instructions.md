@@ -308,12 +308,11 @@ When asked to create a cover letter in this repository:
 1. Read job description → identify top 1–2 requirements + keywords to mirror
 2. Read docs/profile/experience.md, projects.md, skills.md, education.md, about.md
 3. Read docs/profile/voice.md
-4. Draft using the 4-paragraph blueprint (P1 Hook → P2 Proof → P3 Fit → P4 CTA)
+4. Draft the letter content using the 4-paragraph blueprint (P1 Hook → P2 Proof → P3 Fit → P4 CTA)
 5. Run Self-Review Checklist (Section 7 of COVER_LETTER_GUIDE.md)
-6. Save Markdown draft: public/{category}/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.md
-7. Create LaTeX source .tex using the template in Section 9 of COVER_LETTER_GUIDE.md
-8. Compile to PDF (run pdflatex twice, then remove aux files — see Section 9)
-9. Commit .md, .tex, and .pdf together alongside matching CV files
+6. Write content directly into LaTeX source .tex (template in Section 9 of COVER_LETTER_GUIDE.md)
+7. Compile to PDF (run pdflatex twice, then remove aux files — see Section 9)
+8. Commit .tex and .pdf together alongside matching CV files
 ```
 
 ### Paragraph Blueprint (summary)
@@ -334,10 +333,9 @@ When asked to create a cover letter in this repository:
 - [ ] Company named by name (not "your company")
 - [ ] No invented facts (traceable to `docs/profile/` or `src/data/portfolio/`)
 - [ ] Word count ≤ 400
-- [ ] `.md` saved alongside the matching CV
 - [ ] `.tex` created using the LaTeX template (Section 9 of COVER_LETTER_GUIDE.md)
 - [ ] PDF compiled (`pdflatex` ×2), 1 page confirmed, auxiliary files removed
-- [ ] All three files (`.md`, `.tex`, `.pdf`) committed together
+- [ ] Both `.tex` and `.pdf` committed together alongside matching CV files
 
 ---
 

@@ -133,16 +133,15 @@ For creating a cover letter:
 5. **P2**: One STAR-lite story with a hard number. Pull from `experience.md` first.
 6. **P3**: Specific company reference + genuine interest from `about.md`. No "I am passionate about…".
 7. **P4**: Forward momentum closing. Never "Thank you for your time and consideration."
-8. **Save Markdown draft**: `public/{category}/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.md`
-9. **Create LaTeX source** using the template in Section 9 of `COVER_LETTER_GUIDE.md`:
-   `CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex`
-10. **Compile to PDF** (run twice, then clean aux files):
+8. **Write directly into LaTeX source** using the template in Section 9 of `COVER_LETTER_GUIDE.md` — no `.md` draft:
+   `public/{category}/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex`
+9. **Compile to PDF** (run twice, then clean aux files):
     ```bash
     pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
     pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
     rm -f *.aux *.log *.out
     ```
-11. **Commit all three** (`.md`, `.tex`, `.pdf`) alongside the matching CV files
+10. **Commit both** (`.tex` and `.pdf`) alongside the matching CV files
 
 **Forbidden phrases**: "responsible for" · "passionate about" · "I am a quick learner" ·
 "leverage my skills" · "synergize" · "Thank you for your time and consideration"

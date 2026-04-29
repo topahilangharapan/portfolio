@@ -41,25 +41,22 @@ Step 2 → Read profile data (in this order):
 Step 3 → Read docs/profile/voice.md
            ← tone guardrails, forbidden phrases, opener patterns
 
-Step 4 → Draft using the 4-paragraph blueprint in Section 2
+Step 4 → Draft the letter content using the 4-paragraph blueprint in Section 2,
+           then write it directly into the LaTeX source file (see Section 9)
 
 Step 5 → Run the Self-Review Checklist in Section 7
 
-Step 6 → Save Markdown draft alongside the matching CV:
-           public/internship-applications/{company}-{year}/
-             CoverLetter_Musthofa_Joko_Anggoro_{Company}.md
-
-Step 7 → Create LaTeX source file (see Section 9):
+Step 6 → Create and save the LaTeX source file (see Section 9):
            public/internship-applications/{company}-{year}/
              CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
 
-Step 8 → Compile LaTeX to PDF (see Section 9):
+Step 7 → Compile LaTeX to PDF (see Section 9):
            cd public/internship-applications/{company}-{year}/
            pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
            pdflatex -interaction=nonstopmode CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
            rm -f *.aux *.log *.out
 
-Step 9 → Commit .md, .tex, and .pdf together
+Step 8 → Commit .tex and .pdf together alongside the matching CV files
 ```
 
 **Never skip Step 3.** Voice consistency is what makes the letter sound human.
@@ -336,14 +333,12 @@ Run this **before** saving the final file. Every box must be checked.
 **Format**
 - [ ] Word count is ≤ 400 words (count programmatically if unsure)
 - [ ] Four paragraphs (P1 through P4) — no bullet points in the letter body
-- [ ] Saved as `CoverLetter_Musthofa_Joko_Anggoro_{Company}.md` in the correct directory
-- [ ] Placed alongside the matching CV file for that application
 
 **LaTeX & PDF**
 - [ ] LaTeX source created as `CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex` (see Section 9)
 - [ ] PDF compiled with `pdflatex` (run twice): output shows `(1 page, XXXXX bytes)`
 - [ ] Auxiliary files removed (`*.aux`, `*.log`, `*.out`)
-- [ ] All three files (`.md`, `.tex`, `.pdf`) committed together
+- [ ] Both `.tex` and `.pdf` committed alongside the matching CV files
 
 ---
 
@@ -360,32 +355,29 @@ public/
 │   └── {company}-{year}/
 │       ├── CV_Musthofa_Joko_Anggoro_{Company}.tex
 │       ├── CV_Musthofa_Joko_Anggoro_{Company}.pdf
-│       ├── CoverLetter_Musthofa_Joko_Anggoro_{Company}.md   ← Markdown draft
 │       ├── CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex  ← LaTeX source
 │       └── CoverLetter_Musthofa_Joko_Anggoro_{Company}.pdf  ← compiled PDF
 └── phd-applications/
     └── {university}-{program}-{year}/
         ├── CV_Research_Musthofa_Joko_Anggoro.tex
         ├── CV_Research_Musthofa_Joko_Anggoro.pdf
-        ├── CoverLetter_Musthofa_Joko_Anggoro_{University}.md
         ├── CoverLetter_Musthofa_Joko_Anggoro_{University}.tex
         └── CoverLetter_Musthofa_Joko_Anggoro_{University}.pdf
 ```
 
 ### Naming convention
 
-| Application type | Cover letter filenames (all three) |
-|------------------|------------------------------------|
-| Internship | `CoverLetter_Musthofa_Joko_Anggoro_{CompanyName}.{md\|tex\|pdf}` |
-| PhD / Research | `CoverLetter_Musthofa_Joko_Anggoro_{UniversityName}.{md\|tex\|pdf}` |
-| General | `CoverLetter_Musthofa_Joko_Anggoro.{md\|tex\|pdf}` |
+| Application type | Cover letter filenames |
+|------------------|------------------------|
+| Internship | `CoverLetter_Musthofa_Joko_Anggoro_{CompanyName}.{tex\|pdf}` |
+| PhD / Research | `CoverLetter_Musthofa_Joko_Anggoro_{UniversityName}.{tex\|pdf}` |
+| General | `CoverLetter_Musthofa_Joko_Anggoro.{tex\|pdf}` |
 
 ### What to commit
 
-Always commit all three cover letter files alongside their matching CV files.
+Always commit both cover letter files alongside the matching CV files.
 
 ```bash
-git add public/internship-applications/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.md
 git add public/internship-applications/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.tex
 git add public/internship-applications/{company}-{year}/CoverLetter_Musthofa_Joko_Anggoro_{Company}.pdf
 git add public/internship-applications/{company}-{year}/CV_Musthofa_Joko_Anggoro_{Company}.tex
@@ -397,8 +389,8 @@ git commit -m "Add application materials for {Company} {Year}"
 
 ## 9. LaTeX Cover Letter Template & Compilation
 
-Every cover letter **must** be created as both a Markdown draft (`.md`) and a compiled
-LaTeX PDF (`.tex` + `.pdf`). The LaTeX version is the document you actually submit.
+Every cover letter **must** be authored as a LaTeX source file (`.tex`) and compiled to PDF.
+There is **no separate Markdown draft** — write the letter content directly into the `.tex` file.
 
 ---
 
@@ -531,20 +523,21 @@ rm -f CoverLetter_Musthofa_Joko_Anggoro_{Company}.aux \
 - [ ] Output confirms exactly **1 page**
 - [ ] All hyperlinks are clickable (email, LinkedIn, GitHub, portfolio)
 - [ ] Auxiliary files removed (`*.aux`, `*.log`, `*.out`)
-- [ ] `.md`, `.tex`, and `.pdf` all committed in the same commit
+- [ ] Both `.tex` and `.pdf` committed in the same commit
 
 ---
 
 ## 10. Example Letter Skeletons
 
-These are fill-in-the-blank starting points. Replace all `{placeholders}` with real content
-from the mapping matrix (Section 3) and the job posting.
+These are fill-in-the-blank starting points showing the **paragraph prose** to place inside
+the `.tex` template (Section 9). Replace all `{placeholders}` with real content from the
+mapping matrix (Section 3) and the job posting.
 
 ---
 
 ### Skeleton A: AI / Startup Role
 
-```markdown
+```text
 {Result or curiosity hook tied to AI/automation}. {Company}'s work on {specific product/problem}
 is exactly the context where that kind of thinking compounds — {one-sentence role signal}.
 
@@ -564,7 +557,7 @@ no thanks}.
 
 ### Skeleton B: Enterprise / Regulated Role
 
-```markdown
+```text
 {Scale or reliability hook with a metric}. {Company}'s focus on {compliance/security/enterprise
 area} is the kind of environment where that matters most — {one-sentence role signal}.
 
@@ -584,7 +577,7 @@ I'd welcome the chance to discuss {specific reliability or security challenge re
 
 ### Skeleton C: Research / PhD Application
 
-```markdown
+```text
 {Intellectual observation or question that frames the research area}. {University/Lab}'s work on
 {specific research direction} is where I think the most interesting open questions currently sit —
 {one-sentence signal of why this specific program}.
@@ -609,10 +602,10 @@ momentum closing}.
 1. **Always read `voice.md` before drafting** — tone consistency is what makes the letter human
 2. **One story beats five** — resist the urge to mention every project; P2 gets one story only
 3. **Mirror the JD language** — use the mapping matrix to match signals to assets precisely
-4. **Count words before finalizing** — run `wc -w` on the file; cut if over 400
+4. **Count words before finalizing** — count them in the `.tex` source; cut prose if over 400
 5. **Never invent facts** — if a claim isn't in `docs/profile/` or `src/data/portfolio/`, cut it
 6. **Re-read P1 sentence 1 last** — it's the highest-leverage sentence; refine it after drafting the rest
-7. **Always produce all three artefacts** — `.md` draft, `.tex` source, and compiled `.pdf`; commit them together
+7. **Write directly in LaTeX** — no Markdown draft; author the letter in the `.tex` file and compile
 8. **Run pdflatex twice** — the second pass resolves hyperlinks and outlines correctly
 9. **Clean aux files** — never commit `*.aux`, `*.log`, or `*.out`
 

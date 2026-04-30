@@ -1,0 +1,136 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{mediumgray}{RGB}{80,80,80}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    pdftitle={CV - Musthofa Joko Anggoro},
+    pdfauthor={Musthofa Joko Anggoro}
+}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{darkblue}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
+
+% Remove page numbering
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Custom commands
+\newcommand{\contactline}[1]{\small #1}
+\newcommand{\experienceheader}[4]{
+    \textbf{#1} \hfill #2 \\
+    \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% ============================================================================
+% HEADER
+% ============================================================================
+\begin{center}
+    {\LARGE \textbf{MUSTHOFA JOKO ANGGORO}} \\[2pt]
+    \contactline{
+        \faEnvelope\ \href{mailto:musthofaja.topa@gmail.com}{musthofaja.topa@gmail.com} \ $|$ \ 
+        \faLinkedin\ \href{https://www.linkedin.com/in/musthofa-joko-anggoro/}{linkedin.com/in/musthofa-joko-anggoro} \ $|$ \
+        \faGithub\ \href{https://github.com/topahilangharapan}{github.com/topahilangharapan} \ $|$ \
+        \faGlobe\ \href{https://portfolio-topahilangharapan-personal.vercel.app/}{portfolio-topahilangharapan-personal.vercel.app}
+    }
+\end{center}
+
+\vspace{-10pt}
+
+% ============================================================================
+% EDUCATION
+% ============================================================================
+\section*{EDUCATION}
+
+\experienceheader{University of Indonesia (UI)}{Jakarta, Indonesia}{Bachelor of Computer Science, Information Systems}{Aug 2022 -- Jun 2026 (Expected)}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=1pt]
+    \item \textbf{GPA: 3.84 / 4.00} --- consistently top performer; above program minimum (3.50) threshold
+    \item \textbf{Activities:} Vice PIC of UI/UX, COMPFEST (Indonesia's Largest IT Event); Mentor, Programming Foundations 0
+\end{itemize}
+
+\vspace{1pt}
+\experienceheader{INSPIRASI--NTU Summer Program 2025 · \textbf{LPDP Scholarship Awardee}}{Singapore \& Surabaya}{Sustainable Development \& Technology --- Nanyang Technological University (NTU) \& ITS}{Jun 2025}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=1pt]
+    \item Competitively selected LPDP government scholarship recipient; collaborated in an English-medium multicultural cohort addressing real-world sustainability challenges at NTU Singapore
+\end{itemize}
+
+\vspace{-5pt}
+
+% ============================================================================
+% LEADERSHIP & ORGANIZATIONAL EXPERIENCE
+% ============================================================================
+\section*{LEADERSHIP \& ORGANIZATIONAL EXPERIENCE}
+
+\experienceheader{Vice Person in Charge of UI/UX}{COMPFEST --- Indonesia's Largest Annual IT Event}{Team Leadership, Project \& Stakeholder Management}{Jan 2023 -- Dec 2023}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=1pt]
+    \item Directed 11 designers across 5 sprints, setting workload plans and quality standards that delivered full design renewal of compfest.id on schedule
+    \item Coordinated cross-divisionally with software engineering and automation teams, translating business requirements into actionable design outputs and ensuring alignment across all stakeholders
+\end{itemize}
+
+\vspace{1pt}
+\experienceheader{Mentor --- Programming Foundations 0}{Faculty of Computer Science, University of Indonesia}{People Development \& Communication}{2024}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=1pt]
+    \item Guided first-year student cohort through foundational programming, demonstrating people development skills and ability to communicate complex topics accessibly
+\end{itemize}
+
+\vspace{-5pt}
+
+% ============================================================================
+% WORK EXPERIENCE
+% ============================================================================
+\section*{WORK EXPERIENCE}
+
+\experienceheader{Software Engineer Intern}{Traveloka --- Indonesia's Leading Travel \& Lifestyle Platform}{Process Automation \& Operational Efficiency}{Aug 2025 -- Apr 2026}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=1pt]
+    \item Built automated reschedule solution processing 1,000+ daily booking modifications with 99.9\% accuracy, reducing manual intervention by 85\% and demonstrating strong analytical and process-improvement thinking
+    \item Collaborated across product, operations, and engineering to deliver reliable solutions at scale within a large, fast-moving organization
+\end{itemize}
+
+\vspace{1pt}
+\experienceheader{Full Stack Developer Intern}{PT Magna Solusi Indonesia}{Enterprise Application Development}{Jan 2025 -- Jun 2025}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=1pt]
+    \item Delivered enterprise application modules on schedule, optimizing database performance by 35\% and building scalable APIs that improved cross-team operational efficiency
+\end{itemize}
+
+\vspace{-5pt}
+
+% ============================================================================
+% PROJECTS
+% ============================================================================
+\section*{SELECTED PROJECT}
+
+\experienceheader{Enterprise Information System for Event Organizer}{Lead Engineer \& Full Stack Developer}{Finance, HR \& Freelancer Management System}{Feb 2025 -- May 2025}
+\begin{itemize}[leftmargin=*, itemsep=0pt, topsep=1pt]
+    \item Led cross-functional team to plan, build, and deploy an end-to-end enterprise system managing finance, contracts, and operations; delivered on scope and schedule as project lead
+\end{itemize}
+
+\vspace{-5pt}
+
+% ============================================================================
+% SKILLS
+% ============================================================================
+\section*{SKILLS}
+
+\textbf{Languages:} English (proficient, written \& verbal) $|$ Indonesian (native) \\
+\textbf{Productivity \& Office Tools:} Microsoft Office (Excel, Word, PowerPoint), Google Workspace, Figma, ClickUp \\
+\textbf{Technology:} Java, Python, TypeScript $|$ Spring Boot, Vue.js, Angular $|$ PostgreSQL, MongoDB $|$ Docker, Git \\
+\textbf{Core Competencies:} Team Leadership, Cross-functional Collaboration, Project Management, Analytical Problem-Solving, Mentoring \& Coaching, Adaptability, Structured Communication
+
+\end{document}

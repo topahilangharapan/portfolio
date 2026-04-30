@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{parskip}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,51,102}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    pdftitle={Cover Letter - Musthofa Joko Anggoro - MixRank},
+    pdfauthor={Musthofa Joko Anggoro}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\newcommand{\contactline}[1]{\small #1}
+
+\begin{document}
+
+% ============================================================================
+% HEADER
+% ============================================================================
+\begin{center}
+    {\LARGE \textbf{MUSTHOFA JOKO ANGGORO}} \\[4pt]
+    \contactline{
+        \faEnvelope\ \href{mailto:musthofaja.topa@gmail.com}{musthofaja.topa@gmail.com} \ $|$ \ 
+        \faLinkedin\ \href{https://www.linkedin.com/in/musthofa-joko-anggoro/}{linkedin.com/in/musthofa-joko-anggoro} \ $|$ \
+        \faGithub\ \href{https://github.com/topahilangharapan}{github.com/topahilangharapan} \ $|$ \
+        \faGlobe\ \href{https://portfolio-topahilangharapan-personal.vercel.app/}{portfolio-topahilangharapan-personal.vercel.app}
+    }
+\end{center}
+
+\vspace{12pt}
+
+April 30, 2026
+
+\vspace{8pt}
+
+MixRank Hiring Team \\
+MixRank
+
+\vspace{12pt}
+
+Re: Junior Software Engineer — Remote (Indonesia)
+
+\vspace{12pt}
+
+% ============================================================================
+% BODY
+% ============================================================================
+
+% P1 — Hook + Role Signal
+Processing petabytes of data monthly isn't a marketing headline at MixRank — it's the engineering baseline every commit has to hold up against. I spent the last eight months at Traveloka building the infrastructure that sits between raw event streams and actionable decisions: real-time data-sync services, structured-logging pipelines feeding BigQuery dashboards, and automation that processed over a thousand flight-booking modifications daily with 99.9\% accuracy. When I read MixRank's job posting — Python, PostgreSQL, Linux, data at scale — I wasn't translating; it read like the stack I already work in.
+
+\vspace{6pt}
+
+% P2 — Strongest Proof
+The clearest example of how I approach difficult data problems was the automated reschedule pipeline I built at Traveloka. One of the company's largest flight inventory providers had no automated path for booking modifications — operators handled thousands of changes manually every day, with all the error rate that implies. I designed and built an end-to-end pipeline with configurable scrapers, intelligent failover logic, and idempotent state transitions, cutting manual intervention by 85\% while maintaining 99.9\% processing accuracy. What made the problem interesting was less the automation itself and more the data modeling: making state transitions reliable enough that an operator could trust the output without spot-checking it. That instinct — make the data correct before making it fast — is the same one I brought to PostgreSQL query optimization work at PT Magna Solusi Indonesia, where tuning queries and stored procedures reduced average response time by 35\%.
+
+\vspace{6pt}
+
+% P3 — Culture & Domain Fit
+MixRank's model — crawling the web, Android and iOS ecosystems, and dozens of data sources, then shaping that raw signal into products that Google and Adobe actually pay for — is the kind of systems problem I find genuinely worth thinking about. I've been messing with web scraping, ETL pipelines, and Python-based data workflows long enough to know that the hard part isn't collecting data; it's making it queryable, consistent, and useful at volume. The fact that your codebase is effectively Python, TypeScript, and SQL means I can contribute on day one while learning the deeper infrastructure problems — distributed file systems, full-scale crawls, static analysis at the universe-of-APKs scale — that are harder to encounter anywhere else.
+
+\vspace{6pt}
+
+% P4 — Closing + CTA
+I'd welcome the chance to talk through where the team needs generalist engineers most right now and whether my background in data pipelines, backend automation, and PostgreSQL depth maps to that. I'm based in Indonesia and available full-time remote — I'm looking forward to finding out if this is the right match.
+
+\vspace{16pt}
+
+Musthofa Joko Anggoro
+
+\end{document}

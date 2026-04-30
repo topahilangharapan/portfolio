@@ -1,0 +1,141 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{mediumgray}{RGB}{80,80,80}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    pdftitle={CV - Musthofa Joko Anggoro - HPE},
+    pdfauthor={Musthofa Joko Anggoro}
+}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{darkblue}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
+
+% Remove page numbering
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Custom commands
+\newcommand{\contactline}[1]{\small #1}
+\newcommand{\experienceheader}[4]{
+    \textbf{#1} \hfill #2 \\
+    \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% ============================================================================
+% HEADER
+% ============================================================================
+\begin{center}
+    {\LARGE \textbf{MUSTHOFA JOKO ANGGORO}} \\[2pt]
+    \contactline{
+        \faEnvelope\ \href{mailto:musthofaja.topa@gmail.com}{musthofaja.topa@gmail.com} \ $|$ \ 
+        \faLinkedin\ \href{https://www.linkedin.com/in/musthofa-joko-anggoro/}{linkedin.com/in/musthofa-joko-anggoro} \ $|$ \
+        \faGithub\ \href{https://github.com/topahilangharapan}{github.com/topahilangharapan} \ $|$ \
+        \faGlobe\ \href{https://portfolio-topahilangharapan-personal.vercel.app/}{portfolio-topahilangharapan-personal.vercel.app}
+    }
+\end{center}
+
+\vspace{-8pt}
+
+% ============================================================================
+% EDUCATION
+% ============================================================================
+\section*{EDUCATION}
+
+\experienceheader{University of Indonesia (UI) --- Fasilkom}{Jakarta, Indonesia}{Bachelor of Computer Science, Information Systems \textbf{| GPA: 3.84/4.00}}{Aug 2022 -- Jun 2026 (Expected)}
+\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1pt]
+    \item \textbf{Relevant Coursework:} AI \& Data Science, Data Communication Networks, Database Systems, Enterprise Application Architecture, Operating Systems
+    \item \textbf{LPDP Scholarship Awardee} --- INSPIRASI--NTU Summer Programme 2025 (NTU Singapore \& ITS); applied engineering principles to sustainability challenges, producing an architecture proposal for a real-world environmental problem
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% WORK EXPERIENCE
+% ============================================================================
+\section*{WORK EXPERIENCE}
+
+\experienceheader{Software Engineer Intern}{Traveloka · Jakarta}{Backend Engineering, Cloud \& Automation}{Aug 2025 -- Apr 2026}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Built automated flight-booking reschedule engine on \textbf{Google Cloud Platform}, processing \textbf{1,000+ daily transactions} with \textbf{99.9\% accuracy} and cutting manual intervention by \textbf{85\%} via configurable scrapers and failover mechanisms
+    \item Designed real-time data-sync services and structured-logging pipelines feeding \textbf{BigQuery} analytics dashboards, translating raw cloud event streams into actionable business intelligence
+    \item Engineered secure Credential Management System with AES-GCM encryption, automated rotation, and audit logging; deployed containerised services on \textbf{Kubernetes} with CI/CD and auto-rollback logic
+\end{itemize}
+
+\vspace{2pt}
+
+\experienceheader{Full Stack Developer Intern}{PT Magna Solusi Indonesia · Jakarta}{Enterprise Application Development}{Jan 2025 -- Jun 2025}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Delivered enterprise modules (Spring Boot + Angular) for corporate clients; optimised PostgreSQL through indexing and stored procedures, reducing response time by \textbf{35\%}
+    \item Designed RESTful APIs for \textbf{microservice architecture} handling \textbf{10,000+ daily requests} at sub-200 ms latency with Docker/Kubernetes deployment
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% KEY PROJECTS
+% ============================================================================
+\section*{KEY PROJECTS}
+
+\experienceheader{Used Car Sales Prediction}{Machine Learning Analyst}{Python · Scikit-learn · Gradient Boosting · Random Forest · K-Means · EDA}{Apr 2025 -- May 2025}
+\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1pt]
+    \item Built classification, regression, and clustering models on imbalanced datasets to surface actionable business patterns; evaluated Gradient Boosting, Random Forest, and Logistic Regression against business KPIs
+\end{itemize}
+
+\vspace{2pt}
+
+\experienceheader{Enterprise Information System --- Event Organizer}{Lead Engineer \& Full Stack Developer}{Spring Boot · Vue.js · PostgreSQL · Docker · Kubernetes · JWT}{Feb 2025 -- May 2025}
+\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1pt]
+    \item Led end-to-end design and deployment of a production-ready enterprise platform with JWT auth, CI/CD pipelines, and containerised infrastructure on Docker/Kubernetes
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% TECHNICAL SKILLS
+% ============================================================================
+\section*{TECHNICAL SKILLS}
+
+\textbf{Languages:} Java, Python, TypeScript, JavaScript, Golang \\
+\textbf{Cloud \& Infrastructure:} Google Cloud Platform, BigQuery $|$ Docker, Kubernetes $|$ CI/CD pipelines $|$ Learning: AWS, Azure \\
+\textbf{Frameworks \& Databases:} Spring Boot, Vue.js, Angular, Django $|$ PostgreSQL, MongoDB, SQL \\
+\textbf{Security \& Integration:} AES-GCM encryption, JWT/OAuth $|$ RESTful APIs, microservices \\
+\textbf{AI \& Data:} Scikit-learn (classification, regression, clustering), EDA, data preprocessing $|$ GitHub Copilot CLI
+
+\vspace{-4pt}
+
+% ============================================================================
+% LEADERSHIP & ACTIVITIES
+% ============================================================================
+\section*{LEADERSHIP \& ACTIVITIES}
+
+\experienceheader{Vice Person in Charge of UI/UX}{COMPFEST --- Indonesia's Largest IT Event}{}{Jan 2023 -- Dec 2023}
+\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1pt]
+    \item Directed \textbf{11 designers} across 5 sprints to redesign compfest.id; primary liaison between design, software engineering, and automation divisions --- practising the cross-functional stakeholder communication central to a Presales role
+\end{itemize}
+
+\vspace{2pt}
+
+\experienceheader{Mentor --- Programming Foundations 0}{Faculty of Computer Science, University of Indonesia}{}{2024}
+\begin{itemize}[leftmargin=*, itemsep=0.5pt, topsep=1pt]
+    \item Guided first-year students through programming fundamentals, honing the ability to convey complex technical concepts clearly to non-technical audiences
+\end{itemize}
+
+\end{document}

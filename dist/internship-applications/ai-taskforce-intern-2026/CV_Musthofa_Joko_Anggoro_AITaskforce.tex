@@ -1,0 +1,147 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{mediumgray}{RGB}{80,80,80}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    pdftitle={CV - Musthofa Joko Anggoro},
+    pdfauthor={Musthofa Joko Anggoro}
+}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{darkblue}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
+
+% Remove page numbering
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Custom commands
+\newcommand{\contactline}[1]{\small #1}
+\newcommand{\experienceheader}[4]{
+    \textbf{#1} \hfill #2 \\
+    \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% ============================================================================
+% HEADER
+% ============================================================================
+\begin{center}
+    {\LARGE \textbf{MUSTHOFA JOKO ANGGORO}} \\[2pt]
+    \contactline{
+        \faEnvelope\ \href{mailto:musthofaja.topa@gmail.com}{musthofaja.topa@gmail.com} \ $|$ \ 
+        \faLinkedin\ \href{https://www.linkedin.com/in/musthofa-joko-anggoro/}{linkedin.com/in/musthofa-joko-anggoro} \ $|$ \
+        \faGithub\ \href{https://github.com/topahilangharapan}{github.com/topahilangharapan} \ $|$ \
+        \faGlobe\ \href{https://portfolio-topahilangharapan-personal.vercel.app/}{portfolio-topahilangharapan-personal.vercel.app}
+    }
+\end{center}
+
+\vspace{-6pt}
+
+% ============================================================================
+% PROFILE SUMMARY
+% ============================================================================
+\section*{PROFILE}
+
+AI-curious engineer who actively ships AI-assisted automation in production. Uses GitHub Copilot CLI daily, has cut 85\% of manual work from a high-volume pipeline, and is excited to prototype MCP-connected agentic tools and measure their real impact on team productivity.
+
+\vspace{-4pt}
+
+% ============================================================================
+% EDUCATION
+% ============================================================================
+\section*{EDUCATION}
+
+\experienceheader{University of Indonesia (UI) -- Fasilkom}{Jakarta, Indonesia}{Bachelor of Computer Science, Information Systems · \textbf{GPA: 3.84 / 4.00}}{Aug 2022 -- Jun 2026 (Expected)}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item \textbf{Relevant coursework:} Introduction to AI \& Data Science, Data Structures \& Algorithms, Enterprise Application Architecture, Database Systems, Operating Systems, Data Communication Networks
+    \item \textbf{Award:} LPDP Scholarship Awardee -- INSPIRASI--NTU Summer Program 2025 (NTU Singapore \& ITS)
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% WORK EXPERIENCE
+% ============================================================================
+\section*{WORK EXPERIENCE}
+
+\experienceheader{Software Engineer Intern}{Traveloka · Jakarta}{Backend Development, Automation \& AI-Assisted Engineering}{Aug 2025 -- Apr 2026}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Integrated \textbf{GitHub Copilot CLI} into daily engineering workflows -- accelerating feature delivery and automated-test authoring, demonstrating how AI coding agents boost team velocity.
+    \item Engineered an \textbf{automated reschedule pipeline} processing \textbf{1,000+ daily booking modifications} with 99.9\% accuracy, reducing manual intervention by \textbf{85\%} through failover mechanisms and workflow optimisation.
+    \item Enhanced CI/CD pipelines with automated API testing (Karate) and auto-rollback logic; built a secure \textbf{Credential Management System} (AES-GCM encryption, audit logging) cutting security incidents by 90\%.
+    \item Built real-time data-sync services with structured logging piped to \textbf{BigQuery}, enabling operational analytics dashboards.
+\end{itemize}
+
+\vspace{2pt}
+
+\experienceheader{Full Stack Developer Intern}{PT Magna Solusi Indonesia · Jakarta}{Enterprise Application Development}{Jan 2025 -- Jun 2025}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Built RESTful APIs and full-stack modules (Spring Boot + Angular) for a production enterprise system; deployed containerised services on Docker + Kubernetes.
+    \item Optimised PostgreSQL performance through indexing and stored-procedure refactoring, reducing p95 response time by \textbf{35\%}.
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% KEY PROJECTS
+% ============================================================================
+\section*{KEY PROJECTS}
+
+\experienceheader{Used Car Sales Prediction -- ML Pipeline}{Machine Learning Analyst}{Python · Scikit-learn · Gradient Boosting · K-Means}{Apr 2025 -- May 2025}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Designed end-to-end ML pipeline (EDA → preprocessing → model selection → evaluation) for imbalanced multi-class classification, regression, and customer-segmentation clustering.
+    \item Achieved best-in-class F1 on imbalanced data using SMOTE oversampling and Gradient Boosting; interpreted results to surface actionable business insights.
+\end{itemize}
+
+\vspace{2pt}
+
+\experienceheader{Enterprise IS for Event Organizer}{Lead Engineer \& Full Stack Developer}{Spring Boot · Vue.js · PostgreSQL · Docker}{Feb 2025 -- May 2025}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Led a team to deliver an all-in-one operations platform (finance, freelancer tracking, scheduling) with JWT authentication, RESTful API design, and CI/CD deployment -- shipped on time and on spec.
+\end{itemize}
+
+\vspace{-4pt}
+
+% ============================================================================
+% TECHNICAL SKILLS
+% ============================================================================
+\section*{TECHNICAL SKILLS}
+
+\textbf{Languages:} Python, TypeScript / JavaScript, Java, Go \\
+\textbf{Backend \& APIs:} Spring Boot, Django, RESTful API design, microservice architecture \\
+\textbf{AI \& Agentic Tooling:} GitHub Copilot CLI, LLM API integration, Scikit-learn, prompt engineering, agentic workflow design \\
+\textbf{Cloud \& DevOps:} Docker, Kubernetes, CI/CD pipelines (GitHub Actions), automated testing (Karate), auto-rollback \\
+\textbf{Databases:} PostgreSQL, MongoDB, BigQuery \\
+\textbf{Version Control \& Collaboration:} Git / GitHub (branching strategies, PR workflows, code review)
+
+\vspace{-4pt}
+
+% ============================================================================
+% LEADERSHIP & ACTIVITIES
+% ============================================================================
+\section*{LEADERSHIP \& ACTIVITIES}
+
+\experienceheader{Vice Person in Charge of UI/UX}{COMPFEST -- Indonesia's Largest IT Event}{}{Jan 2023 -- Dec 2023}
+\begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+    \item Led 11 designers across 5 sprints; delivered redesigned website and dark/light-mode design system; coordinated with software and automation engineers.
+    \item Mentored first-year students as \textbf{Programming Foundations 0 Mentor}, Faculty of Computer Science, UI (2024).
+\end{itemize}
+
+\end{document}

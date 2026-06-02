@@ -6,23 +6,22 @@ interface Props {
   isOpen: boolean;
 }
 
-interface SkillCategory {
-  title: string;
-  dotClass: string;
-  items: string[];
-}
-
 interface AdditionalInfoCard {
   title: string;
   value: string;
   titleClass: string;
 }
 
+interface ResearchInterest {
+  label: string;
+  icon: string;
+}
+
 interface AboutData {
   professionalSummary: string[];
   coreStrengths: string[];
-  technicalSkills: SkillCategory[];
   additionalInfo: AdditionalInfoCard[];
+  researchInterests: ResearchInterest[];
   statusBar: {
     right: string[];
   };
@@ -107,27 +106,19 @@ function toggleOpen() {
               </div>
             </div>
 
-            <!-- Technical Skills Section -->
-            <div>
+            <!-- Research Interests Section -->
+            <div class="space-y-4">
               <div class="xp-group">
-                <div class="xp-group-title">Technical Skills Inventory</div>
-                <div class="xp-panel p-3">
-                  <div class="space-y-4">
-                    <!-- Programming Languages -->
-                    <div v-for="category in about.technicalSkills" :key="category.title">
-                      <h4 class="font-xp font-bold text-black text-sm mb-2 flex items-center">
-                        <span class="w-3 h-3 rounded-sm mr-2" :class="category.dotClass"></span>
-                        {{ category.title }}
-                      </h4>
-                      <div class="flex flex-wrap gap-2">
-                        <span
-                          v-for="item in category.items"
-                          :key="item"
-                          class="xp-button px-3 py-1 font-xp text-xs"
-                        >
-                          {{ item }}
-                        </span>
-                      </div>
+                <div class="xp-group-title">Research Interests</div>
+                <div class="xp-panel p-4">
+                  <div class="flex flex-wrap gap-3">
+                    <div
+                      v-for="interest in about.researchInterests"
+                      :key="interest.label"
+                      class="xp-button px-4 py-2 font-xp text-sm flex items-center gap-2"
+                    >
+                      <span>{{ interest.icon }}</span>
+                      <span class="font-bold">{{ interest.label }}</span>
                     </div>
                   </div>
                 </div>
@@ -137,7 +128,7 @@ function toggleOpen() {
 
           <!-- Additional Information Panel -->
           <div class="mt-6 pt-4 border-t-2 border-gray-400">
-            <div class="grid md:grid-cols-3 gap-4">
+            <div class="grid md:grid-cols-2 gap-4">
               <div v-for="card in about.additionalInfo" :key="card.title" class="xp-panel p-4 text-center">
                 <div class="font-xp text-lg font-bold mb-2" :class="card.titleClass">{{ card.title }}</div>
                 <div class="font-xp text-sm text-black">{{ card.value }}</div>

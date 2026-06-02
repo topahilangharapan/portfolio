@@ -52,7 +52,7 @@
 % ============================================================
 \section*{Research Interests}
 
-My thesis was my first serious encounter with hardware design --- building a working CPU in VHDL and seeing it run on real silicon. That got me curious about a harder problem: how do you map AI workloads onto reconfigurable hardware efficiently? I want to work on that question, and I do not have all the tools to answer it yet. That is why I am applying for a PhD.
+My research interests lie in reconfigurable computing, computer architecture, and digital hardware design. I am particularly interested in the translation of architectural models into synthesisable hardware: spanning RTL design, hierarchical system decomposition, FPGA implementation, and hardware verification. More broadly, I am drawn to research that bridges theoretical computing models with practical, resource-constrained hardware realisation on programmable logic platforms.
 
 \vspace{-4pt}
 
@@ -79,14 +79,11 @@ My thesis was my first serious encounter with hardware design --- building a wor
 \section*{Undergraduate Thesis}
 
 {\small\textbf{VHDL-93 Implementation of the Mano Register-Transfer Microoperation Model on FPGA}} \\[1pt]
-{\small\textit{Supervisor:} Prof.\ Petrus Mursanto, University of Indonesia \hfill \textit{Status: Completed --- Paper in preparation for ICACSIS 2026}}
+{\small\textit{Supervisor:} Prof.\ Petrus Mursanto, University of Indonesia}
 \begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=2pt]
-    \item Designed and implemented the Mano register-transfer computer model as a complete, hierarchically structured VHDL-93 (IEEE~1076-1993) datapath on a \textbf{Xilinx Spartan-3AN} FPGA
-    \item Conducted a systematic \textbf{gap analysis} mapping 5 undefined textbook constraints to concrete RTL design decisions, bridging theory and physical hardware implementation
-    \item Implemented a \textbf{three-tier component hierarchy}: leaf-level primitives (\texttt{reg\_n}, ALU, shifter) $\rightarrow$ functional units $\rightarrow$ full system integration (\texttt{fpga\_top})
-    \item Verified all modules via \textbf{ISim functional simulation} testbenches and board-level testing on physical hardware
-    \item Achieved \textbf{timing closure at 50~MHz} on the Spartan-3AN device (critical path: 17.05~ns) using XST synthesis engine
-    \item Demonstrated live operation via PS/2 keyboard input and \textbf{HD44780 LCD display} output; programmed via JTAG
+    \item Designed and implemented the Mano register-transfer computer model as a complete, hierarchically structured VHDL-93 datapath on a \textbf{Xilinx Spartan-3AN} FPGA
+    \item Conducted a systematic \textbf{gap analysis} mapping undefined textbook constraints to concrete RTL design decisions, bridging theory and physical hardware implementation
+    \item Verified all modules via \textbf{ISim functional simulation} testbenches and achieved \textbf{timing closure at 50~MHz} (critical path: 17.05~ns) using XST synthesis
     \item \textit{Toolchain:} Xilinx ISE~14.x $\cdot$ XST $\cdot$ ISim $\cdot$ JTAG $\cdot$ VHDL-93
 \end{itemize}
 
@@ -98,18 +95,5 @@ My thesis was my first serious encounter with hardware design --- building a wor
 \begin{itemize}[leftmargin=1.5em, itemsep=2pt, topsep=2pt]
     \item Musthofa Joko Anggoro, Petrus Mursanto. ``VHDL-93 Implementation of the Mano Register-Transfer Microoperation Model on an FPGA.'' \textit{Proceedings of the International Conference on Advanced Computer Science and Information Systems (ICACSIS) 2026}. \textbf{[In preparation]}
 \end{itemize}
-
-% ============================================================
-% TECHNICAL SKILLS
-% ============================================================
-\section*{Technical Skills}
-
-\begin{tabular}{@{}lp{11cm}}
-\small\textbf{HDL \& Digital Design} & \small VHDL-93, RTL synthesis, place-and-route, functional simulation, testbench writing \\[2pt]
-\small\textbf{FPGA Tools}            & \small Xilinx ISE~14.x, XST, ISim, JTAG; Device: Spartan-3AN (XC3S700AN) \\[2pt]
-\small\textbf{Programming}           & \small Python, Java, C, Go, TypeScript \\[2pt]
-\small\textbf{Machine Learning}      & \small Scikit-learn, supervised/unsupervised learning, model evaluation \\[2pt]
-\small\textbf{Infrastructure}        & \small Docker, Kubernetes, CI/CD, Linux/Unix, Git \\
-\end{tabular}
 
 \end{document}

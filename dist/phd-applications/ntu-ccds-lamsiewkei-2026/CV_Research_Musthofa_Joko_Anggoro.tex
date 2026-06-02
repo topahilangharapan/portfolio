@@ -79,15 +79,12 @@ My research interests lie in reconfigurable computing, computer architecture, an
 \section*{Undergraduate Thesis}
 
 {\small\textbf{VHDL-93 Implementation of the Mano Register-Transfer Microoperation Model on FPGA}} \\[1pt]
-{\small\textit{Supervisor:} Prof.\ Petrus Mursanto, University of Indonesia \hfill \textit{Status: Completed --- Paper in preparation for ICACSIS 2026}}
+{\small\textit{Supervisor:} Prof.\ Petrus Mursanto, University of Indonesia}
 \begin{itemize}[leftmargin=1.5em, itemsep=1pt, topsep=2pt]
     \item Designed and implemented the Mano register-transfer computer model as a complete, hierarchically structured VHDL-93 (IEEE~1076-1993) datapath on a \textbf{Xilinx Spartan-3AN} FPGA
-    \item Conducted a systematic \textbf{gap analysis} mapping 5 undefined textbook constraints to concrete RTL design decisions, bridging theory and physical hardware implementation
-    \item Implemented a \textbf{three-tier component hierarchy}: leaf-level primitives (\texttt{reg\_n}, ALU, shifter) $\rightarrow$ functional units $\rightarrow$ full system integration (\texttt{fpga\_top})
+    \item Conducted a systematic \textbf{gap analysis} mapping undefined textbook constraints to concrete RTL design decisions, bridging theory and physical hardware implementation
     \item Verified all modules via \textbf{ISim functional simulation} testbenches and board-level testing on physical hardware
     \item Achieved \textbf{timing closure at 50~MHz} on the Spartan-3AN device (critical path: 17.05~ns) using XST synthesis engine
-    \item Demonstrated live operation via PS/2 keyboard input and \textbf{HD44780 LCD display} output; programmed via JTAG
-    \item \textit{Toolchain:} Xilinx ISE~14.x $\cdot$ XST $\cdot$ ISim $\cdot$ JTAG $\cdot$ VHDL-93
 \end{itemize}
 
 % ============================================================

@@ -13,6 +13,33 @@
     "Solid Computer Science Foundation",
     "Determination and Hopes & Dreams"
   ],
+  "technicalSkills": [
+    {
+      "title": "Programming Languages",
+      "dotClass": "bg-blue-500",
+      "items": ["Java", "Python", "TypeScript", "Golang"]
+    },
+    {
+      "title": "Frameworks",
+      "dotClass": "bg-green-500",
+      "items": ["Vue.js", "Angular", "React.js", "Spring Boot", "Django"]
+    },
+    {
+      "title": "Database & Tools",
+      "dotClass": "bg-purple-500",
+      "items": ["PostgreSQL", "MongoDB", "Git/GitHub", "Docker", "Kubernetes"]
+    },
+    {
+      "title": "Operating Systems",
+      "dotClass": "bg-yellow-500",
+      "items": ["Windows", "Linux", "Unix"]
+    },
+    {
+      "title": "AI/ML",
+      "dotClass": "bg-red-500",
+      "items": ["Model Development (Sci-Kit Learn)", "Data Preprocessing", "Supervised & Unsupervised Learning"]
+    }
+  ],
   "additionalInfo": [
     {
       "title": "📚 Currently Learning",
@@ -20,18 +47,15 @@
       "titleClass": "text-blue-600"
     },
     {
+      "title": "💡 Interests",
+      "value": "AI/ML, Cloud Computing, Distributed Systems",
+      "titleClass": "text-green-600"
+    },
+    {
       "title": "🎯 Career Goal",
       "value": "Software Engineer that inspire a lot of people",
       "titleClass": "text-purple-600"
     }
-  ],
-  "researchInterests": [
-    { "label": "Artificial Intelligence", "icon": "🤖" },
-    { "label": "Machine Learning", "icon": "🧠" },
-    { "label": "Cloud Computing", "icon": "☁️" },
-    { "label": "Distributed Systems", "icon": "🔗" },
-    { "label": "Data Engineering", "icon": "📊" },
-    { "label": "Software Architecture", "icon": "🏗️" }
   ],
   "statusBar": {
     "right": ["💼 CS Student", "🎓 UI 2022-2026", "Ready"]

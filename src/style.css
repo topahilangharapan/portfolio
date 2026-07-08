@@ -67,9 +67,10 @@
 /* Update the desktop background utility class */
 @layer utilities {
     .bg-xp-desktop {
-        background: url('src/files/Windows XP Free.jpg') no-repeat center center;
-        background-size: cover;
-        background-attachment: fixed;
+        background: url('/Windows XP Free.jpg') no-repeat center center,
+                    linear-gradient(135deg, var(--xp-desktop-start) 0%, var(--xp-desktop-mid) 40%, var(--xp-desktop-end) 60%, #6ccf3c 80%, #3fa52b 100%);
+        background-size: cover, cover;
+        background-attachment: fixed, fixed;
     }
 
     /* Fallback gradient in case image fails to load */
@@ -87,6 +88,19 @@
 }
 
 @layer components {
+    /* Research tag chip — blue-tinted variant for research focus tags */
+    .research-chip {
+        display: inline-flex;
+        align-items: center;
+        border: 1px outset var(--xp-silver-dark);
+        background: linear-gradient(180deg, #e8f0fe 0%, #c7d8fc 100%);
+        color: var(--xp-dark-blue);
+        font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+        font-size: 10px;
+        padding: 1px 6px;
+        cursor: default;
+    }
+
     /* Enhanced XP Window/Dialog Style */
     .xp-window {
         border: 3px solid;

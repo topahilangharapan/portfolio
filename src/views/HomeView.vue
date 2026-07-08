@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {ref, onMounted, watch} from 'vue';
-import HeroSection from '../components/HeroSection.vue';
+import {ref, onMounted} from 'vue';
+import ResearchProfileCard from '../components/ResearchProfileCard.vue';
+import ResearchExplorer from '../components/ResearchExplorer.vue';
 import AboutSection from '../components/AboutSection.vue';
 import EducationSection from '../components/EducationSection.vue';
 import ContactSection from '../components/ContactSection.vue';
 import ProjectExplorer from '../components/ProjectExplorer.vue';
 import ExperienceExplorer from '../components/ExperienceExplorer.vue';
-// Import the new WelcomeNotification component
 import WelcomeNotification from '../components/WelcomeNotification.vue';
 
 // Desktop State Management
@@ -16,18 +16,16 @@ const openWindows = ref<string[]>([]);
 const activeWindow = ref<string | null>(null);
 const minimizedWindows = ref<string[]>([]);
 
-const isOpenContact = ref(false);
-const isOpenProjects = ref(false);
+const skillsList = ref(['VHDL', 'FPGA Design', 'Computer Architecture', 'Python', 'Vue.js', 'Java']);
 
-const skillsList = ref(['JavaScript/TypeScript', 'Vue.js']);
-
-// Desktop Applications (removed 'hero' from the list)
+// Desktop Applications
 const desktopApps = ref([
   { id: 'about', name: 'About Me', icon: '👤', x: 20, y: 20 },
   { id: 'projects', name: 'My Projects', icon: '💼', x: 20, y: 100 },
-  { id: 'experience', name: 'Experience', icon: '🧠', x: 20, y: 180 },
-  { id: 'education', name: 'Education', icon: '🎓', x: 20, y: 260 },
-  { id: 'contact', name: 'Contact', icon: '📧', x: 20, y: 340 },
+  { id: 'research', name: 'Research', icon: '🔬', x: 20, y: 180 },
+  { id: 'experience', name: 'Experience', icon: '🧠', x: 20, y: 260 },
+  { id: 'education', name: 'Education', icon: '🎓', x: 20, y: 340 },
+  { id: 'contact', name: 'Contact', icon: '📧', x: 20, y: 420 },
 ]);
 
 // Window Management Functions
@@ -72,35 +70,16 @@ const getWindowIcon = (appId: string) => {
   return app ? app.icon : '📄';
 };
 
-watch(isOpenContact, (newVal) => {
-  if (newVal) {
-    openWindow('contact')
-  } else {
-    const idx = openWindows.value.indexOf('contact');
-    if (idx !== -1) openWindows.value.splice(idx, 1);
-  }
-})
-
-watch(isOpenProjects, (newVal) => {
-  if (newVal) {
-    openWindow('projects')
-  } else {
-    const idx = openWindows.value.indexOf('projects');
-    if (idx !== -1) openWindows.value.splice(idx, 1);
-  }
-})
 </script>
 
 <template>
   <div class="min-h-screen bg-xp-desktop relative overflow-hidden select-none">
-    <!-- Static Hero Section - Top Right -->
-    <div class="absolute right-2 z-20 pointer-events-auto">
-      <div class="">
-        <HeroSection
-            v-model:isOpenContact="isOpenContact"
-            v-model:isOpenProjects="isOpenProjects"
-        />
-      </div>
+    <!-- Pinned Research Profile Card - Top Right (always visible) -->
+    <div
+      class="absolute right-4 top-4 z-20 pointer-events-auto"
+      style="width: 320px; max-height: calc(100vh - 52px); overflow-y: auto;"
+    >
+      <ResearchProfileCard />
     </div>
 
     <!-- Desktop Icons -->
@@ -177,12 +156,38 @@ watch(isOpenProjects, (newVal) => {
                 } else {
                   const idx = openWindows.indexOf('projects');
                   if (idx !== -1) openWindows.splice(idx, 1);
-                  isOpenProjects = false;
                 }
               }
             "
           />
         </div>
+      </div>
+
+      <!-- Research / Thesis Window -->
+      <div
+          v-if="openWindows.includes('research')"
+          :class="[
+          'absolute w-4/5 max-w-5xl h-4/5',
+          'pointer-events-auto',
+          minimizedWindows.includes('research') ? 'hidden' : '',
+          activeWindow === 'research' ? 'z-30' : 'z-20',
+        ]"
+          style="left: 10%; top: 2%"
+          @click="focusWindow('research')"
+      >
+        <ResearchExplorer
+            :isOpen="openWindows.includes('research')"
+            @update:isOpen="
+            (val) => {
+              if (val) {
+                if (!openWindows.includes('research')) openWindows.push('research');
+              } else {
+                const idx = openWindows.indexOf('research');
+                if (idx !== -1) openWindows.splice(idx, 1);
+              }
+            }
+          "
+        />
       </div>
 
       <!-- Experience Window -->
@@ -265,7 +270,6 @@ watch(isOpenProjects, (newVal) => {
                 } else {
                   const idx = openWindows.indexOf('contact');
                   if (idx !== -1) openWindows.splice(idx, 1);
-                  isOpenContact = false;
                 }
               }
             "

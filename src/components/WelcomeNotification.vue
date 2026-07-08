@@ -39,19 +39,19 @@
           <div class="flex items-start">
             <span class="text-blue-600 mr-2 font-bold">•</span>
             <span class="text-gray-700">
-              See the <strong>Research Profile</strong> panel on the right — instant overview of thesis &amp; background
+              <strong>Scroll the panel on the right</strong> — full profile, research, education, experience &amp; contact, no clicks needed
             </span>
           </div>
           <div class="flex items-start">
             <span class="text-blue-600 mr-2 font-bold">•</span>
             <span class="text-gray-700">
-              <strong>Double-click</strong> desktop icons to explore full sections (About, Projects, Experience...)
+              <strong>Click</strong> any desktop icon on the left to open that section in detail
             </span>
           </div>
           <div class="flex items-start">
             <span class="text-blue-600 mr-2 font-bold">•</span>
             <span class="text-gray-700">
-              The <strong>🔬 Research</strong> icon opens full thesis details and research context
+              The <strong>🔬 Research</strong> icon opens the full thesis breakdown
             </span>
           </div>
           <div class="flex items-start">

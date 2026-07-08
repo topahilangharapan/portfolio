@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref, onMounted} from 'vue';
-import ResearchProfileCard from '../components/ResearchProfileCard.vue';
+import AcademicProfilePanel from '../components/AcademicProfilePanel.vue';
 import ResearchExplorer from '../components/ResearchExplorer.vue';
 import AboutSection from '../components/AboutSection.vue';
 import EducationSection from '../components/EducationSection.vue';
@@ -74,12 +74,12 @@ const getWindowIcon = (appId: string) => {
 
 <template>
   <div class="min-h-screen bg-xp-desktop relative overflow-hidden select-none">
-    <!-- Pinned Research Profile Card - Top Right (always visible) -->
+    <!-- Pinned Academic Profile Panel - Right side (always visible, fully scrollable) -->
     <div
       class="absolute right-4 top-4 z-20 pointer-events-auto"
-      style="width: 320px; max-height: calc(100vh - 52px); overflow-y: auto;"
+      style="width: 400px; height: calc(100vh - 52px);"
     >
-      <ResearchProfileCard />
+      <AcademicProfilePanel />
     </div>
 
     <!-- Desktop Icons -->
@@ -89,6 +89,7 @@ const getWindowIcon = (appId: string) => {
           :key="app.id"
           :style="{ left: app.x + 'px', top: app.y + 'px' }"
           class="absolute w-16 h-20 flex flex-col items-center justify-center cursor-pointer group"
+          @click="openWindow(app.id)"
           @dblclick="openWindow(app.id)"
       >
         <div

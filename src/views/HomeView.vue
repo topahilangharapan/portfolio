@@ -77,7 +77,7 @@ const getWindowIcon = (appId: string) => {
     <!-- Pinned Academic Profile Panel - Right side (always visible, fully scrollable) -->
     <div
       class="absolute right-4 top-4 z-20 pointer-events-auto"
-      style="width: 400px; height: calc(100vh - 52px);"
+      style="width: min(55vw, 680px); height: calc(100vh - 52px);"
     >
       <AcademicProfilePanel />
     </div>

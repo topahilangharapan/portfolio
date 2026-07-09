@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref, onMounted} from 'vue';
-import AcademicProfilePanel from '../components/AcademicProfilePanel.vue';
+import InternetExplorer from '../components/InternetExplorer.vue';
 import ResearchExplorer from '../components/ResearchExplorer.vue';
 import AboutSection from '../components/AboutSection.vue';
 import EducationSection from '../components/EducationSection.vue';
@@ -20,12 +20,13 @@ const skillsList = ref(['VHDL', 'FPGA Design', 'Computer Architecture', 'Python'
 
 // Desktop Applications
 const desktopApps = ref([
-  { id: 'about', name: 'About Me', icon: '👤', x: 20, y: 20 },
-  { id: 'projects', name: 'My Projects', icon: '💼', x: 20, y: 100 },
-  { id: 'research', name: 'Research', icon: '🔬', x: 20, y: 180 },
-  { id: 'experience', name: 'Experience', icon: '🧠', x: 20, y: 260 },
-  { id: 'education', name: 'Education', icon: '🎓', x: 20, y: 340 },
-  { id: 'contact', name: 'Contact', icon: '📧', x: 20, y: 420 },
+  { id: 'browser',    name: 'My Portfolio', icon: '🌐', x: 20, y: 20 },
+  { id: 'about',      name: 'About Me',     icon: '👤', x: 20, y: 100 },
+  { id: 'projects',   name: 'My Projects',  icon: '💼', x: 20, y: 180 },
+  { id: 'research',   name: 'Research',     icon: '🔬', x: 20, y: 260 },
+  { id: 'experience', name: 'Experience',   icon: '🧠', x: 20, y: 340 },
+  { id: 'education',  name: 'Education',    icon: '🎓', x: 20, y: 420 },
+  { id: 'contact',    name: 'Contact',      icon: '📧', x: 20, y: 500 },
 ]);
 
 // Window Management Functions
@@ -51,11 +52,12 @@ const toggleStartMenu = () => {
   isStartMenuOpen.value = !isStartMenuOpen.value;
 };
 
-// Update time every minute
+// Update time every minute; auto-open the IE browser on load
 onMounted(() => {
   setInterval(() => {
     currentTime.value = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }, 60000);
+  openWindow('browser');
 });
 
 // Get window title
@@ -74,13 +76,6 @@ const getWindowIcon = (appId: string) => {
 
 <template>
   <div class="min-h-screen bg-xp-desktop relative overflow-hidden select-none">
-    <!-- Pinned Academic Profile Panel - Right side (always visible, fully scrollable) -->
-    <div
-      class="absolute right-4 top-4 z-20 pointer-events-auto"
-      style="width: min(55vw, 680px); height: calc(100vh - 52px);"
-    >
-      <AcademicProfilePanel />
-    </div>
 
     <!-- Desktop Icons -->
     <div class="absolute inset-0 z-10">
@@ -105,6 +100,33 @@ const getWindowIcon = (appId: string) => {
 
     <!-- Windows Container -->
     <div class="absolute inset-0 z-20 pointer-events-none">
+
+      <!-- Internet Explorer Browser Window (auto-opens on load) -->
+      <div
+          v-if="openWindows.includes('browser')"
+          :class="[
+          'absolute pointer-events-auto',
+          minimizedWindows.includes('browser') ? 'hidden' : '',
+          activeWindow === 'browser' ? 'z-30' : 'z-20',
+        ]"
+          style="left: 90px; top: 4px; right: 8px; height: calc(100vh - 52px);"
+          @click="focusWindow('browser')"
+      >
+        <InternetExplorer
+            :isOpen="openWindows.includes('browser')"
+            @update:isOpen="
+            (val) => {
+              if (val) {
+                if (!openWindows.includes('browser')) openWindows.push('browser');
+              } else {
+                const idx = openWindows.indexOf('browser');
+                if (idx !== -1) openWindows.splice(idx, 1);
+              }
+            }
+          "
+        />
+      </div>
+
       <!-- About Window -->
       <div
           v-if="openWindows.includes('about')"

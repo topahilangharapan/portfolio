@@ -29,7 +29,8 @@ personality. The restraint *is* the personality.
 ## 2. What "classic and simple" means here
 
 It means the plain-document web: black text, white background, blue underlined links,
-system fonts, hairline rules, high information density, no images.
+system fonts, hairline rules, high information density, and — per the narrow exception
+in §3 — images used only as evidence, never as decoration.
 
 It does **not** mean "minimal." Minimalism removes content and adds whitespace. This
 design keeps all the content and removes decoration. A correct page will look *fuller*
@@ -44,7 +45,9 @@ These are not stylistic preferences. Any of them present means the build is wron
 - Gradients of any kind, including subtle ones.
 - Cards. No bordered, padded, elevated content containers.
 - Hero sections, banner areas, full-width colored bands.
-- Photography, illustration, stock imagery, avatars, logos, decorative SVG.
+- Photography, illustration, stock imagery, logos, and decorative SVG. (A small set of
+  evidentiary images — thesis figures, project screenshots, one profile photo — is
+  permitted under the narrow rules in §3. Nothing decorative, ever.)
 - Icons — including a single small one. Use words.
 - Web fonts. Not Inter, not a Google Font, not a self-hosted face.
 - Emoji, emoticons, and any pictographic or dingbat character.
@@ -60,7 +63,92 @@ These are not stylistic preferences. Any of them present means the build is wron
 
 ---
 
-## 3. Color
+## 3. Images — the narrow exception
+
+Section 2 says "no decoration" because decoration is the default failure mode of
+every redesign. This section is the one deliberate exception, and it stays narrow on
+purpose: an image belongs on this page only when it *is* the evidence, not when it
+illustrates a claim the text already makes.
+
+### What qualifies
+
+Four categories. Nothing else.
+
+1. **Technical/thesis figures** — board photos, circuit diagrams, waveform captures
+   that support a specific claim in the thesis section of `for-committees.html`.
+2. **Project screenshots** — one image per project, the actual UI, not a mockup or a
+   marketing render.
+3. **Profile photo** — at most one, small, placed near the name on `index.html`.
+4. **A personal-interests section, if one is ever added** — treated exactly like
+   project screenshots: a handful of images, captioned, no more decorative than a
+   screenshot would be. Adding this section at all is a content decision under §1,
+   not a design-guide decision — it still has to earn its place as something a
+   reader can verify, not a mood board.
+
+If an image doesn't fall cleanly into one of these, it doesn't go on the page. This
+list does not grow by analogy — a new category needs a deliberate edit to this
+document, not a shortcut in an HTML file.
+
+### Markup
+
+Every image is wrapped in a `<figure class="evidence">` with a `<figcaption>`:
+
+```html
+<figure class="evidence">
+  <img src="assets/img/thesis-board.jpg"
+       alt="Spartan-3AN board running the datapath test bench"
+       width="480" height="360" loading="lazy">
+  <figcaption>fpga board, running datapath test — jpg, 480&times;360</figcaption>
+</figure>
+```
+
+- `alt` describes what's shown — never decorative filler ("photo of...") and never
+  empty.
+- `figcaption` reads like a file-link descriptor: format, dimensions, what it is —
+  same voice as the descriptor rule in §9. No adjectives here either.
+- `width` and `height` attributes are mandatory, to prevent layout shift on a page
+  that otherwise never reflows.
+- `loading="lazy"` is a native HTML attribute, not a script — allowed, recommended.
+- Exactly one `<img>` per `<figure class="evidence">`. No image exists outside this
+  wrapper.
+
+### Styling
+
+- Flat rectangle. A single `1px solid var(--rule)` border is permitted for
+  definition — it's a hairline, consistent with rules used everywhere else on the
+  page, not a card.
+- No border-radius, shadow, filter, gradient, or frame.
+- Max width: the column or block it sits in. Never full-bleed, never wider than the
+  980px page frame, never breaks the grid in §6.
+- No lightbox, zoom, carousel, or click-to-expand. The image is already at its
+  display size; if detail matters, link to the full file instead — same pattern as
+  the cv/thesis pdf links in §7.
+
+### Budget
+
+- File location: `assets/img/`.
+- Per image: JPG for photographs, PNG for diagrams/screenshots, under **150 KB**
+  each.
+- Per page: at most **3** images. The page's total weight (HTML + CSS + every image
+  on it) stays under **500 KB**. This replaces the 30 KB text-only budget in §13 for
+  any page that uses this exception — a page with zero images keeps the 30 KB budget
+  unchanged.
+- No external image hosting, no CDN, no hotlinking. The file ships in this repo.
+
+### Still forbidden, even here
+
+- Cropping or retouching for aesthetics — the image documents something; it doesn't
+  need to look good.
+- Stock photography, illustration, icons, logos, avatars used as decoration rather
+  than identification.
+- More than one profile photo, or a profile photo larger than a thumbnail.
+- Any image whose only job is to fill whitespace or "add visual interest." If you
+  can't state in one sentence what claim the image is evidence for, it doesn't
+  belong.
+
+---
+
+## 4. Color
 
 The palette is five values. There is no sixth.
 
@@ -87,7 +175,7 @@ Rules on color:
 
 ---
 
-## 4. Typography
+## 5. Typography
 
 ### Faces
 
@@ -127,7 +215,7 @@ Five sizes, no more.
 
 ---
 
-## 5. Layout
+## 6. Layout
 
 ### Page frame
 
@@ -168,7 +256,7 @@ open it up. Whitespace here is a bug, not a feature.
 
 ---
 
-## 6. Links
+## 7. Links
 
 - Always underlined. Always. Underlines are removed on the modern web to make
   interfaces look cleaner, and every time it makes them harder to use. Not here.
@@ -186,7 +274,7 @@ open it up. Whitespace here is a bug, not a feature.
 
 ---
 
-## 7. The summary column
+## 8. The summary column
 
 This column exists to solve one problem: a pure directory tells a hiring committee
 nothing. It must answer four questions before the reader clicks anything — rank and
@@ -210,7 +298,7 @@ columns beside it, cut it.
 
 ---
 
-## 8. Descriptors — the voice rule
+## 9. Descriptors — the voice rule
 
 Links in the category columns may carry a short gray descriptor. This is what makes
 the directory self-summarizing, and it is also the easiest thing in this design to get
@@ -238,7 +326,7 @@ they'd otherwise cause an awkward wrap.
 
 ---
 
-## 9. Tables
+## 10. Tables
 
 Tables are a primary element here, not a fallback.
 
@@ -252,7 +340,7 @@ Tables are a primary element here, not a fallback.
 
 ---
 
-## 10. Responsive behavior
+## 11. Responsive behavior
 
 Two breakpoints. That's enough.
 
@@ -273,7 +361,7 @@ Rules:
 
 ---
 
-## 11. Accessibility floor
+## 12. Accessibility floor
 
 Non-negotiable, and cheap given the constraints.
 
@@ -290,13 +378,14 @@ Non-negotiable, and cheap given the constraints.
 
 ---
 
-## 12. Performance and build
+## 13. Performance and build
 
 - Hand-written HTML and CSS. One stylesheet, or a `<style>` block if it's under ~8 KB.
 - **Zero JavaScript on the front page.** If a later page needs sorting, that's ~20
   lines of vanilla JS on that page only. Nothing else justifies a script.
-- Every page under 30 KB total, no external requests, first paint effectively instant
-  on a slow connection.
+- Every text-only page stays under 30 KB total, no external requests, first paint
+  effectively instant on a slow connection. A page that uses the images exception in
+  §3 follows that section's per-image and per-page caps instead.
 - No build step, no bundler, no dependencies. This site must still work, unchanged, in
   ten years — which is a design goal, not an engineering one.
 - Print stylesheet: hide nothing, set links to black, print the URL after external
@@ -304,12 +393,15 @@ Non-negotiable, and cheap given the constraints.
 
 ---
 
-## 13. Acceptance checklist
+## 14. Acceptance checklist
 
 Reject the build if any of these is false:
 
 - [ ] Page loads with zero JavaScript and zero network requests beyond the HTML.
-- [ ] No border radius, shadow, gradient, icon, image, or web font anywhere.
+- [ ] No border radius, shadow, gradient, icon, or web font anywhere.
+- [ ] Every image (if any) is evidentiary under §3 — one of the four permitted
+      categories, wrapped in `<figure class="evidence">` with a `<figcaption>`,
+      captioned and alt-texted, nothing decorative, within the size/count budget.
 - [ ] No emoji, emoticon, or decorative unicode symbol (arrows, stars, checkmarks)
       anywhere, including as a trailing mark on external links.
 - [ ] Every link is underlined; visited links render purple.
@@ -318,11 +410,11 @@ Reject the build if any of these is false:
 - [ ] Bold appears on the name, the column headings, and the committee link only.
 - [ ] Nothing is centered; nothing is animated; nothing is hidden behind a control.
 - [ ] The page still makes sense with CSS disabled entirely.
-- [ ] Total weight under 30 KB.
+- [ ] Total weight under 30 KB (text-only pages) or 500 KB (pages using §3).
 
 ---
 
-## 14. When in doubt
+## 15. When in doubt
 
 Ask what craigslist would do, then check the answer against Section 1. If it's still
 unclear, choose the option with less on the screen and more in the link.

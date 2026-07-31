@@ -45,6 +45,8 @@ It only specifies facts, so an edit never has to re-derive them from prose.
 | publication | extended paper submitted, ICACSIS 2026 — decision pending |
 | abstract | Complete synthesisable VHDL-93 implementation of the Mano register-transfer model. Systematic gap analysis of the Mano model's undefined engineering constraints — register organisation, instruction encoding, control mechanism, memory partitioning, I/O interface — each mapped to a concrete VHDL-93 design decision, producing a verified 8-bit datapath implementing the full microoperation sequence with board-level testing. |
 
+Full text and paper proceedings are not linked for direct download — available on request, same as the transcript.
+
 ## Research
 
 | Item | Descriptor |
@@ -112,7 +114,8 @@ Additional references available on request. Official transcript available on req
 | Asset | Path |
 |---|---|
 | cv | `assets/pdf/cv-musthofa-joko-anggoro.pdf` |
-| thesis | `assets/pdf/thesis-musthofa-joko-anggoro.pdf` |
+
+Thesis PDF is not published as a site asset (not linked for download, same as transcript — see Thesis section above).
 
 ## Images
 

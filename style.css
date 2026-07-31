@@ -49,6 +49,30 @@ h1 {
   margin: 4px 0 0;
 }
 
+/* ── identity block ─────────────────────────────────────────── */
+
+.identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.profile-photo {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.profile-photo img {
+  display: block;
+  border: 1px solid var(--rule);
+}
+
+.profile-photo figcaption {
+  font-size: 11px;
+  color: var(--faint);
+  margin-top: 2px;
+}
+
 .top-rule {
   border: 0;
   border-top: 1px solid var(--ink);

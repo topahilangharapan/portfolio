@@ -82,7 +82,7 @@ turnaround from 2 months to 2 weeks and raised success rate from 60% to about 85
 |---|---|
 | vice pic, ui/ux | COMPFEST, 11 designers — 2023 |
 | mentor, programming foundations 0 | Universitas Indonesia, Fasilkom |
-| inspirasi–ntu summer program | ntu singapore x its, scholarship awardee — 2025 |
+| inspirasi–ntu summer program | nanyang technological university (ntu) x indonesia universities, lpdp-funded — 2025 |
 
 ## English proficiency
 
@@ -132,6 +132,7 @@ does not get an image by default; most don't need one.
 
 ## Pages this file feeds
 
-- `index.html` — summary facts table, selected work, research, projects, elsewhere
+- `index.html` — summary facts table, selected work, research, experience (work
+  experience), elsewhere (contact links, projects, recognitions/other roles)
 - `for-committees.html` — facts, cv, thesis, work experience, transcript note, english
   proficiency, references, contact

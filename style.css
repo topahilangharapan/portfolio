@@ -1,0 +1,273 @@
+/* musthofa joko anggoro — academic directory
+   built to guide/design-guide.md. hand-written, one stylesheet, no build step. */
+
+:root {
+  --ink: #000000;
+  --faint: #767676;
+  --link: #0000cc;
+  --visited: #551a8b;
+  --rule: #d4d4d4;
+  --hair: #ebebeb;
+  --bg: #ffffff;
+  --sans: Helvetica, Arial, "Liberation Sans", sans-serif;
+  --mono: "Courier New", Courier, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 16px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.tagline {
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--faint);
+  margin: 4px 0 0;
+}
+
+.top-rule {
+  border: 0;
+  border-top: 1px solid var(--ink);
+  margin: 12px 0 16px;
+}
+
+h2 {
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin: 0 0 8px;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+a:hover {
+  background: var(--link);
+  color: #ffffff;
+}
+
+a:visited:hover {
+  background: var(--visited);
+  color: #ffffff;
+}
+
+a:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 1px;
+}
+
+/* ── directory grid ─────────────────────────────────────────── */
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.col-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.col-cats > div {
+  min-width: 0;
+}
+
+@media (min-width: 620px) {
+  .col-cats {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .col-cats > div {
+    flex: 1 1 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .col-summary {
+    flex: 0 0 31%;
+    border-right: 1px solid var(--hair);
+    padding-right: 20px;
+  }
+  .col-cats {
+    flex: 1 1 0;
+  }
+}
+
+@media (max-width: 899px) {
+  .col-summary {
+    border-bottom: 1px solid var(--hair);
+    padding-bottom: 16px;
+  }
+}
+
+/* ── facts table ────────────────────────────────────────────── */
+
+table.facts {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 16px;
+}
+
+table.facts th,
+table.facts td {
+  text-align: left;
+  font-weight: normal;
+  font-size: 13px;
+  padding: 2px 6px 2px 0;
+  border-bottom: 1px solid var(--hair);
+  vertical-align: top;
+}
+
+table.facts th {
+  color: var(--faint);
+  width: 32%;
+  white-space: nowrap;
+}
+
+/* ── selected work ──────────────────────────────────────────── */
+
+.work-list {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.work-list li {
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.venue {
+  display: block;
+  color: var(--faint);
+  font-size: 12px;
+}
+
+/* ── committee link ─────────────────────────────────────────── */
+
+.committee {
+  font-size: 13px;
+}
+
+.committee a {
+  font-weight: bold;
+}
+
+.committee .note {
+  display: block;
+  color: var(--faint);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* ── category link lists ────────────────────────────────────── */
+
+ul.linklist {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+ul.linklist li {
+  margin-bottom: 10px;
+  line-height: 1.35;
+  min-height: 32px;
+}
+
+.descriptor {
+  display: block;
+  color: var(--faint);
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+.fact-item {
+  color: var(--ink);
+}
+
+/* ── footer ─────────────────────────────────────────────────── */
+
+.page-footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 16px;
+  padding-top: 8px;
+  font-size: 11px;
+  color: var(--faint);
+}
+
+.page-footer a {
+  color: var(--faint);
+}
+
+/* ── committee dossier page ────────────────────────────────── */
+
+.back {
+  display: block;
+  margin: 12px 0 0;
+  font-size: 12px;
+}
+
+.section {
+  margin: 0 0 24px;
+}
+
+.section h2 {
+  margin-bottom: 8px;
+}
+
+.mono {
+  font-family: var(--mono);
+}
+
+@media print {
+  a {
+    color: #000000 !important;
+    background: none !important;
+  }
+  a.ext::after {
+    content: " (" attr(href) ")";
+    font-size: 10px;
+    color: #000000;
+  }
+}

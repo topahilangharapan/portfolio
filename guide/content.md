@@ -52,14 +52,19 @@ Full text and paper proceedings are not linked for direct download — available
 | Item | Descriptor |
 |---|---|
 | undergraduate thesis | vhdl-93, fpga, spartan-3an — 2026 |
-| impress — iot energy/space sensing | esp32, zigbee2mqtt, home assistant — 2025 |
+| impress — iot energy/space sensing | esp32, zigbee2mqtt, home assistant — 2026 |
 
 ## Work experience
 
 | Role | Org | Dates |
 |---|---|---|
+| Research Assistant | Universitas Indonesia (Project IMPRESS) | jul 2026 – present |
 | Software Engineer Intern | Traveloka | aug 2025 – jul 2026 |
 | Full Stack Developer (internship) | PT Magna Solusi Indonesia | jan–jun 2025 |
+
+IMPRESS summary: Research Assistant on Project IMPRESS, an IoT energy/space sensing
+initiative. Built sensing and monitoring infrastructure using ESP32, Zigbee2MQTT, and
+Home Assistant.
 
 Traveloka summary: owned the booking process for a high-traffic production system,
 maintaining and fixing bugs under system load and capacity constraints. Built and

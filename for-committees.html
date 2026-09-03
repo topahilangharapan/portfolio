@@ -21,7 +21,7 @@
     <table class="facts">
       <tbody>
         <tr><th scope="row">status</th><td>open to phd positions</td></tr>
-        <tr><th scope="row">field</th><td>computer architecture, fpga design, eda, rtl design</td></tr>
+        <tr><th scope="row">field</th><td>computer architecture, fpga design, eda, rtl design, iot &amp; embedded systems</td></tr>
         <tr><th scope="row">institution</th><td>Universitas Indonesia, Fasilkom</td></tr>
         <tr><th scope="row">degree</th><td>bsc computer science, graduated jul 2026</td></tr>
         <tr><th scope="row">major</th><td>information systems</td></tr>
@@ -78,8 +78,17 @@
       </tbody>
     </table>
     <p>
-      Research Assistant on Project IMPRESS, an IoT energy/space sensing initiative. Built
-      sensing and monitoring infrastructure using ESP32, Zigbee2MQTT, and Home Assistant.
+      Research Assistant on Project IMPRESS, an IoT energy/space sensing initiative funded
+      under a university innovation grant (P2/P3), Fasilkom UI, supervised by PIs
+      Aprinaldi, S.Kom., M.Kom., Ph.D.Eng. and Denny, S.Kom., M.I.T., Ph.D. Built sensing
+      and monitoring infrastructure using ESP32, Zigbee2MQTT, and Home Assistant. Current
+      sensing uses quadrature noise subtraction, cross-validated across six calibration
+      sessions to within about 4% agreement against a nameplate-rated reference load; root-
+      caused and fixed two hardware noise bugs — an unbuffered CT signal loading a resistor
+      divider, and an indirect ground path through a breadboard rail — confirmed with
+      before/after measurements. The broker-to-dashboard telemetry stack (Mosquitto,
+      InfluxDB, Grafana, Node-RED) is verified end-to-end on the faculty server; per-circuit
+      sensing in the building itself is pending faculty electrical work authorization.
     </p>
     <table class="facts">
       <tbody>
@@ -93,6 +102,21 @@
       credential management system to reduce fraud. Proposed a new framework for automating
       the reschedule process, adopted after team review — cut turnaround from 2 months to
       2 weeks and raised success rate from 60% to about 85%.
+    </p>
+    <table class="facts">
+      <tbody>
+        <tr><th scope="row">role</th><td>Full Stack Developer Intern, PT Magna Solusi Indonesia</td></tr>
+        <tr><th scope="row">dates</th><td>jan–jun 2025</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Built the client's school management system end-to-end (Spring Boot, Angular) to
+      replace a manual, paper-based administration process, deployed in production. Owned
+      the billing module: the manual process it replaced drove a 20–30% late-payment rate
+      from unbilled or lost-track bills; the new trackable billing dashboard closed that
+      gap. Designed RESTful microservices in Docker/Kubernetes handling 10k+ daily requests
+      at under 200ms latency, and tuned PostgreSQL — query tuning, indexing, stored
+      procedures — cutting response times by 35%.
     </p>
   </div>
 
@@ -143,7 +167,7 @@
   </div>
 
   <div class="page-footer">
-    last updated: <time datetime="2026-07-31">2026-07-31</time>
+    last updated: <time datetime="2026-09-02">2026-09-02</time>
   </div>
 
 </div>

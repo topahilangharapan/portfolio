@@ -18,7 +18,7 @@ It only specifies facts, so an edit never has to re-derive them from prose.
 | name | Musthofa Joko Anggoro |
 | tagline | computer architecture researcher — phd aspirant |
 | status | open to phd positions |
-| field | computer architecture, fpga design, eda, rtl design |
+| field | computer architecture, fpga design, eda, rtl design, iot & embedded systems |
 
 ## Education
 
@@ -63,14 +63,31 @@ Full text and paper proceedings are not linked for direct download — available
 | Full Stack Developer (internship) | PT Magna Solusi Indonesia | jan–jun 2025 |
 
 IMPRESS summary: Research Assistant on Project IMPRESS, an IoT energy/space sensing
-initiative. Built sensing and monitoring infrastructure using ESP32, Zigbee2MQTT, and
-Home Assistant.
+initiative funded under a university innovation grant (P2/P3), Fasilkom UI, PIs
+Aprinaldi, S.Kom., M.Kom., Ph.D.Eng. and Denny, S.Kom., M.I.T., Ph.D. Built sensing and
+monitoring infrastructure using ESP32, Zigbee2MQTT, and Home Assistant. Current
+sensing uses quadrature noise subtraction cross-validated across six calibration
+sessions to within about 4% agreement against a nameplate-rated reference load; root-
+caused and fixed two hardware noise bugs (an unbuffered CT signal loading a resistor
+divider, and an indirect ground path through a breadboard rail) with before/after
+measurements. Broker-to-dashboard telemetry stack (Mosquitto, InfluxDB, Grafana,
+Node-RED) verified end-to-end on the faculty server; per-circuit sensing in the
+building itself is pending faculty electrical work authorization.
 
 Traveloka summary: owned the booking process for a high-traffic production system,
 maintaining and fixing bugs under system load and capacity constraints. Built and
 improved an internal credential management system to reduce fraud. Proposed a new
 framework for automating the reschedule process, adopted after team review — cut
 turnaround from 2 months to 2 weeks and raised success rate from 60% to about 85%.
+
+Magna Solusi summary: full stack developer intern building the client's school
+management system end-to-end (Spring Boot, Angular) to replace a manual, paper-based
+administration process, deployed in production. Owned the billing module: the manual
+process it replaced drove a 20–30% late-payment rate from unbilled or lost-track
+bills; the new trackable billing dashboard closed that gap. Designed RESTful
+microservices in Docker/Kubernetes handling 10k+ daily requests at under 200ms
+latency, and tuned PostgreSQL (query tuning, indexing, stored procedures) to cut
+response times by 35%.
 
 ## Projects
 

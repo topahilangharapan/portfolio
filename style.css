@@ -264,12 +264,13 @@ ul.linklist li {
   color: var(--faint);
 }
 
-/* ── committee dossier page ────────────────────────────────── */
+/* ── dossier / list / detail pages ─────────────────────────── */
 
-.back {
+.breadcrumb {
   display: block;
   margin: 12px 0 0;
   font-size: 12px;
+  color: var(--faint);
 }
 
 .section {

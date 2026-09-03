@@ -19,6 +19,11 @@ Before adding any element, ask: does this help someone find something, or verify
 something? If neither, it does not go on the page. This is the test that resolves
 almost every question below.
 
+The site is more than one page (see §16), but the rule doesn't change shape: a
+list page's entries are links to detail pages, a detail page's facts table and
+prose are what those links promised. A click-through to a detail page is not a
+new kind of element — it's the same link-or-fact test, one level deeper.
+
 The site's job is to let four different visitors — a search committee member, a
 prospective student, a journalist, a collaborator — each complete a different errand in
 under thirty seconds. It is not to impress anyone, and it is not to express a
@@ -411,10 +416,75 @@ Reject the build if any of these is false:
 - [ ] Nothing is centered; nothing is animated; nothing is hidden behind a control.
 - [ ] The page still makes sense with CSS disabled entirely.
 - [ ] Total weight under 30 KB (text-only pages) or 500 KB (pages using §3).
+- [ ] Every non-homepage page opens with a words-only breadcrumb (§16) — no
+      arrow glyph or entity anywhere, including `&larr;`.
 
 ---
 
-## 15. When in doubt
+## 16. List and detail pages
+
+The site is a homepage plus a small number of categories (research,
+experience, projects as of this writing — the same list `content.md`'s
+"Pages this file feeds" section tracks). Each category is a **list page** at
+the site root and a **same-named subdirectory** holding that category's
+**detail pages**:
+
+```
+experience.html                  ← list page
+experience/traveloka.html        ← detail page
+experience/magna-solusi.html     ← detail page
+```
+
+This is the directory structure, not a URL nicety — it's what keeps a category
+maintainable as entries are added: one new file in the subdirectory, one new
+`<li>` on the list page, nothing else to touch. A new category needs a
+deliberate edit to this section, the same way a new image category needs a
+deliberate edit to §3 — don't invent a fourth pattern by analogy.
+
+### Breadcrumb
+
+No navigation bar, still — the breadcrumb is the only wayfinding element
+besides the links already on the page, and it is words joined by ` · ` (the
+same middle-dot already used for `sispa · api`-style multi-link lines), never
+an arrow glyph or entity:
+
+- List pages: `index`
+- Detail pages: `index · experience`
+
+Place it directly below the `<h1>`/tagline, above the top rule.
+
+### List page anatomy
+
+In order: `<h1>` (category name) + tagline, breadcrumb, top rule, an optional
+one-sentence audience-framing line where the category needs one (e.g.
+`experience.html` states openness to full-time roles; `research.html` states
+openness to graduate study — this is where an audience-specific fact belongs,
+not on the homepage), then a `<ul class="linklist">` of entries — title links
+to the detail page, descriptor line same voice rules as §9 — then the standard
+footer.
+
+### Detail page anatomy
+
+In order: `<h1>` (item title) + venue/org line, breadcrumb, top rule, a
+`table.facts` (role/org/dates, or venue/year/stack — whatever the category's
+list page descriptor already promised, spelled out), one or more `.section`
+blocks of prose reusing the pattern already established on
+`for-committees.html`, links out (repo, pdf, etc.) where they exist, then the
+standard footer. Keep it to what's already true in `content.md` — a detail
+page is where a summary line gets spelled out, not where new claims get
+invented to fill space.
+
+### Homepage's job doesn't change
+
+The homepage still shows only highlights: 1–2 entries per category plus one
+link to that category's list page carrying a count descriptor (`all
+experience` — `3 roles`, in the same voice as any other descriptor in §9).
+It does not enumerate every entry — that's what the list page is for. If a
+homepage column is doing the list page's job, cut it back.
+
+---
+
+## 17. When in doubt
 
 Ask what craigslist would do, then check the answer against Section 1. If it's still
 unclear, choose the option with less on the screen and more in the link.

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Musthofa Joko Anggoro — impress</title>
+<meta name="description" content="IMPRESS: an IoT platform for real-time energy and space sensing, Fasilkom Universitas Indonesia — signal-processing calibration, hardware debugging, and a production telemetry stack.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+  <h1>impress — iot energy/space sensing</h1>
+  <p class="tagline">faculty-funded research (P2/P3 grant), Fasilkom Universitas Indonesia — 2026</p>
+  <p class="breadcrumb"><a href="../index.html">index</a> · <a href="../research.html">research</a></p>
+
+  <hr class="top-rule">
+
+  <table class="facts">
+    <tbody>
+      <tr><th scope="row">pis</th><td>Aprinaldi, S.Kom., M.Kom., Ph.D.Eng.; Denny, S.Kom., M.I.T., Ph.D.</td></tr>
+      <tr><th scope="row">funding</th><td>university innovation grant (P2/P3), Fasilkom Universitas Indonesia</td></tr>
+      <tr><th scope="row">stack</th><td>ESP32, Zigbee2MQTT, Home Assistant, Mosquitto, InfluxDB, Grafana, Node-RED</td></tr>
+      <tr><th scope="row">status</th><td>bench-validated prototype; telemetry infra live; building rollout pending faculty sign-off</td></tr>
+      <tr><th scope="row">role</th><td><a href="../experience/impress-research-assistant.html">research assistant</a> — jul 2026 – present</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section">
+    <p>
+      Research question: whether low-cost, edge-collected power/occupancy/environment
+      data can support automated HVAC optimization in institutional buildings. A
+      four-layer sensing architecture (perception, network, platform, application) serves
+      as the experimental testbed, rolled out by sector in priority order: data
+      center/server room, lab, classroom, staff/lecturer rooms, special-purpose rooms.
+    </p>
+    <p>
+      Real per-circuit sensing in the building is not yet live — it is pending faculty
+      electrical work authorization. What is true today: single-phase power sensing
+      (current, voltage, real power) is bench-validated on real hardware with a documented
+      calibration methodology, and the full broker-to-dashboard telemetry stack is deployed
+      and verified end-to-end on the faculty server.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>engineering depth</h2>
+    <ul class="work-list">
+      <li>
+        Signal-processing calibration: current sensing (CT clamp) uses quadrature noise
+        subtraction (<span class="mono">signal = sqrt(measured^2 - noise^2)</span>) rather
+        than naive subtraction, cross-validated across six calibration sessions against a
+        nameplate-rated appliance (an AC unit's compressor, 5.2 A rated), converging to
+        within about 4% agreement between two independently validated continuous-run
+        sessions after diagnosing and discarding an outlier session. Voltage sensing adds a
+        Goertzel single-frequency filter to extract the 50 Hz mains component, because the
+        voltage channel can never be fully unloaded for a clean noise-floor reference the
+        way the current channel can.
+      </li>
+      <li>
+        Synchronized dual-channel real-power sampling: real power computed as the mean of
+        time-aligned voltage × current samples, rather than two separate RMS figures
+        multiplied together — the correct approach for a non-unity-power-factor load.
+      </li>
+      <li>
+        Root-caused two distinct hardware noise bugs by isolating variables on the bench: a
+        bias-loading bug traced to an unbuffered CT signal dragging down a resistor divider
+        (fixed with a DC-blocking capacitor), and a noise-floor issue traced to an indirect
+        ground path through a breadboard rail (fixed by direct-wiring the ground reference)
+        — both confirmed with before/after measurements.
+      </li>
+      <li>
+        Calibration state persisted to flash (NVS), with auto-calibration on first boot and
+        a live confidence score (low/medium/high, derived from stability across sub-windows
+        of the calibration pass) published alongside every sensor reading over MQTT.
+      </li>
+      <li>
+        No-reflash Wi-Fi provisioning: an always-on SoftAP plus web portal (NVS-backed
+        credentials, live connection status, non-blocking network scan) built as a reusable
+        template for future sensor nodes.
+      </li>
+      <li>
+        Shared library extraction: promoted repeated logic (Wi-Fi connection, MQTT
+        connection, Wi-Fi provisioning, connection-status logging, DHT22 sensor, RFID
+        reader, IR transceiver, OLED status display, IR signal store) out of individual
+        bring-up sketches into a shared library tree once a second sketch needed the same
+        helper.
+      </li>
+      <li>
+        Delivered a production-shape telemetry stack (Mosquitto, InfluxDB, Grafana,
+        Node-RED) to a faculty-provisioned Linux VM over OpenVPN, verified end-to-end with a
+        manual MQTT publish landing in InfluxDB and showing on the Grafana dashboard.
+      </li>
+    </ul>
+  </div>
+
+  <div class="page-footer">
+    last updated: <time datetime="2026-09-03">2026-09-03</time>
+  </div>
+
+</div>
+</body>
+</html>

@@ -17,7 +17,13 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-HTML_FILES = ["index.html", "for-committees.html"]
+# Every HTML page in the repo, root and category subdirectories alike
+# (index.html, for-committees.html, research.html, research/thesis.html, ...).
+HTML_FILES = sorted(
+    p.relative_to(ROOT).as_posix()
+    for p in ROOT.rglob("*.html")
+    if ".git" not in p.parts
+)
 CSS_FILES = ["style.css"]
 MAX_TEXT_ONLY_BYTES = 30 * 1024
 
@@ -103,18 +109,18 @@ def check_css_rules(path, text):
             if re.search(rf"\b{re.escape(prop)}\s*:", line) or (
                 prop == "@keyframes" and prop in line
             ):
-                fail(path.name, i, f"forbidden CSS property/rule: {prop}")
+                fail(path.relative_to(ROOT).as_posix(), i, f"forbidden CSS property/rule: {prop}")
         if GRADIENT_RE.search(line):
-            fail(path.name, i, "gradient used — forbidden")
+            fail(path.relative_to(ROOT).as_posix(), i, "gradient used — forbidden")
         if CENTER_RE.search(line):
-            fail(path.name, i, "text-align: center — nothing is centered")
+            fail(path.relative_to(ROOT).as_posix(), i, "text-align: center — nothing is centered")
         if UNDERLINE_OFF_RE.search(line):
-            fail(path.name, i, "text-decoration: none — links must stay underlined")
+            fail(path.relative_to(ROOT).as_posix(), i, "text-decoration: none — links must stay underlined")
         if FONT_IMPORT_RE.search(line):
-            fail(path.name, i, "web font reference — forbidden, system fonts only")
+            fail(path.relative_to(ROOT).as_posix(), i, "web font reference — forbidden, system fonts only")
 
     if not VISITED_RULE_RE.search(text):
-        fail(path.name, 1, "no a:visited rule found — visited-link color must be preserved")
+        fail(path.relative_to(ROOT).as_posix(), 1, "no a:visited rule found — visited-link color must be preserved")
 
 
 def check_images(path, text):
@@ -136,11 +142,11 @@ def check_images(path, text):
         if not body_imgs:
             continue
         if not is_evidence:
-            fail(path.name, fig_line, '<figure> containing an <img> must have class="evidence"')
+            fail(path.relative_to(ROOT).as_posix(), fig_line, '<figure> containing an <img> must have class="evidence"')
         if not FIGCAPTION_RE.search(fig_body):
-            fail(path.name, fig_line, "<figure class=\"evidence\"> is missing a <figcaption>")
+            fail(path.relative_to(ROOT).as_posix(), fig_line, "<figure class=\"evidence\"> is missing a <figcaption>")
         if len(body_imgs) > 1:
-            fail(path.name, fig_line, "more than one <img> in a single <figure> — one image per figure")
+            fail(path.relative_to(ROOT).as_posix(), fig_line, "more than one <img> in a single <figure> — one image per figure")
 
         for im in body_imgs:
             abs_start = fm.start(2) + im.start()
@@ -150,39 +156,45 @@ def check_images(path, text):
             attrs = parse_attrs(im.group(0))
 
             if not attrs.get("alt", "").strip():
-                fail(path.name, img_line, "<img> missing a non-empty alt attribute")
+                fail(path.relative_to(ROOT).as_posix(), img_line, "<img> missing a non-empty alt attribute")
             if "width" not in attrs:
-                fail(path.name, img_line, "<img> missing a width attribute")
+                fail(path.relative_to(ROOT).as_posix(), img_line, "<img> missing a width attribute")
             if "height" not in attrs:
-                fail(path.name, img_line, "<img> missing a height attribute")
+                fail(path.relative_to(ROOT).as_posix(), img_line, "<img> missing a height attribute")
 
             src = attrs.get("src", "")
             if not src:
-                fail(path.name, img_line, "<img> missing a src attribute")
+                fail(path.relative_to(ROOT).as_posix(), img_line, "<img> missing a src attribute")
                 continue
             if src.startswith("http://") or src.startswith("https://"):
-                fail(path.name, img_line, "external/hotlinked image — image must ship in this repo")
-                continue
-            if not src.startswith(IMAGE_DIR_PREFIX):
-                fail(path.name, img_line, f"image src must live under {IMAGE_DIR_PREFIX}, got {src!r}")
+                fail(path.relative_to(ROOT).as_posix(), img_line, "external/hotlinked image — image must ship in this repo")
                 continue
 
-            img_path = ROOT / src
+            # Resolve relative to this page's own directory — a page in a
+            # category subdirectory (experience/traveloka.html) references
+            # ../assets/img/..., not a root-relative assets/img/... path.
+            img_path = (path.parent / src).resolve()
+            img_dir = (ROOT / IMAGE_DIR_PREFIX).resolve()
+            try:
+                img_path.relative_to(img_dir)
+            except ValueError:
+                fail(path.relative_to(ROOT).as_posix(), img_line, f"image src must live under {IMAGE_DIR_PREFIX}, got {src!r}")
+                continue
             if not img_path.is_file():
-                fail(path.name, img_line, f"image file not found: {src}")
+                fail(path.relative_to(ROOT).as_posix(), img_line, f"image file not found: {src}")
                 continue
 
             size = img_path.stat().st_size
             total_bytes += size
             if size > MAX_IMAGE_BYTES:
-                fail(path.name, img_line, f"{src} is {size} bytes, over the {MAX_IMAGE_BYTES}-byte per-image cap")
+                fail(path.relative_to(ROOT).as_posix(), img_line, f"{src} is {size} bytes, over the {MAX_IMAGE_BYTES}-byte per-image cap")
 
     for im in all_imgs:
         if (im.start(), im.end()) not in wrapped_spans:
-            fail(path.name, line_of(text, im.start()), '<img> must be wrapped in <figure class="evidence"> with a <figcaption>')
+            fail(path.relative_to(ROOT).as_posix(), line_of(text, im.start()), '<img> must be wrapped in <figure class="evidence"> with a <figcaption>')
 
     if len(all_imgs) > MAX_IMAGES_PER_PAGE:
-        fail(path.name, 1, f"{len(all_imgs)} images on the page, over the {MAX_IMAGES_PER_PAGE}-image cap")
+        fail(path.relative_to(ROOT).as_posix(), 1, f"{len(all_imgs)} images on the page, over the {MAX_IMAGES_PER_PAGE}-image cap")
 
     return len(all_imgs), total_bytes
 
@@ -192,27 +204,27 @@ def check_html_structure(path, text):
     for i, line in enumerate(lines, start=1):
         for tag in FORBIDDEN_HTML_TAGS:
             if re.search(rf"<{tag}\b", line, re.IGNORECASE):
-                fail(path.name, i, f"forbidden tag: <{tag}> — no icons/embeds/decorative media")
+                fail(path.relative_to(ROOT).as_posix(), i, f"forbidden tag: <{tag}> — no icons/embeds/decorative media")
         if SCRIPT_TAG_RE.search(line):
-            fail(path.name, i, "forbidden <script> tag — zero JavaScript")
+            fail(path.relative_to(ROOT).as_posix(), i, "forbidden <script> tag — zero JavaScript")
         if EXTERNAL_HREF_RE.search(line):
             tag_match = re.search(r"<(\w+)", line)
             tag = tag_match.group(1).lower() if tag_match else ""
             if tag in ("link", "script", "source", "iframe"):
-                fail(path.name, i, "external resource request — must be zero-dependency")
+                fail(path.relative_to(ROOT).as_posix(), i, "external resource request — must be zero-dependency")
         if CENTER_RE.search(line):
-            fail(path.name, i, "text-align: center — nothing is centered")
+            fail(path.relative_to(ROOT).as_posix(), i, "text-align: center — nothing is centered")
         if UNDERLINE_OFF_RE.search(line):
-            fail(path.name, i, "text-decoration: none — links must stay underlined")
+            fail(path.relative_to(ROOT).as_posix(), i, "text-decoration: none — links must stay underlined")
         for lo, hi in DECORATIVE_RANGES:
             for ch in line:
                 if lo <= ord(ch) <= hi:
-                    fail(path.name, i, f"decorative unicode character {ch!r} (U+{ord(ch):04X})")
+                    fail(path.relative_to(ROOT).as_posix(), i, f"decorative unicode character {ch!r} (U+{ord(ch):04X})")
                     break
 
     h1_count = len(re.findall(r"<h1\b", text, re.IGNORECASE))
     if h1_count != 1:
-        fail(path.name, 1, f"expected exactly one <h1>, found {h1_count}")
+        fail(path.relative_to(ROOT).as_posix(), 1, f"expected exactly one <h1>, found {h1_count}")
 
 
 def main():
@@ -221,7 +233,7 @@ def main():
         text = path.read_text()
         size = path.stat().st_size
         if size > MAX_TEXT_ONLY_BYTES:
-            fail(path.name, 1, f"file is {size} bytes, over the {MAX_TEXT_ONLY_BYTES}-byte budget")
+            fail(path.relative_to(ROOT).as_posix(), 1, f"file is {size} bytes, over the {MAX_TEXT_ONLY_BYTES}-byte budget")
         check_css_rules(path, text)
 
     css_bytes = sum((ROOT / name).stat().st_size for name in CSS_FILES)
@@ -238,11 +250,11 @@ def main():
 
         if image_count == 0:
             if html_bytes > MAX_TEXT_ONLY_BYTES:
-                fail(path.name, 1, f"file is {html_bytes} bytes, over the {MAX_TEXT_ONLY_BYTES}-byte text-only budget")
+                fail(path.relative_to(ROOT).as_posix(), 1, f"file is {html_bytes} bytes, over the {MAX_TEXT_ONLY_BYTES}-byte text-only budget")
         else:
             page_weight = html_bytes + css_bytes + image_bytes
             if page_weight > MAX_PAGE_WEIGHT_WITH_IMAGES:
-                fail(path.name, 1, f"page weight (html+css+images) is {page_weight} bytes, over the {MAX_PAGE_WEIGHT_WITH_IMAGES}-byte §3 budget")
+                fail(path.relative_to(ROOT).as_posix(), 1, f"page weight (html+css+images) is {page_weight} bytes, over the {MAX_PAGE_WEIGHT_WITH_IMAGES}-byte §3 budget")
 
     if errors:
         for e in errors:

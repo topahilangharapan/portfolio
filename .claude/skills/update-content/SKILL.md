@@ -1,19 +1,24 @@
 ---
 name: update-content
-description: Update a factual claim on the portfolio site — dates, GPA, work history, thesis numbers, project details, contact info, or any other fact about Musthofa. Use whenever the user asks to change, add, correct, or refresh a fact on index.html or for-committees.html.
+description: Update a factual claim on the portfolio site — dates, GPA, work history, thesis numbers, project details, contact info, or any other fact about Musthofa. Use whenever the user asks to change, add, correct, or refresh a fact on any page of the site.
 ---
 
 Facts on this site are sourced from `guide/content.md`; the HTML pages must never
-drift from it or from each other. Follow these steps in order:
+drift from it or from each other. The site is a homepage plus category list pages
+(`research.html`, `experience.html`, `projects.html`) each with a subdirectory of
+detail pages (`research/thesis.html`, `experience/traveloka.html`, etc.) — see
+`guide/design-guide.md` §16. A single fact (e.g. a role's dates) commonly appears on
+the homepage highlight, the category list page, and the detail page all at once.
+Follow these steps in order:
 
 1. **Read `guide/content.md`** and find the table row for the fact being changed.
    If it doesn't have a row yet, add one — don't let a fact exist only in HTML.
 2. **Update the value in `guide/content.md` first.** This file is the source of
    truth; the HTML is a mirror of it.
-3. **Grep both `index.html` and `for-committees.html`** for the old value (and any
-   place that fact is repeated — the same fact often appears in more than one
-   place, e.g. the summary table on `index.html` and the facts table on
-   `for-committees.html`). Update every occurrence to match the new value in
+3. **Grep every HTML page** (`grep -rl "<old value>" --include=*.html .` from the
+   repo root) for the old value. The same fact often repeats across three levels —
+   a homepage highlight, a category list page's descriptor, and a detail page's
+   facts table/prose — update every occurrence to match the new value in
    `content.md` exactly.
 4. **Do not touch layout, markup structure, or CSS** while doing this — a content
    update and a design change are different kinds of edit. If the new fact

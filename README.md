@@ -1,17 +1,22 @@
 # portfolio
 
-Musthofa Joko Anggoro's academic directory. Hand-written HTML and CSS, no build step,
-no framework, no dependencies. Design is specified in [guide/design-guide.md](guide/design-guide.md)
+Musthofa Joko Anggoro's directory site, targeting both research and industry
+opportunities. Hand-written HTML and CSS, no build step, no framework, no
+dependencies. Design is specified in [guide/design-guide.md](guide/design-guide.md)
 and facts are specified in [guide/content.md](guide/content.md) — any future change to
 this site must follow those documents. See [CLAUDE.md](CLAUDE.md) for AI-agent
 working conventions.
 
 ## Files
 
-- `index.html` — the directory
+- `index.html` — the homepage
 - `for-committees.html` — dossier assembled for PhD admissions / search committees
+- `research.html`, `experience.html`, `projects.html` — category list pages, each
+  with a same-named subdirectory of detail pages (`research/thesis.html`,
+  `experience/traveloka.html`, `projects/sispa.html`, etc.) — see
+  design-guide.md §16
 - `style.css` — the one stylesheet
-- `assets/pdf/` — cv and thesis PDFs, linked from both pages
+- `assets/pdf/` — cv and thesis PDFs, linked from the homepage and dossier
 - `assets/img/` — evidentiary images only, per design-guide.md §3 (empty for now)
 - `guide/design-guide.md` — locked visual/behavioral spec
 - `guide/content.md` — canonical facts, the source of truth for every claim on the site

@@ -26,9 +26,13 @@ fact and no design rule.
 
 ## Files
 
-- `index.html`, `for-committees.html` — the two pages
+- `index.html` — homepage; `for-committees.html` — academic dossier
+- `research.html`, `experience.html`, `projects.html` — category list pages, each
+  paired with a same-named subdirectory of detail pages (`research/thesis.html`,
+  `experience/traveloka.html`, `projects/sispa.html`, etc.) — see
+  design-guide.md §16 for the list/detail page pattern and directory convention
 - `style.css` — the one stylesheet
-- `assets/pdf/` — cv and thesis, linked from both pages
+- `assets/pdf/` — cv and thesis, linked from the homepage and dossier
 - `assets/img/` — evidentiary images only (design-guide.md §3); doesn't exist yet
 - `guide/design-guide.md` — locked visual/behavioral spec
 - `guide/content.md` — canonical facts

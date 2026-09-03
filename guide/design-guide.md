@@ -103,7 +103,7 @@ Every image is wrapped in a `<figure class="evidence">` with a `<figcaption>`:
   <img src="assets/img/thesis-board.jpg"
        alt="Spartan-3AN board running the datapath test bench"
        width="480" height="360" loading="lazy">
-  <figcaption>fpga board, running datapath test — jpg, 480&times;360</figcaption>
+  <figcaption>fpga board, running datapath test · jpg, 480&times;360</figcaption>
 </figure>
 ```
 
